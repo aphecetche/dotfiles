@@ -19,6 +19,9 @@ if [ "$(uname)" == "Darwin" ]; then
 
 fi
 
+echo "creating vim directories"
+mkdir -p ~/.vim-tmp
+
 # chsh -s $(which zsh) -> was not working for me (non-default shell error message)
 # see http://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
 

@@ -42,7 +42,7 @@ done
 echo -e "\n\nCreating vim symlinks"
 echo "=============================="
 
-typeset -a vimfiles
+typeset -A vimfiles
 vimfiles[~/.vim]=$DOTFILES/config/nvim
 vimfiles[~/.vimrc]=$DOTFILES/config/nvim/init.vim
 

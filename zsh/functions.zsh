@@ -128,9 +128,11 @@ function hl() {
 
 # set the background color to light
 function light() {
-    export BACKGROUND="light" && reload!
+	echo "light" > ~/.zsh-ui-background && reload!
+    #export BACKGROUND="light" && reload!
 }
 
 function dark() {
-    export BACKGROUND="dark" && reload!
+	echo "dark" > ~/.zsh-ui-background && reload!
+    #export BACKGROUND="dark" && reload!
 }
