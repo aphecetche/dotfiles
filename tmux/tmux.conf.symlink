@@ -23,7 +23,9 @@ set -g visual-activity off
 # Rather than constraining window size to the maximum size of any client
 # connected to the *session*, constrain window size to the maximum size of any
 # client connected to *that window*. Much more reasonable.
-setw -g aggressive-resize on
+# can not use aggressive-resize with iTerm2 integration
+# setw -g aggressive-resize on
+setw -g aggressive-resize off 
 
 # make delay shorter
 set -sg escape-time 0

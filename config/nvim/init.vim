@@ -1,4 +1,9 @@
-" Section Plugins {{{
+" vim: foldmethod=marker
+"
+" init.vim file for neovim
+" (or .vimrc for vim)
+
+" Section Plugins {{{1
 call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes
@@ -20,19 +25,30 @@ Plug 'wavded/vim-stylus', { 'for': ['stylus', 'markdown'] } " markdown support
 Plug 'groenewege/vim-less', { 'for': 'less' } " less support
 Plug 'ap/vim-css-color', { 'for': ['css','stylus','scss'] } " set the background of hex color values to the color
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' } " CSS3 syntax support
-" Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' } " Open markdown files in Marked.app - mapped to <leader>m
-Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown support
 Plug 'fatih/vim-go', { 'for': 'go' } " go support
+
+" Writing experience
+" Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' } " Open markdown files in Marked.app - mapped to <leader>m
+
+" Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown support
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " markdown support
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'nelstrom/vim-markdown-folding'
+
+Plug 'benmills/vimux' " interact with tmux from vim
 
 call plug#end()
 
-" }}}
+" 
 
-" Section General {{{
+" Section General {{{1
 
 set nocompatible " not compatible with vi
 set autoread " detect when a file is changed
-
+if has("autocmd")
+filetype plugin indent on
+endif
 " make backspace behave in a sane manner
 set backspace=indent,eol,start
 
@@ -53,8 +69,8 @@ set shiftround " round indent to a multiple of 'shiftwidth'
 set completeopt+=longest
 
 if has('mouse')
-    set mouse=a
-    " set ttymouse=xterm2
+	set mouse=a
+	" set ttymouse=xterm2
 endif
 
 set clipboard=unnamed
@@ -72,16 +88,14 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 set laststatus=2 " show the satus line all the time
 
-" }}}
-
-" Section User Inferface {{{
+" Section User Inferface {{{1
 
 " code folding settings
-set foldmethod=syntax " fold based on indent
+set foldmethod=marker " fold based on indent
 set foldnestmax=10 " deepest fold is 10 levels
-set nofoldenable " don't fold by default
+" set nofoldenable " don't fold by default
 set foldlevel=1
-
+set foldcolumn=3
 
 set so=3 " set 7 lines to the cursors - when moving vertical
 set wildmenu " enhanced command line completion
@@ -134,9 +148,7 @@ set showbreak=… " show ellipsis at breaking
 set autoindent " automatically set indent of new line
 set smartindent
 
-" }}}
-
-" Section Mappings {{{
+" Section Mappings {{{1
 
 " habit breaking : make the arrow keys inoperative
 noremap <Up> <NOP>
@@ -153,16 +165,14 @@ nnoremap <c-l> <c-w>l
 " clear highlighted search
 noremap <space> :set hlsearch! hlsearch?<cr>
 
-" }}}
-
-" Section Plugins {{{
+" Section Plugins {{{1
 
 " map fuzzyfinder (CtrlP) plugin
 " nmap <silent> <leader>t :CtrlP<cr>
 " nmap <silent> <leader>r :CtrlPBuffer<cr>
 " let g:ctrlp_map='<leader>t'
 let g:ctrlp_dotfiles=1
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode='ra'
 
 " airline options
 let g:airline_powerline_fonts=1
@@ -170,4 +180,9 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='base16'
 
-" }}}
+" plasticboy/vim-markdown
+let g:vim_markdown_frontmatter=1
+let g:vim_markdown_toml_frontmatter=1
+let g:vim_markdown_folding_level=6
+
+" 
