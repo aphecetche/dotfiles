@@ -38,6 +38,9 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " markdown support
 
 Plug 'benmills/vimux' " interact with tmux from vim
 
+Plug 'majutsushi/tagbar' " class outliner viewer
+Plug 'chrisbra/vim-zsh'
+
 call plug#end()
 
 " 
@@ -185,4 +188,6 @@ let g:vim_markdown_frontmatter=1
 let g:vim_markdown_toml_frontmatter=1
 let g:vim_markdown_folding_level=6
 
-" 
+" majutsushi/tagbar
+nmap <F8> :TagbarToggle<CR>
+

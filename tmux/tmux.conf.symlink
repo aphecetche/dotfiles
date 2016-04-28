@@ -1,6 +1,7 @@
 # set -g default-command "login-shell"
 # tmux display things in 256 colors
-# set -g default-terminal "screen-256color"
+set -g default-terminal "tmux-256color-italic"
+#set -g default-terminal "screen-256color"
 set -g status-utf8 on
 
 set -g history-limit 20000
@@ -23,9 +24,7 @@ set -g visual-activity off
 # Rather than constraining window size to the maximum size of any client
 # connected to the *session*, constrain window size to the maximum size of any
 # client connected to *that window*. Much more reasonable.
-# can not use aggressive-resize with iTerm2 integration
 # setw -g aggressive-resize on
-setw -g aggressive-resize off 
 
 # make delay shorter
 set -sg escape-time 0
@@ -114,5 +113,5 @@ setw -g mode-keys vi
 # source ~/.dotfiles/tmux/human.sh
 # source ~/.dotfiles/tmux/theme.sh
 # source ~/.dotfiles/tmux/solarized-colors-dark.conf
-source ~/.dotfiles/tmux/solarized-colors-light.conf
+source ~/dotfiles/tmux/solarized-colors-$BACKGROUND.conf
 

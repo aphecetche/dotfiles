@@ -29,5 +29,8 @@ fi
 echo "creating vim directories"
 mkdir -p ~/.vim-tmp
 
+echo "installing italic terminfo"
+tic tmux-256color-italic.terminfo
+tic xterm-256color-italic.terminfo
 echo "Done."
 
