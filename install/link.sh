@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-DOTFILES=$HOME/.dotfiles
+#!/usr/bin/env zsh 
 
 echo -e "\nCreating symlinks"
 echo "=============================="
@@ -43,10 +41,9 @@ echo -e "\n\nCreating vim symlinks"
 echo "=============================="
 
 typeset -A vimfiles
-vimfiles[~/.vim]=$DOTFILES/config/nvim
-vimfiles[~/.vimrc]=$DOTFILES/config/nvim/init.vim
+vimfiles=(~/.vim $DOTFILES/config/nvim ~/.vimrc $DOTFILES/config/nvim/init.vim)
 
-for file in "${!vimfiles[@]}"; do
+for file in "${(@k)vimfiles}"; do
     if [ -e ${file} ]; then
         echo "${file} already exists... skipping"
     else
@@ -54,3 +51,14 @@ for file in "${!vimfiles[@]}"; do
         ln -s $vimfiles[$file] $file
     fi
 done
+
+# link for prezto files
+# mind the order, first the $HOME/.zpresto then the rest...
+echo -e "\n\nCreating zprezto symlink"
+echo "=============================="
+ln -s $DOTFILES/prezto $HOME/.zprezto
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+

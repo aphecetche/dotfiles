@@ -1,6 +1,13 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-echo "Installing dotfiles"
+
+# This script can only have a chance of success if :  
+# - is executed from the directory it resides in
+# - the shell is already zsh. 
+
+# must set the DOTFILES variable to point to where you cloned
+# the dotfiles repository. Everything else follows from there.
+export DOTFILES=~/dotfiles
 
 echo "Initializing submodule(s)"
 git submodule update --init --recursive
@@ -15,25 +22,12 @@ if [ "$(uname)" == "Darwin" ]; then
 
     source install/osx.sh
 
-    source install/nvm.sh
+#    source install/nvm.sh
 
 fi
 
 echo "creating vim directories"
 mkdir -p ~/.vim-tmp
-
-# chsh -s $(which zsh) -> was not working for me (non-default shell error message)
-# see http://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/
-
-current=$(dscl . read /Users/$USER UserShell | cut -d ' ' -f 2)
-current=$(basename $current)
-
-if [[ "$current" != "zsh" ]]; then
-  echo "Making zsh the default shell"
-  sudo dscl . -create /Users/$USER UserShell $(which zsh)
-else
-  echo "zsh is already the default shell. Nice."
-fi
 
 echo "Done."
 
