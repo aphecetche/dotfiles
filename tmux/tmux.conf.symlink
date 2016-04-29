@@ -12,7 +12,7 @@ set -g renumber-windows on
 # plugin to get the mouse wheel be able to scroll
 set -g @plugin 'nhdaly/tmux-scroll-copy-mode'
 
-# unbind default prefix and set it to Ctrl+a
+# unbind default prefix and set it to Ctrl+j
 unbind C-b
 set -g prefix C-j
 bind C-j send-prefix
@@ -21,7 +21,7 @@ bind C-j send-prefix
 bind-key j send-prefix
 
 # Activity Monitoring
-setw -g monitor-activity off
+set-window-option -g monitor-activity off
 set -g visual-activity off
 
 # Rather than constraining window size to the maximum size of any client
@@ -43,7 +43,7 @@ set -sg escape-time 0
 
 # make window/pane index start with 1
 set -g base-index 1
-setw -g pane-base-index 1
+set-window-option -g pane-base-index 1
 
 set-option -g set-titles on
 set-option -g set-titles-string "#T - #W"
@@ -60,8 +60,9 @@ bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
 # quickly open a new window
 bind N new-window
 
-# split window and fix path for tmux 1.9
+# split window 
 bind % split-window -h -c "#{pane_current_path}"
+bind ! split-window -h -c "#{pane_current_path}"
 bind - split-window -v -c "#{pane_current_path}"
 
 #synchronize all panes in a window
@@ -73,18 +74,18 @@ bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
-# bind -r C-h select-window -t :-
-# bind -r C-l select-window -t :+
-#
+bind -r C-h select-window -t :- 
+bind -r C-l select-window -t :+
+
 # # Resize pane shortcuts
-# bind -r H resize-pane -L 10
-# bind -r J resize-pane -D 10
-# bind -r K resize-pane -U 10
-# bind -r L resize-pane -R 10
-#
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
 # enable mouse support for switching panes/windows
 
-set-option -g mouse on
+set -g mouse 
 
 # copy-mode for scrolling
 bind Escape copy-mode
@@ -95,7 +96,7 @@ bind -t vi-copy 'j' scroll-down
 bind -t vi-copy 'k' scroll-up
 
 # set vi mode for copy mode
-setw -g mode-keys vi
+set-window-option -g mode-keys vi
 
 # more settings to make copy-mode more vim-like
 # unbind [
@@ -113,8 +114,5 @@ setw -g mode-keys vi
 ### Color & Style Settings ###
 ##############################
 
-# source ~/.dotfiles/tmux/human.sh
-# source ~/.dotfiles/tmux/theme.sh
-# source ~/.dotfiles/tmux/solarized-colors-dark.conf
 source ~/dotfiles/tmux/solarized-colors-$BACKGROUND.conf
 
