@@ -37,6 +37,9 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " markdown support
 " Plug 'nelstrom/vim-markdown-folding'
 
 Plug 'benmills/vimux' " interact with tmux from vim
+Plug 'tmux-plugins/vim-tmux' " syntax highlighting for .tmux.conf
+Plug 'christoomey/vim-tmux-navigator' " vim tmux seamless navigation between vim splits and tmux panes
+
 
 Plug 'majutsushi/tagbar' " class outliner viewer
 Plug 'chrisbra/vim-zsh'
@@ -130,6 +133,11 @@ set visualbell
 set t_vb=
 set tm=500
 
+" split navigation should be handled by christoomey/vim-tmux-navigator
+" except for C-h in neovim
+" this should fix this, see https://github.com/christoomey/vim-tmux-navigator
+nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+
 " switch syntax highlighting on
 syntax on
 
@@ -141,7 +149,7 @@ execute "colorscheme ".$THEME
 highlight Comment cterm=italic
 
 set number " show line numbers
-" set relativenumber " show relative line numbers
+set relativenumber " show relative line numbers
 
 set wrap "turn on line wrapping
 set wrapmargin=8 " wrap lines when coming within n characters from side
@@ -158,12 +166,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
-" navigation between splits
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
 
 " clear highlighted search
 noremap <space> :set hlsearch! hlsearch?<cr>
