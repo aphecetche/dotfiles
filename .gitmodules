@@ -4,3 +4,6 @@
 [submodule "prezto"]
 	path = prezto
 	url = https://github.com/aphecetche/prezto.git
+[submodule "fzf"]
+	path = fzf
+	url = https://github.com/junegunn/fzf
