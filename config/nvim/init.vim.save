@@ -20,10 +20,6 @@ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' } " focus tool. Good for pres
 " Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
 Plug 'djoshea/vim-autoread'
-Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
-Plug 'majutsushi/tagbar' " class outliner viewer
-Plug 'chrisbra/vim-zsh'
-Plug 'Shougo/deoplete.nvim'
 
 " language-specific plugins
 
@@ -33,9 +29,6 @@ Plug 'groenewege/vim-less', { 'for': 'less' } " less support
 Plug 'ap/vim-css-color', { 'for': ['css','stylus','scss'] } " set the background of hex color values to the color
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' } " CSS3 syntax support
 Plug 'fatih/vim-go', { 'for': 'go' } " go support
-" Plug 'tmhedberg/SimpylFold' " python folding
-" Plug 'klen/python-mode'
-Plug 'nickhutchinson/vim-cmake-syntax'
 
 " Writing experience
 " Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' } " Open markdown files in Marked.app - mapped to <leader>m
@@ -46,13 +39,13 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " markdown support
 " Plug 'vim-pandoc/vim-pandoc-syntax'
 " Plug 'nelstrom/vim-markdown-folding'
 
-" tmux integration
 Plug 'benmills/vimux' " interact with tmux from vim
-Plug 'christoomey/vim-tmux-runner'
 Plug 'tmux-plugins/vim-tmux' " syntax highlighting for .tmux.conf
 Plug 'christoomey/vim-tmux-navigator' " vim tmux seamless navigation between vim splits and tmux panes
-Plug 'tpope/vim-obsession' " continuously updated session files
 
+
+Plug 'majutsushi/tagbar' " class outliner viewer
+Plug 'chrisbra/vim-zsh'
 
 call plug#end()
 
@@ -96,8 +89,8 @@ set diffopt+=vertical
 " highlight conflicts
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-set backupdir^=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory^=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 set laststatus=2 " show the satus line all the time
 
@@ -151,10 +144,8 @@ syntax on
 " set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
-"execute "set background=".$BACKGROUND
-"execute "colorscheme ".$THEME
-execute "set background=".system("cat $HOME/.zsh-ui-background")
-execute "colorscheme ".system("cat $HOME/.zsh-ui-theme")
+execute "set background=".$BACKGROUND
+execute "colorscheme ".$THEME
 highlight Comment cterm=italic
 
 set number " show line numbers
@@ -204,14 +195,5 @@ let g:vim_markdown_folding_level=6
 nmap <F8> :TagbarToggle<CR>
 
 " autoreload this very file upon write
-autocmd! BufWritePost $MYVIMRC source $MYVIMRC
-autocmd! BufWritePost ~/dotfiles/config/nvim/init.vim source $MYVIMRC
+autocmd! BufWritePost init.vim source $MYVIMRC
 
-" au CursorHold,CursorHoldI * :silent! source $MYVIMRC
-
-" highlight! link Visual CursorLine
-set colorcolumn=80
-highlight! link ColorColumn CursorLine
-
-
-let g:deoplete#enable_at_startup=1

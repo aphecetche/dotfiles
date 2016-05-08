@@ -8,9 +8,9 @@ set-option -g status-fg colour21
 set-option -g status-attr default
 
 # default window title colors
-set-window-option -g window-status-fg colour20 #base0
-set-window-option -g window-status-bg default
-set-window-option -g window-status-attr dim
+set-window-option -g window-status-fg colour20 
+set-window-option -g window-status-bg colour00
+set-window-option -g window-status-attr default
 
 # active window title colors
 set-window-option -g window-status-current-fg colour18
@@ -19,8 +19,8 @@ set-window-option -g window-status-current-bg colour02
 
 # pane border
 set-option -g pane-border-fg colour02
-set-option -g pane-border-bg black
-set-option -g pane-active-border-fg colour02
+set-option -g pane-border-bg colour00
+set-option -g pane-active-border-fg colour00
 
 # message text
 set-option -g message-bg default
@@ -37,3 +37,6 @@ set-window-option -g clock-mode-colour green #green
 # bell
 set-window-option -g window-status-bell-style fg=black,bg=red #base02, red
 
+
+# set -g status-left "#[fg=Red][#S] "
+# set -g status-right " #[fg=colour20]Continuum: #{continuum_status} | Battery:#{battery_percentage} #{battery_remain} | %H:%M #[fg=colour19]%a %d-%b-%Y"

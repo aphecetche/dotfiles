@@ -3,7 +3,7 @@
 echo -e "\nCreating symlinks"
 echo "=============================="
 linkables=$( find -H "$DOTFILES" -maxdepth 3 -name '*.symlink' )
-for file in $linkables ; do
+for file in $DOTFILES/**/*.symlink ; do
     target="$HOME/.$( basename $file '.symlink' )"
     if [ -e $target ]; then
         echo "~${target#$HOME} already exists... Skipping."
@@ -12,6 +12,10 @@ for file in $linkables ; do
         ln -s $file $target
     fi
 done
+
+echo -e "\n\nmaking ~/.fzf link"
+rm -f ~/.fzf
+ln -si $DOTFILES/fzf ~/.fzk
 
 echo -e "\n\ninstalling to ~/.config"
 echo "=============================="

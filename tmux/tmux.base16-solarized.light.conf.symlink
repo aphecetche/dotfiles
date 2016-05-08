@@ -2,26 +2,28 @@
 
 # default statusbar colors
 set -g status-bg colour21
-set-option -g status-fg colour234
+set-option -g status-fg colour19
 set-option -g status-attr default
 
 # default window title colors
-set-window-option -g window-status-fg default 
-set-window-option -g window-status-bg default
+set-window-option -g window-status-fg colour20 
+set-window-option -g window-status-bg colour21
 set-window-option -g window-status-attr dim
 
 # active window title colors
-set-window-option -g window-status-current-fg colour160 
-set-window-option -g window-status-current-bg colour21
+set-window-option -g window-status-current-fg colour21 
+set-window-option -g window-status-current-bg colour02
 #set-window-option -g window-status-current-attr bright
 
 # pane border
-set-option -g pane-border-fg colour198 
-set-option -g pane-active-border-fg brightcyan #base1
+set-option -g pane-border-bg colour15 
+set-option -g pane-border-fg colour07
+set-option -g pane-active-border-fg colour17
+set-option -g pane-active-border-bg colour15
 
 # message text
-set-option -g message-bg white #base2
-set-option -g message-fg brightred #orange
+set-option -g message-bg colour17
+set-option -g message-fg colour15
 
 # pane number display
 set-option -g display-panes-active-colour colour160 
