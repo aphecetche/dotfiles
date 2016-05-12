@@ -158,12 +158,16 @@ syntax on
 let base16colorspace=256  " Access colors present in 256 colorspace
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 if empty(glob('~/.zsh-ui-background'))
-    execute "set background=".$BACKGROUND
+    if !empty($BACKGROUND)
+      execute "set background=".$BACKGROUND
+    endif
 else
     execute "set background=".system("cat $HOME/.zsh-ui-background")
 endif
 if empty(glob('~/.zsh-ui-theme'))
-    execute "colorscheme ".$THEME
+    if !empty($THEME)
+      execute "colorscheme ".$THEME
+    endif
 else
     execute "colorscheme ".system("cat $HOME/.zsh-ui-theme")
 endif
