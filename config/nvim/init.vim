@@ -24,6 +24,11 @@ Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack
 Plug 'majutsushi/tagbar' " class outliner viewer
 Plug 'chrisbra/vim-zsh'
 Plug 'Shougo/deoplete.nvim'
+Plug 'tpope/vim-fugitive'
+Plug 'Raimondi/delimitMate'
+Plug 'ervandew/supertab'
+Plug 'neomake/neomake'
+Plug 'jlanzarotta/bufexplorer' " <leader>be,bs,bt,bv
 
 " language-specific plugins
 
@@ -53,6 +58,7 @@ Plug 'tmux-plugins/vim-tmux' " syntax highlighting for .tmux.conf
 Plug 'christoomey/vim-tmux-navigator' " vim tmux seamless navigation between vim splits and tmux panes
 Plug 'tpope/vim-obsession' " continuously updated session files
 
+" Plug 'Rip-Rip/clang_complete'
 
 call plug#end()
 
@@ -212,6 +218,22 @@ autocmd! BufWritePost ~/dotfiles/config/nvim/init.vim source $MYVIMRC
 " highlight! link Visual CursorLine
 set colorcolumn=80
 highlight! link ColorColumn CursorLine
-
+highlight! link Search airline_z
 
 let g:deoplete#enable_at_startup=1
+let g:deoplete#keyword_patterns = {}
+
+augroup markdown
+  autocmd!
+  autocmd FileType markdown let b:deoplete_disable_auto_complete=1
+augroup END
+
+" autocmd! BufWritePost * Neomake
+
+augroup alice
+    autocmd!
+    "autocmd BufNewFile,BufRead */alicesw/run3/aliroot-ed-detector-experts/AliRoot/* set makeprg=$HOME/Scripts/alice-vim-build-aliroot.sh\ run3\ ed-detector-experts
+    autocmd BufNewFile,BufRead */alicesw/run3/aliroot-ed-detector-experts/AliRoot/* set makeprg=make\ -C\ ~/alicesw/run3/sw/BUILD/AliRoot-latest-aliroot-ed-detector-experts/AliRoot\ -j9\ install
+
+    " autocmd BufNewFile,BufRead */alicesw/run3/aliroot-feature-muonhlt/AliRoot/* set makeprg=$HOME/Scripts/alice-vim-build-aliroot.sh\ run3\ feature-muon-hlt
+augroup END
