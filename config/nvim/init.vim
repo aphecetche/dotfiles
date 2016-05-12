@@ -123,7 +123,7 @@ set showcmd " show incomplete commands
 set noshowmode " don't show which mode disabled for PowerLine
 set wildmode=list:longest " complete files like a shell
 set scrolloff=3 " lines of text around cursor
-set shell=$SHELL
+" set shell=$SHELL
 set cmdheight=1 " command bar height
 
 set title " set terminal title
@@ -157,10 +157,17 @@ syntax on
 " set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
-"execute "set background=".$BACKGROUND
-"execute "colorscheme ".$THEME
-execute "set background=".system("cat $HOME/.zsh-ui-background")
-execute "colorscheme ".system("cat $HOME/.zsh-ui-theme")
+if empty(glob('~/.zsh-ui-background'))
+    execute "set background=".$BACKGROUND
+else
+    execute "set background=".system("cat $HOME/.zsh-ui-background")
+endif
+if empty(glob('~/.zsh-ui-theme'))
+    execute "colorscheme ".$THEME
+else
+    execute "colorscheme ".system("cat $HOME/.zsh-ui-theme")
+endif
+
 highlight Comment cterm=italic
 
 set number " show line numbers
@@ -230,10 +237,10 @@ augroup END
 
 " autocmd! BufWritePost * Neomake
 
-augroup alice
-    autocmd!
+"augroup alice
+"    autocmd!
     "autocmd BufNewFile,BufRead */alicesw/run3/aliroot-ed-detector-experts/AliRoot/* set makeprg=$HOME/Scripts/alice-vim-build-aliroot.sh\ run3\ ed-detector-experts
-    autocmd BufNewFile,BufRead */alicesw/run3/aliroot-ed-detector-experts/AliRoot/* set makeprg=make\ -C\ ~/alicesw/run3/sw/BUILD/AliRoot-latest-aliroot-ed-detector-experts/AliRoot\ -j9\ install
+"    autocmd BufNewFile,BufRead */alicesw/run3/aliroot-ed-detector-experts/AliRoot/* set makeprg=make\ -C\ ~/alicesw/run3/sw/BUILD/AliRoot-latest-aliroot-ed-detector-experts/AliRoot\ -j9\ install
 
     " autocmd BufNewFile,BufRead */alicesw/run3/aliroot-feature-muonhlt/AliRoot/* set makeprg=$HOME/Scripts/alice-vim-build-aliroot.sh\ run3\ feature-muon-hlt
-augroup END
+"augroup END
