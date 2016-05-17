@@ -25,7 +25,6 @@ Plug 'majutsushi/tagbar' " class outliner viewer
 Plug 'chrisbra/vim-zsh'
 Plug 'tpope/vim-fugitive'
 Plug 'Raimondi/delimitMate'
-Plug 'ervandew/supertab'
 Plug 'neomake/neomake'
 Plug 'jlanzarotta/bufexplorer' " <leader>be,bs,bt,bv
 Plug 'Konfekt/FastFold'
