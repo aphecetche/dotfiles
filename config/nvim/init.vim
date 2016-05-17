@@ -23,12 +23,13 @@ Plug 'djoshea/vim-autoread'
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 Plug 'majutsushi/tagbar' " class outliner viewer
 Plug 'chrisbra/vim-zsh'
-Plug 'Shougo/deoplete.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'Raimondi/delimitMate'
 Plug 'ervandew/supertab'
 Plug 'neomake/neomake'
 Plug 'jlanzarotta/bufexplorer' " <leader>be,bs,bt,bv
+Plug 'Konfekt/FastFold'
+Plug 'Valloric/YouCompleteMe'
 
 " language-specific plugins
 
@@ -59,6 +60,9 @@ Plug 'christoomey/vim-tmux-navigator' " vim tmux seamless navigation between vim
 Plug 'tpope/vim-obsession' " continuously updated session files
 
 " Plug 'Rip-Rip/clang_complete'
+
+" fun
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
@@ -230,9 +234,6 @@ autocmd! BufWritePost ~/dotfiles/config/nvim/init.vim source $MYVIMRC
 set colorcolumn=80
 highlight! link ColorColumn CursorLine
 highlight! link Search airline_z
-
-let g:deoplete#enable_at_startup=1
-let g:deoplete#keyword_patterns = {}
 
 augroup markdown
   autocmd!
