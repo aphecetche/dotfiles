@@ -70,7 +70,7 @@ call plug#end()
 set nocompatible " not compatible with vi
 set autoread " detect when a file is changed
 if has("autocmd")
-filetype plugin indent on
+    filetype plugin indent on
 endif
 " make backspace behave in a sane manner
 set backspace=indent,eol,start
@@ -92,7 +92,7 @@ set shiftround " round indent to a multiple of 'shiftwidth'
 set completeopt+=longest
 
 if has('mouse')
-  set mouse=a
+    set mouse=a
 endif
 
 set clipboard=unnamed
@@ -162,14 +162,14 @@ let base16colorspace=256  " Access colors present in 256 colorspace
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 if empty(glob('~/.zsh-ui-background'))
     if !empty($BACKGROUND)
-      execute "set background=".$BACKGROUND
+        execute "set background=".$BACKGROUND
     endif
 else
     execute "set background=".system("cat $HOME/.zsh-ui-background")
 endif
 if empty(glob('~/.zsh-ui-theme'))
     if !empty($THEME)
-      execute "colorscheme ".$THEME
+        execute "colorscheme ".$THEME
     endif
 else
     execute "colorscheme ".system("cat $HOME/.zsh-ui-theme")
@@ -197,7 +197,7 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " clear highlighted search
-noremap <space> :set hlsearch! hlsearch?<cr>
+noremap <leader><space> :set hlsearch! hlsearch?<cr>
 
 " Section Plugins {{{1
 
@@ -221,8 +221,10 @@ let g:vim_markdown_folding_level=6
 
 let g:ycm_confirm_extra_conf = 0 
 
-nmap ,, :YcmCompleter GoTo<CR>
+nnoremap ,, :YcmCompleter GoTo<CR>
 inoremap jk <Esc>
+
+nnoremap <space> zz<C-D><cr>
 
 let g:ycm_autoclose_preview_window_after_insertion=1
 
@@ -241,17 +243,20 @@ set colorcolumn=80
 highlight! link ColorColumn CursorLine
 highlight! link Search airline_z
 
-augroup markdown
-  autocmd!
-  autocmd FileType markdown let b:deoplete_disable_auto_complete=1
+augroup alice
+    fun! SetAliRootBuildCommand(path) 
+        let l:path_parts = split(a:path,"/") 
+        let l:run = path_parts[3] 
+        let l:aliroot_version = path_parts[4] 
+        let &makeprg = "$HOME/Scripts/alice-vim-build-aliroot.sh ".l:run." ".l:aliroot_version 
+    endfun 
+    " <afile>:p is assumed to be /home/user/alicesw/run2[3]/aliroot-xxx/AliRoot/...
+    autocmd BufNewFile, BufRead * / alicesw/*.cxx :call SetAliRootBuildCommand(expand("<afile>:p"))
+    autocmd!
+    function! FormatCppFile()
+        let l:lines="all"
+        pyf /usr/local/Cellar/clang-format/2016-03-29/share/clang/clang-format.py
+    endfunction
+    au filetype cpp noremap <F2> :call FormatCppFile()<cr>
 augroup END
 
-" autocmd! BufWritePost * Neomake
-
-"augroup alice
-"    autocmd!
-    "autocmd BufNewFile,BufRead */alicesw/run3/aliroot-ed-detector-experts/AliRoot/* set makeprg=$HOME/Scripts/alice-vim-build-aliroot.sh\ run3\ ed-detector-experts
-"    autocmd BufNewFile,BufRead */alicesw/run3/aliroot-ed-detector-experts/AliRoot/* set makeprg=make\ -C\ ~/alicesw/run3/sw/BUILD/AliRoot-latest-aliroot-ed-detector-experts/AliRoot\ -j9\ install
-
-    " autocmd BufNewFile,BufRead */alicesw/run3/aliroot-feature-muonhlt/AliRoot/* set makeprg=$HOME/Scripts/alice-vim-build-aliroot.sh\ run3\ feature-muon-hlt
-"augroup END
