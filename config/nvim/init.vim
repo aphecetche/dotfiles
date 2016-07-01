@@ -41,6 +41,7 @@ Plug 'fatih/vim-go', { 'for': 'go' } " go support
 " Plug 'tmhedberg/SimpylFold' " python folding
 " Plug 'klen/python-mode'
 Plug 'nickhutchinson/vim-cmake-syntax'
+Plug 'shime/vim-livedown'
 
 " Writing experience
 " Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' } " Open markdown files in Marked.app - mapped to <leader>m
@@ -259,4 +260,8 @@ augroup alice
     endfunction
     au filetype cpp noremap <F2> :call FormatCppFile()<cr>
 augroup END
+
+au FileType sh let g:sh_fold_enabled=3
+au FileType sh let g:is_bash=1
+au FileType sh set foldmethod=syntax
 
