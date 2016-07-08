@@ -10,4 +10,7 @@ rm -f ~/.zpreztorc
 rm -f ~/.zprofile
 rm -f ~/.zshenv
 rm -f ~/.zshrc
-
+rm -f ~/.tmux*
+rm -f ~/.fzf
+rm -f $HOME/.zsh-ui-background
+rm -f $HOME/.zsh-ui-theme

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo -e "\n\nmaking ~/.fzf link"
+rm -f ~/.fzf
+ln -si $DOTFILES/fzf ~/.fzf

@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/sh
 
 
 # This script can only have a chance of success if :  
@@ -9,10 +9,10 @@
 # the dotfiles repository. Everything else follows from there.
 export DOTFILES=~/dotfiles
 
-echo "Initializing submodule(s)"
-git submodule update --init --recursive
+git clone https://github.com/chriskempson/base16-shell.git $DOTFILES/base16-shell
+git clone https://github.com/aphecetche/prezto.git $DOTFILES/prezto
 
-source install/link.sh
+. ./install/link.sh
 
 if [ "$(uname)" == "Darwin" ]; then
 

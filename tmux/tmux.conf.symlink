@@ -1,7 +1,6 @@
 # tmux display things in 256 colors
 set -g default-terminal "tmux-256color-italic"
 #set -g default-terminal "screen-256color"
-set -g status-utf8 on
 
 # toggle log of current page
 bind P pipe-pane -o "cat >>~/#W.log" \; display "Toggled logging to ~/#W.log"
@@ -141,7 +140,6 @@ set -g status-position bottom
 set -g status-left "[#S] "
 set -g status-right " #[fg=colour20]Battery:#{battery_percentage} | %H:%M #[fg=colour19]%a %d-%b-%Y"
 set -g status-right-length 100
-set -g status-utf8 on
 set -g status-justify left
 
 # messages displayed during 2s
