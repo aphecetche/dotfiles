@@ -9,20 +9,31 @@
 # the dotfiles repository. Everything else follows from there.
 export DOTFILES=~/dotfiles
 
-git clone https://github.com/chriskempson/base16-shell.git $DOTFILES/base16-shell
-git clone https://github.com/aphecetche/prezto.git $DOTFILES/prezto
+mkdir -p $HOME/github.com/aphecetche
+
+if ! test -d $HOME/github.com/aphecetche/base16-shell; then
+    git clone https://github.com/aphecetche/base16-shell.git $HOME/github.com/aphecetche/base16-shell
+fi
+
+ln -si $HOME/github.com/aphecetche/base16-shell $DOTFILES/
+
+if ! test -d $HOME/github.com/aphecetche/prezto; then
+    git clone https://github.com/aphecetche/prezto.git $HOME/github.com/aphecetche/prezto
+    pushd $HOME/github.com/aphecetche/prezto > /dev/null
+    git submodule update --init --remote --recursive
+    popd > /dev/null
+fi
+
+ln -si $HOME/github.com/aphecetche/prezto $DOTFILES/
 
 . ./install/link.sh
 
-if [ "$(uname)" == "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
 
     echo -e "\n\nRunning on OSX" 
 
     source install/brew.sh
-
     source install/osx.sh
-
-#    source install/nvm.sh
 
 fi
 

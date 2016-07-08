@@ -5,8 +5,8 @@
 echo -e "\n\nCreating zprezto symlink"
 echo "=============================="
 ln -s $DOTFILES/prezto $HOME/.zprezto
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+for rcfile in $(find "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/ -name z*); do
+    echo "Creating symlink for $rcfile"
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.$(basename $rcfile)"
 done
 

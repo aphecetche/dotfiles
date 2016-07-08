@@ -14,3 +14,5 @@ rm -f ~/.tmux*
 rm -f ~/.fzf
 rm -f $HOME/.zsh-ui-background
 rm -f $HOME/.zsh-ui-theme
+rm -f $DOTFILES/base16-shell
+rm -f $DOTFILES/prezto
