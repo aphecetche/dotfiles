@@ -9,8 +9,10 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-#set $mod Mod1
-set $mod Control
+set $mod Mod1
+set $modbis Control
+
+#set $mod Control
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -18,8 +20,8 @@ set $mod Control
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-font pango:Inconsolata Sans Mono 8
+font pango:DejaVu Sans Mono 8
+#font pango:Inconsolata Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -45,16 +47,16 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $modbis+h focus left
+bindsym $modbis+j focus down
+bindsym $modbis+k focus up
+bindsym $modbis+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $modbis+Left focus left
+bindsym $modbis+Down focus down
+bindsym $modbis+Up focus up
+bindsym $modbis+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -89,7 +91,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -157,5 +160,14 @@ bar {
         status_command i3status
 }
 
-exec xrandr -s 1680x1050
+new_window pixel
+
+exec --no-startup-id vmware-user-suid-wrapper
+
+exec --no-startup-id compton -CGb -i 0.80 --backend glx --vsync opengl
+
+exec feh --bg-fill "$HOME/Pictures/atlantis nebula.jpg"
+
+exec i3-sensible-terminal
+
 
