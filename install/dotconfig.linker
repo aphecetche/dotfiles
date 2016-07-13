@@ -6,8 +6,7 @@ if [ ! -d $HOME/.config ]; then
     echo "Creating ~/.config"
     mkdir -p $HOME/.config
 fi
-configs=$( find $DOTFILES/config -maxdepth 1 -mindepth 1 ) 
-for config in $configs; do
+for config in $( find $DOTFILES/config -maxdepth 1 -mindepth 1 ); do
     target=$HOME/.config/$( basename $config )
     if [ -e $target ]; then
         echo "~${target#$HOME} already exists... Skipping."

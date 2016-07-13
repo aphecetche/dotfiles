@@ -1,0 +1,6 @@
+[colors]
+background = rgba(0,0,0,0.45)
+
+[options]
+font = Inconsolata 12
+scrollback_lines = 32000
