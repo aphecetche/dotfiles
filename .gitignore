@@ -4,3 +4,6 @@ config/nvim/.netrwhist
 
 .tags
 
+base16-shell
+
+prezto
