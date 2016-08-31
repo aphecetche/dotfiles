@@ -2,7 +2,22 @@
 #
 # Set the DPI to either retina or cinema display
 
-if [ "$1" == "retina" ]; then
+screen=""
+
+if [ $# -ne 1 ]; then
+    echo "Will try to autodetect screen type"
+    # poor's man autodetection
+    xrandr | grep 2880 > /dev/null
+    if [ $? -eq 0 ]; then
+        screen="retina"
+    else
+        screen="cinema"
+    fi
+else
+    screen=$1
+fi
+
+if [ "$screen" = "retina" ]; then
     echo "Configuring for retina"
 
     # set scaling factor in gtk
@@ -17,7 +32,7 @@ if [ "$1" == "retina" ]; then
     export GDK_DPI_SCALE=0.75
     export GDK_SCALE=1.8
 
-elif [ "$1" == "cinema" ]; then
+elif [ "$screen" = "cinema" ]; then
     echo "Configuring for cinema"
 
     # set scaling factor in gtk
@@ -31,6 +46,7 @@ elif [ "$1" == "cinema" ]; then
     export GDK_DPI_SCALE=1
     export GDK_SCALE=1
 else
-    echo "Unknown display type $1"
+
+    echo "Unknown display type $screen"
     echo "I only know about retina or cinema"
 fi

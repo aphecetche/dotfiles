@@ -13,6 +13,8 @@ general {
 
 #order += "ipv6"
 order += "disk /"
+order += "disk /home"
+order += "disk /home/docker"
 #order += "run_watch DHCP"
 #order += "run_watch VPN"
 #order += "wireless _first_"
@@ -59,5 +61,11 @@ load {
 }
 
 disk "/" {
-        format = " %avail free"
+        format = "  / %avail free"
+}
+disk "/home" {
+        format = "  /home %avail free"
+}
+disk "/home/docker" {
+        format = "  /docker %used used"
 }
