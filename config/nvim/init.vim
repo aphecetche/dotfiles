@@ -265,3 +265,5 @@ au FileType sh let g:sh_fold_enabled=3
 au FileType sh let g:is_bash=1
 au FileType sh set foldmethod=syntax
 
+hi Normal ctermbg=NONE
+

@@ -192,7 +192,7 @@ new_window pixel
 
 exec_always "$HOME/dotfiles/dpi.sh"
 
-exec_always feh --bg-fill "$HOME/Pictures/atlantis nebula.jpg"
+exec_always feh --bg-center "$HOME/Pictures/atlantis nebula.jpg"
 
 exec --no-startup-id vmware-user-suid-wrapper
 
