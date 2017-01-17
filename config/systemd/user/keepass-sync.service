@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync KeePass database from Dropbox
+
+[Service]
+Type=simple
+ExecStart=/home/laurent/bin/rsync_from_dropbox.sh
+
+[Install]
+WantedBy=default.target

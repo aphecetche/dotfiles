@@ -1,0 +1,8 @@
+[Unit]
+Description=Run analysis-backup every 30 minutes
+
+[Timer]
+OnCalendar=*:0/30
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=Backup alicesw source code to host (Mac)
+
+[Service]
+Type=simple
+ExecStart=/home/laurent/bin/rsync_to_host.sh /home/laurent/alicesw
+
+[Install]
+WantedBy=default.target
