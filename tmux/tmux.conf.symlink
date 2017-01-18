@@ -177,7 +177,7 @@ set -g @scroll-speed-num-lines-per-scroll '1'
 set -g @resurrect-dir '~/save/tmux/resurrect'
 set -g @resurrect-strategy-nvim 'session'
 set -g @resurrect-capture-pane-contents 'on'
-set -g @resurrect-processes '"~hugo serve -d dev --buildDrafts ." "~aliroot-legacy master" "~aliroot-legacy reco-2016"'
+#set -g @resurrect-processes '"~hugo serve -d dev --buildDrafts ." "~aliroot-legacy master" "~aliroot-legacy reco-2016"'
 
 set -g @continuum-boot 'on'
 #set -g @continuum-boot-options 'iterm'
