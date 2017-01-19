@@ -62,7 +62,7 @@ Plug 'tpope/vim-obsession' " continuously updated session files
 " Plug 'Rip-Rip/clang_complete'
 
 " fun
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 
 call plug#end()
 
