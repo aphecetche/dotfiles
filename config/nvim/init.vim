@@ -245,18 +245,10 @@ highlight! link ColorColumn CursorLine
 highlight! link Search airline_z
 
 augroup alice
-    fun! SetAliRootBuildCommand(path) 
-        let l:path_parts = split(a:path,"/") 
-        let l:run = path_parts[3] 
-        let l:aliroot_version = path_parts[4] 
-        let &makeprg = "$HOME/Scripts/alice-vim-build-aliroot.sh ".l:run." ".l:aliroot_version 
-    endfun 
-    " <afile>:p is assumed to be /home/user/alicesw/run2[3]/aliroot-xxx/AliRoot/...
-    autocmd BufNewFile, BufRead * / alicesw/*.cxx :call SetAliRootBuildCommand(expand("<afile>:p"))
     autocmd!
     function! FormatCppFile()
         let l:lines="all"
-        pyf /usr/local/Cellar/clang-format/2016-03-29/share/clang/clang-format.py
+        pyf /usr/share/clang/clang-format.py
     endfunction
     au filetype cpp noremap <F2> :call FormatCppFile()<cr>
 augroup END
