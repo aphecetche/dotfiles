@@ -221,7 +221,7 @@ let g:vim_markdown_toml_frontmatter=1
 let g:vim_markdown_folding_level=6
 
 let g:ycm_confirm_extra_conf = 0 
-let g:ycm_global_ycm_extra_conf='$HOME/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 
 nnoremap ,, :YcmCompleter GoTo<CR>
 inoremap jk <Esc>
