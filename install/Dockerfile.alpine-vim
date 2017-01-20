@@ -10,7 +10,7 @@ RUN (getent group $userGroupId) 2>&1 > /dev/null && delgroup $(getent group $use
 RUN delgroup $userGroup 2>&1 > /dev/null || echo "no conflicting group name to delete"
 
 RUN addgroup -S -g $userGroupId $userGroup \
- && adduser $userName -D -u $userId -g $userGroup \
+ && adduser $userName -D -u $userId -G $userGroup \
  && mkdir -p /root/.config/nvim/autoload \
  && mkdir -p /root/.config/ycm \
  && apk add --update clang git python ctags ncurses libxt libx11 libstdc++ \
