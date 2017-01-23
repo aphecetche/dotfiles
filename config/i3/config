@@ -113,8 +113,10 @@ set $workspace5 "5"
 set $workspace6 "6"
 set $workspace7 "7"
 set $workspace8 "8"
-set $workspace9 "9:  conf"
-set $workspace10 "10:  web"
+set $workspace9 "9"
+set $workspace10 "10"
+# set $workspace9 "9:  conf"
+# set $workspace10 "10:  web"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -200,7 +202,7 @@ exec --no-startup-id compton -fCGb --backend glx --vsync opengl
 
 exec i3-sensible-terminal
 
-exec --no-startup-id i3-msg 'workspace $workspace9; exec i3-sensible-terminal; workspace $workspace1'
+exec --no-startup-id i3-msg 'workspace $workspace1; exec i3-sensible-terminal'
 
 #exec --no-startup-id i3-msg 'workspace $workspace10; exec firefox; workspace $workspace1'
 
