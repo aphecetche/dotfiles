@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
-set $modbis Control
+set $modbis Control+shift
 
 #set $mod Control
 
@@ -194,7 +194,7 @@ new_window pixel
 
 exec_always "$HOME/dotfiles/dpi.sh"
 
-exec_always feh --bg-center "$HOME/Pictures/atlantis nebula.jpg"
+#exec_always feh --bg-center "$HOME/Pictures/Terminal Backgrounds/atlantis nebula.jpg"
 
 exec --no-startup-id vmware-user-suid-wrapper
 
