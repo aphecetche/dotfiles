@@ -25,3 +25,5 @@ for file in $(echo $vimfiles | tr " " "\n"); do
     fi
 done
 
+echo "Creating vim directories"
+mkdir -p ~/.vim-tmp

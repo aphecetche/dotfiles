@@ -9,39 +9,17 @@
 # the dotfiles repository. Everything else follows from there.
 export DOTFILES=~/dotfiles
 
-mkdir -p $HOME/github.com/aphecetche
-
-if ! test -d $HOME/github.com/aphecetche/base16-shell; then
-    git clone https://github.com/aphecetche/base16-shell.git $HOME/github.com/aphecetche/base16-shell
-fi
-
-ln -si $HOME/github.com/aphecetche/base16-shell $DOTFILES/
-
-if ! test -d $HOME/github.com/aphecetche/prezto; then
-    git clone https://github.com/aphecetche/prezto.git $HOME/github.com/aphecetche/prezto
-    pushd $HOME/github.com/aphecetche/prezto > /dev/null
-    git submodule update --init --remote --recursive
-    popd > /dev/null
-fi
-
-ln -si $HOME/github.com/aphecetche/prezto $DOTFILES/
-
+. ./install/base16.sh
+. ./install/prezto.sh
 . ./install/link.sh
 
 if [ "$(uname)" = "Darwin" ]; then
 
     echo -e "\n\nRunning on OSX" 
 
-    source install/brew.sh
-    source install/osx.sh
+    . ./install/brew.sh
+    . ./install/osx.sh
 
 fi
 
-echo "creating vim directories"
-mkdir -p ~/.vim-tmp
-
-echo "installing italic terminfo"
-tic tmux-256color-italic.terminfo
-tic xterm-256color-italic.terminfo
-echo "Done."
 

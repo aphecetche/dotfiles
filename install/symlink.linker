@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Establish a bunch of $HOME/.links
+# Loop over all *.symlink "templates" found under $DOTFILES (up to depth 3)
+# and link them (removing the .symlink extension) in $HOME
+
 echo -e "\nCreating symlinks"
 echo "=============================="
 linkables=$( find -H "$DOTFILES" -maxdepth 3 -name '*.symlink' )
