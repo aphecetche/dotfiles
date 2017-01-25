@@ -194,15 +194,11 @@ new_window pixel
 
 exec_always "$HOME/dotfiles/dpi.sh"
 
-#exec_always feh --bg-center "$HOME/Pictures/Terminal Backgrounds/atlantis nebula.jpg"
+exec_always feh --bg-center "$HOME/Pictures/Terminal Backgrounds/atlantis nebula.jpg"
 
 exec --no-startup-id vmware-user-suid-wrapper
 
 exec --no-startup-id compton -fCGb --backend glx --vsync opengl
 
-exec i3-sensible-terminal
-
 exec --no-startup-id i3-msg 'workspace $workspace1; exec i3-sensible-terminal'
-
-#exec --no-startup-id i3-msg 'workspace $workspace10; exec firefox; workspace $workspace1'
 
