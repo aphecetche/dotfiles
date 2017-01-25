@@ -161,19 +161,11 @@ syntax on
 " set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
-if empty(glob('~/.zsh-ui-background'))
-    if !empty($BACKGROUND)
-        execute "set background=".$BACKGROUND
-    endif
-else
-    execute "set background=".system("cat $HOME/.zsh-ui-background")
-endif
-if empty(glob('~/.zsh-ui-theme'))
-    if !empty($THEME)
-        execute "colorscheme ".$THEME
-    endif
-else
-    execute "colorscheme ".system("cat $HOME/.zsh-ui-theme")
+
+" base16-shell colorscheme(s)
+if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
 endif
 
 highlight Comment cterm=italic

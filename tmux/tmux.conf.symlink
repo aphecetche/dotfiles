@@ -2,6 +2,9 @@
 set -g default-terminal "tmux-256color-italic"
 #set -g default-terminal "screen-256color"
 
+#  enable terminal compability
+set-option -ga terminal-overrides ",tmux-256color-italic:Tc"
+
 # toggle log of current page
 bind P pipe-pane -o "cat >>~/#W.log" \; display "Toggled logging to ~/#W.log"
 
@@ -53,7 +56,7 @@ set-option -g allow-rename off
 ######################
 
 # reload config file
-bind r source-file ~/.tmux.conf \; display "Config Reloaded! Background is $BACKGROUND and theme is $THEME"
+bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
 
 # quickly open a new window
 bind N new-window
@@ -126,9 +129,7 @@ bind -t vi-copy 'k' scroll-up
 # Enter copy mode when scrolling over a pane
 # https://github.com/tmux/tmux/issues/145#issuecomment-151123624
 bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' select-pane -t=; copy-mode -e; send-keys -M'"
-
 bind -n WheelDownPane select-pane -t= \; send-keys -M
-
 
 # set vi mode for copy mode
 set-window-option -g mode-keys vi
@@ -144,31 +145,30 @@ bind -t vi-copy 'y' copy-selection
 bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
 bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
 
-##############################
-### Color & Style Settings ###
-##############################
-
-set -g update-environment "BACKGROUND"
-set -g update-environment "THEME"
-source ~/.tmux.$THEME.$BACKGROUND.conf
-
 # Status bar
 
 set -g window-status-format "#I #W"
-
 set -g status-position bottom
-
 set -g status-left "[#S] "
 set -g status-right " #[fg=colour20]Battery:#{battery_percentage} | %H:%M #[fg=colour19]%a %d-%b-%Y"
 set -g status-right-length 100
 set -g status-justify left
 
+##############################
+### Color & Style Settings ###
+##############################
+
+# set -g update-environment "BACKGROUND"
+# set -g update-environment "THEME"
+source ~/dotfiles/tmux/theme.sh
+
 # messages displayed during 2s
 set-option -g display-time 2000
 
-# plugins
-#
-#
+###############
+### Plugins ###
+###############
+
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'nhdaly/tmux-scroll-copy-mode'
