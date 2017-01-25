@@ -40,6 +40,7 @@ def IsHeaderFile(filename):
     return extension in HEADER_EXTENSIONS
 
 def GetCompilationInfoForFile(database, filename):
+    logging.debug('GetCompilationInfoForFile(' + database + ',' + filename +')')
     if IsHeaderFile(filename):
         basename = os.path.splitext(filename)[0]
         for extension in SOURCE_EXTENSIONS:
@@ -113,11 +114,14 @@ def FlagsForInclude(root):
 
 def FindByPath(root,filename):
 # root is assumed to be of the form
-# /Users/username/alicesw/run3/aliroot-XXX/AliRoot/....
+# /Users/username/alicesw/run3/somesubdir/WHAT....
 # in which case we should then return
-# /Users/username/alicesw/run3/sw/BUILD/AliRoot-latest-aliroot-XXX/AliRoot/compile_commands.json
+# /Users/username/alicesw/run3/sw/BUILD/WHAT-latest/WHAT/compile_commands.json
     l = root.split('/')
-    s = "/Users/laurent/alicesw/" + l[4] + "/sw/BUILD/AliRoot-latest-" +l[5] + "/AliRoot/compile_commands.json"
+    s = "/Users/laurent/alicesw/" + l[4] + "/sw/BUILD/" +l[6] + "-latest/"  + l[6] + "/compile_commands.json"
+    logging.debug('FindByPath(' + root + ',' + filename + ')\n')
+    logging.debug('l=' + str(l) + '\n')
+    logging.debug(s + '\n')
     return s 
 
 def FlagsForCompilationDatabase(root, filename):
@@ -147,17 +151,19 @@ def FlagsForCompilationDatabase(root, filename):
     except:
         return None
 
-def FlagsForFile(filename):
+def FlagsForFile(filename, **kwargs):
     root = os.path.realpath(filename);
     compilation_db_flags = FlagsForCompilationDatabase(root, filename)
     if compilation_db_flags:
         final_flags = compilation_db_flags
     else:
-        logging.error("could not find compilation database for " + filename)
+        logging.error("could not get flags from compilation database for " + filename)
         final_flags = BASE_FLAGS
         clang_flags = FlagsForClangComplete(root)
         if clang_flags:
             final_flags = final_flags + clang_flags
+        else:
+            return BASE_FLAGS
         include_flags = FlagsForInclude(root)
         if include_flags:
             final_flags = final_flags + include_flags
