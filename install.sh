@@ -8,21 +8,26 @@
 # the assumption is that this directory is in ~/dotfiles
 # Everything else follows from there.
 
-. ./install/base16.sh
-. ./install/prezto.sh
-. ./install/term.sh
-. ./install/tmux.sh
-. ./install/vim.sh
+install()
+{
+  local what=$1
+  echo -n "installing $what..."
+  . ./install/$what.sh 2>&1 > /dev/null && echo "$what installed" || { echo "failed to install $what"; return 1 }
+}
 
-. ./install/linker.sh && dotfiles_link
+for what in vim base16 prezto term tmux; do
+    install $what || break 
+done
 
-if [ "$(uname)" = "Darwin" ]; then
-
-    echo -e "\n\nRunning on OSX" 
-
-    . ./install/brew.sh
-    . ./install/osx.sh
-
-fi
-
-
+# . ./install/linker.sh && dotfiles_link
+#
+# if [ "$(uname)" = "Darwin" ]; then
+#
+#     echo -e "\n\nRunning on OSX" 
+#
+#     . ./install/brew.sh
+#     . ./install/osx.sh
+#
+# fi
+#
+#
