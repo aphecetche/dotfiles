@@ -69,12 +69,6 @@ bind -r Right switch-client -n
 # enable mouse support for switching panes/windows
 set mouse on
 
-# copy-mode for scrolling
-bind Escape copy-mode
-
-bind -t vi-copy 'j' scroll-down
-bind -t vi-copy 'k' scroll-up
-
 # Enter copy mode when scrolling over a pane
 # https://github.com/tmux/tmux/issues/145#issuecomment-151123624
 bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' select-pane -t=; copy-mode -e; send-keys -M'"
@@ -83,9 +77,13 @@ bind -n WheelDownPane select-pane -t= \; send-keys -M
 # set vi mode for copy mode
 set-window-option -g mode-keys vi
 
-# more settings to make copy-mode more vim-like
 unbind [
 unbind p
+# more settings to make copy-mode more vim-like
+# copy-mode for scrolling
+bind Escape copy-mode
+bind -t vi-copy 'j' scroll-down
+bind -t vi-copy 'k' scroll-up
 bind p paste-buffer
 bind -t vi-copy 'v' begin-selection
 bind -t vi-copy 'y' copy-selection
