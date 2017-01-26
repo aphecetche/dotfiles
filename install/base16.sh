@@ -23,3 +23,5 @@ if [ "$(uname)" = "Darwin" ]; then
     fi
 fi
 
+# select a default theme to start with
+ln -s ~/dotfiles/base16-shell/scripts/base16-mexico-light.sh ~/.base16_theme 

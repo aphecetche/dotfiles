@@ -4,10 +4,17 @@ This is largely inspired by https://github.com/nicknisi/dotfiles but _trying_ to
 
 Assuming I get a new machine / new user, the initial setup should be :
 
+- have git installed
 - insure the user's shell is set to zsh (e.g. using chsh on Linux)
 - git clone https://github.com/aphecetche/dotfiles.git ~/dotfiles
 - cd dotfiles
 - ./install.sh
+
+Then log off, log in and select a base16 theme to work with by using : `base16_` tab completion (need to do this only
+once, information is kept in ~/.base16_theme link), if the default one that is installed by default no longer suits your
+taste...
+
+Also, for Docker use, insure the user is a member of the docker group (or whatever group has been chosen for docker...)
 
 Note that under (Arch) Linux that step should be done in non graphical mode preferably (as it setups some Xorg stuff)
 
