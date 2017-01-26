@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+echo -n "$HOME/github.com/aphecetche/prezto:$DOTFILES/prezto|"
+
+# link for prezto files
+# mind the order, first the $HOME/.zpresto then the rest...
+
+echo -n "$DOTFILES/prezto:$HOME/.zprezto|"
+
+for rcfile in $(find "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/ -name z*); do
+    echo -n "$rcfile:${ZDOTDIR:-$HOME}/.$(basename $rcfile)|"
+done
+

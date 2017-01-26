@@ -4,6 +4,7 @@ This is largely inspired by https://github.com/nicknisi/dotfiles but _trying_ to
 
 Assuming I get a new machine / new user, the initial setup should be :
 
+- insure the user's shell is set to zsh (e.g. using chsh on Linux)
 - git clone https://github.com/aphecetche/dotfiles.git ~/dotfiles
 - cd dotfiles
 - ./install.sh
