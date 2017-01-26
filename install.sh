@@ -5,12 +5,14 @@
 # - is executed from the directory it resides in
 # - the shell is already zsh. 
 
-# must set the DOTFILES variable to point to where you cloned
-# the dotfiles repository. Everything else follows from there.
-export DOTFILES=~/dotfiles
+# the assumption is that this directory is in ~/dotfiles
+# Everything else follows from there.
 
 . ./install/base16.sh
 . ./install/prezto.sh
+. ./install/term.sh
+. ./install/tmux.sh
+. ./install/vim.sh
 
 . ./install/linker.sh && dotfiles_link
 

@@ -11,7 +11,7 @@
 
 dotfiles_list()
 {
-    for linker in $(ls $DOTFILES/install/*.linker) ; do
+    for linker in $(ls ~/dotfiles/install/*.linker) ; do
         echo -n $($linker)
     done
 }

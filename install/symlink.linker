@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-linkables=$( find -H "$DOTFILES" -maxdepth 3 -name '*.symlink' )
+linkables=$( find -H "~/dotfiles" -maxdepth 3 -name '*.symlink' )
 for file in $linkables ; do
     target="$HOME/.$( basename $file '.symlink' )"
     echo -n "$file:$target|"
