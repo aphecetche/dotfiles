@@ -10,7 +10,7 @@ Assuming I get a new machine / new user, the initial setup should be :
 
 Note that under (Arch) Linux that step should be done in non graphical mode preferably (as it setups some Xorg stuff)
 
-## Special files for Linux 
+## Notes about special files for Linux 
  
 ### Keyboard (MacbookPro 15.4 Retina AZERTY - french)
 

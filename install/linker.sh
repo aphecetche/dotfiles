@@ -41,7 +41,7 @@ dotfiles_link()
             fi
         fi
         # be sure the target parent directory exist
-        dir=$(basename $target)
+        dir=$(dirname $target)
         mkdir -p $dir
         ln -s $file $target
     done

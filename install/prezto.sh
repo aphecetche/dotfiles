@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-mkdir -p $HOME/github.com/aphecetche
-
 if ! test -d $HOME/github.com/aphecetche/prezto; then
     git clone https://github.com/aphecetche/prezto.git $HOME/github.com/aphecetche/prezto
     pushd $HOME/github.com/aphecetche/prezto > /dev/null
