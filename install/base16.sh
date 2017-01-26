@@ -4,8 +4,6 @@
 
 if ! test -d $HOME/github.com/chriskempson/base16-shell; then
     git clone https://github.com/chriskempson/base16-shell $HOME/github.com/chriskempson/base16-shell
-    # I do not like the default selection color. Change it. 
-    sed -i '' 's/93a1a1/eee8d5/' $HOME/github/chriskempson/base16-shell/base16-solarized.light.sh
 else
     pushd $HOME/github.com/chriskempson/base16-shell
     git pull 2>&1 > /dev/null
