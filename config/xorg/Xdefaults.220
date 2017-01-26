@@ -1,0 +1,8 @@
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rga
+Xft.hintstyle: hintfull
+Xft.dpi: 220 
+
+URxvt*font: xft:Inconsolata:pixelsize=28
+

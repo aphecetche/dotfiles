@@ -11,7 +11,8 @@ export DOTFILES=~/dotfiles
 
 . ./install/base16.sh
 . ./install/prezto.sh
-. ./install/link.sh
+
+. ./install/linker.sh && dotfiles_link
 
 if [ "$(uname)" = "Darwin" ]; then
 

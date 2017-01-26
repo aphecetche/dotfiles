@@ -1,8 +1,18 @@
 This is largely inspired by https://github.com/nicknisi/dotfiles but _trying_ to keep only what I need (and/or understand...)
 
-# Special files for Linux 
+# Cold bootstrap
+
+Assuming I get a new machine / new user, the initial setup should be :
+
+- git clone https://github.com/aphecetche/dotfiles.git ~/dotfiles
+- cd dotfiles
+- ./install.sh
+
+Note that under (Arch) Linux that step should be done in non graphical mode preferably (as it setups some Xorg stuff)
+
+## Special files for Linux 
  
-## Keyboard (MacbookPro 15.4 Retina AZERTY - french)
+### Keyboard (MacbookPro 15.4 Retina AZERTY - french)
 
 `barfix.map` : the get the pipe with the Alt+Shift+L (both left and right Alt or Shift) in the console
 

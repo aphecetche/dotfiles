@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# from ~/dotfiles/config/xorg to their _dot_ equivalent in $HOME
+
+if [ "$(uname)" = "Darwin"]; return # don't have to setup Xorg on Mac
+
+for file in $(find ~/dotfiles/config/xorg -type f ); do
+    target=~/.$(basename $file)
+    echo -n "$file:$target|"
+done
+
