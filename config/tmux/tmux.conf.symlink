@@ -150,20 +150,19 @@ bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-
 set -g window-status-format "#I #W"
 set -g status-position bottom
 set -g status-left "[#S] "
-set -g status-right " #[fg=colour20]Battery:#{battery_percentage} | %H:%M #[fg=colour19]%a %d-%b-%Y"
+set -g status-right " #[fg=colour20]#{battery_icon} Battery:#{battery_percentage} | %H:%M #[fg=colour19]%a %d %b %Y"
 set -g status-right-length 100
 set -g status-justify left
+
+# messages displayed during 2s
+set-option -g display-time 2000
 
 ##############################
 ### Color & Style Settings ###
 ##############################
 
-# set -g update-environment "BACKGROUND"
-# set -g update-environment "THEME"
-source ~/dotfiles/tmux/theme.sh
-
-# messages displayed during 2s
-set-option -g display-time 2000
+run-shell "tmux set-environment -g TMUX_THEME $(echo ~/dotfiles/config/tmux/$(basename $(readlink -f ~/.base16_theme)))"
+source ~/dotfiles/config/tmux/theme.sh
 
 ###############
 ### Plugins ###
