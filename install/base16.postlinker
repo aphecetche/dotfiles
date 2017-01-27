@@ -1,0 +1,4 @@
+echo -n "$HOME/github.com/chriskempson/base16-shell:$HOME/dotfiles/base16-shell|"
+
+# select a default theme to start with
+echo -n "$HOME/dotfiles/base16-shell/scripts/base16-mexico-light.sh:$HOME/.base16_theme|" 

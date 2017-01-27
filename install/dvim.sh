@@ -9,7 +9,7 @@ userName=$(whoami)
 userGroup=$(id -gn $userName)
 userGroupId=$(id -g $userName)
 
-docker build -f ~/dotfiles/config/dvim/Dockerfile -t alpine-vim --pull . \
+docker build -f ~/dotfiles/config/dvim/Dockerfile -t dvim-$userName --pull . \
     --build-arg userName=$userName \
     --build-arg userId=$UID \
     --build-arg userGroupId=$userGroupId \

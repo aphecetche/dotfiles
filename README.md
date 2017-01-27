@@ -18,10 +18,10 @@ Also, for Docker use, insure the user is a member of the docker group (or whatev
 
 Note that under (Arch) Linux that step should be done in non graphical mode preferably (as it setups some Xorg stuff)
 
-Locally the dev of those scripts can be done preparing a test user : 
+Locally the dev of those scripts can be done preparing a test user (ArchLinux syntax) : 
 
 ```zsh
-sudo userdel testuser && sudo rm -rf /home/testuser && sudo useradd -m testuser && sudo passwd testuser && sudo chsh testuser -s /bin/zsh
+sudo userdel testuser && sudo rm -rf /home/testuser && sudo useradd -m testuser && sudo passwd testuser && sudo chsh testuser -s /bin/zsh && usermod -G docker
 ```
 
 and testing the installation from scratch under that user.
@@ -49,10 +49,10 @@ test -f $HOME/.Xkeymap && xkbcomp $HOME/.Xkeymap $DISPLAY
 
 at the end of my `$HOME/.xinitrc`
 
-### Arch Linux python modules for YouCompleteME
+### Arch Linux python modules for YouCompleteMe
 
 Turns out I was missing a couple of Python modules with my base ArchLinux installation (check the list of installed python modules
-with `pydoc modules`)
+with `pydoc modules`) to be able to install YCM natively.
 ```
 sudo pacman -S python-future
 sudo pacman -S python-frozendict

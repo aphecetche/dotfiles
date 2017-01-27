@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-
-# mind the order of the links...
-
-echo -e "~/github.com/chriskempson/base16-shell:~/dotfiles|"
-# select a default theme to start with
-echo -e "~/dotfiles/base16-shell/scripts/base16-mexico-light.sh:~/.base16_theme|" 
