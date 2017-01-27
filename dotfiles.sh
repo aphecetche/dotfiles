@@ -75,12 +75,12 @@ dotfiles_install()
           || { echo "failed to link $what"; return 2; }
   fi
   
-  . ~/dotfiles/install/$what.sh 2>&1 > /dev/null \
+  ~/dotfiles/install/$what.sh 2>&1 > /dev/null \
       && { echo -n "$what installed..."; } \
-      || { echo "failed to install $what"; popd; return 1; }
+      || { echo "failed to install $what"; return 1; }
 
   if test -f ~/dotfiles/install/$what.postlinker; then
-      dotfiles_link $(. ~/dotfiles/install/$what.postlinker) 2>&1 > /dev/null \
+      dotfiles_link $(~/dotfiles/install/$what.postlinker) 2>&1 > /dev/null \
           && { echo -n "$what links established."; } \
           || { echo "failed to link $what"; return 2; }
   fi
@@ -97,7 +97,7 @@ dotfiles_install_all()
 
 dotfiles_install_linux()
 {
-    for what in vim base16 prezto term tmux fzf; do
+    for what in base16 prezto term tmux fzf dvim; do
         dotfiles_install $what || break 
     done
 }

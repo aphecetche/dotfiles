@@ -48,3 +48,14 @@ test -f $HOME/.Xkeymap && xkbcomp $HOME/.Xkeymap $DISPLAY
 ```
 
 at the end of my `$HOME/.xinitrc`
+
+### Arch Linux python modules for YouCompleteME
+
+Turns out I was missing a couple of Python modules with my base ArchLinux installation (check the list of installed python modules
+with `pydoc modules`)
+```
+sudo pacman -S python-future
+sudo pacman -S python-frozendict
+sudo pacman -S python-requests
+
+```

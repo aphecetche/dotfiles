@@ -12,3 +12,14 @@
 
 dotfiles_install_all
 
+# by default we install only the dockerized vim
+# specify --native-vim option of this script
+# to (try to) install also native vim
+# (should work on OSX, not on ArchLinux so far)
+
+if [ $# -gt 0 ]; then
+
+    if [ "$1" = "--native-vim" ]; then
+        dotfiles_install vim
+    fi
+fi
