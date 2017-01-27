@@ -7,7 +7,7 @@ Assuming I get a new machine / new user, the initial setup should be :
 - have git installed
 - insure the user's shell is set to zsh (e.g. using chsh on Linux)
 - git clone https://github.com/aphecetche/dotfiles.git ~/dotfiles
-- cd dotfiles
+- cd dotfiles #so you get the log files contained
 - ./install.sh
 
 Then log off, log in and select a base16 theme to work with by using : `base16_` tab completion (need to do this only
