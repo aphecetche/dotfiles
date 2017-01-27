@@ -97,7 +97,7 @@ dotfiles_install_all()
 
 dotfiles_install_linux()
 {
-    for what in vim base16 prezto term tmux; do
+    for what in vim base16 prezto term tmux fzf; do
         dotfiles_install $what || break 
     done
 }
