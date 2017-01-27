@@ -18,6 +18,14 @@ Also, for Docker use, insure the user is a member of the docker group (or whatev
 
 Note that under (Arch) Linux that step should be done in non graphical mode preferably (as it setups some Xorg stuff)
 
+Locally the dev of those scripts can be done preparing a test user : 
+
+```zsh
+sudo userdel testuser && sudo rm -rf /home/testuser && sudo useradd -m testuser && sudo passwd testuser && sudo chsh testuser -s /bin/zsh
+```
+
+and testing the installation from scratch under that user.
+
 ## Notes about special files for Linux 
  
 ### Keyboard (MacbookPro 15.4 Retina AZERTY - french)
