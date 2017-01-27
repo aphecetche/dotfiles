@@ -6,12 +6,12 @@
 dotfiles_list()
 {
     # list of links to be done is obtained through all the
-    # *.linker scripts to be found in this directory.
-    # Each *.linker sccript is supposed to simply print
+    # *.*linker scripts to be found in this directory.
+    # Each *.*linker script is supposed to simply print
     # a string of "file1:target1|file2:target2|..."
     # of links to be done
     #
-    for linker in $(ls ~/dotfiles/install/*.linker) ; do
+    for linker in $(ls ~/dotfiles/install/*.*linker) ; do
         echo -n $($linker)
     done
 }
@@ -69,11 +69,18 @@ dotfiles_install()
 {
   local what=$1
   echo -n "installing $what..."
+  if test -f ~/dotfiles/install/$what.prelinker; then
+      dotfiles_link $(. ~/dotfiles/install/$what.prelinker) 2>&1 > /dev/null \
+          && { echo -n "$what links established."; } \
+          || { echo "failed to link $what"; return 2; }
+  fi
+  
   . ~/dotfiles/install/$what.sh 2>&1 > /dev/null \
       && { echo -n "$what installed..."; } \
       || { echo "failed to install $what"; popd; return 1; }
-  if test -f ~/dotfiles/install/$what.linker; then
-      dotfiles_link $(. ~/dotfiles/install/$what.linker) 2>&1 > /dev/null \
+
+  if test -f ~/dotfiles/install/$what.postlinker; then
+      dotfiles_link $(. ~/dotfiles/install/$what.postlinker) 2>&1 > /dev/null \
           && { echo -n "$what links established."; } \
           || { echo "failed to link $what"; return 2; }
   fi
