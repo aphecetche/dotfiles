@@ -70,16 +70,19 @@ dotfiles_install()
   local what=$1
   echo -n "installing $what..."
   if test -f ~/dotfiles/install/$what.prelinker; then
+      rm -f $what.prelinker.log
       dotfiles_link $(. ~/dotfiles/install/$what.prelinker) > $what.prelinker.log 2>&1 \
           && { echo -n "$what links established."; } \
           || { echo "failed to link $what"; return 1; }
   fi
   
+  rm -f $what.log
   ~/dotfiles/install/$what.sh > $what.log 2>&1 \
       && { echo -n "$what installed..."; } \
       || { echo "failed to install $what"; return 2; }
 
   if test -f ~/dotfiles/install/$what.postlinker; then
+      rm -f $what.postlinker
       dotfiles_link $(~/dotfiles/install/$what.postlinker) > $what.postlinker.log 2>&1 \
           && { echo -n "$what links established."; } \
           || { echo "failed to link $what"; return 3; }

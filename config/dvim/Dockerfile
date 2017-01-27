@@ -48,8 +48,11 @@ RUN addgroup -S -g $userGroupId $userGroup \
  && chmod 644 /root/.viminfo \
  && mv /root/.config /home/$userName \
  && mv /root/.viminfo /home/$userName \
- && chown -R $userName:$userGroup /home/$userName \
- && apk del build-deps
+ && apk del build-deps \
+ && git clone --depth=1 https://github.com/chriskempson/base16-shell /home/$userName/base16-shell
+ && chown -R $userName:$userGroup /home/$userName
+
+COPY vim.sh /usr/local/bin/vim.sh
 
 USER $userName
 
@@ -59,5 +62,5 @@ RUN ln -s .config/nvim .vim \
  && ln -s .config/nvim/init.vim .vimrc \
  && ln -s .config/ycm/ycm_extra_conf.py .ycm_extra_conf.py
 
-ENTRYPOINT ["vim"]
+ENTRYPOINT ["/bin/sh","/usr/local/bin/vim.sh"]
 

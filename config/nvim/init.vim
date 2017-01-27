@@ -28,7 +28,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'neomake/neomake'
 Plug 'jlanzarotta/bufexplorer' " <leader>be,bs,bt,bv
 Plug 'Konfekt/FastFold'
-" Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 
 " language-specific plugins
 
