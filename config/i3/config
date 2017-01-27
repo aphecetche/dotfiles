@@ -192,7 +192,7 @@ bar {
 
 new_window pixel
 
-exec_always "$HOME/dotfiles/dpi.sh"
+exec_always "$HOME/dotfiles/config/xorg/dpi.sh"
 
 exec_always feh --bg-center "$HOME/Pictures/Terminal Backgrounds/atlantis nebula.jpg"
 

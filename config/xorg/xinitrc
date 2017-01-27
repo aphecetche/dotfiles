@@ -8,15 +8,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -24,15 +16,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -56,9 +40,9 @@ export TERMINAL=termite
 retina=$(xrandr | grep Screen | grep 2880)
 
 if [ "$retina" != "" ]; then
-    $HOME/dotfiles/dpi.sh retina
+    $HOME/dotfiles/config/xorg/dpi.sh retina
 else
-    $HOME/dotfiles/dpi.sh cinema
+    $HOME/dotfiles/config/xorg/dpi.sh cinema
 fi
 
 exec i3
