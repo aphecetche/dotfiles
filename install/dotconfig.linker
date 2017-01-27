@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-for config in $( find ~dotfiles/config -maxdepth 1 -mindepth 1 ); do
+for config in $( find ~/dotfiles/config -maxdepth 1 -mindepth 1 ); do
     target=~/.config/$( basename $config )
     echo -n "$config:$target|"
 done
