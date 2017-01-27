@@ -77,9 +77,11 @@ dotfiles_install()
   fi
   
   rm -f $what.log
-  ~/dotfiles/install/$what.sh > $what.log 2>&1 \
-      && { echo -n "$what installed..."; } \
-      || { echo "failed to install $what"; return 2; }
+  if test -f ~/dotfiles/install/$what.log; then
+      ~/dotfiles/install/$what.sh > $what.log 2>&1 \
+          && { echo -n "$what installed..."; } \
+          || { echo "failed to install $what"; return 2; }
+  fi
 
   if test -f ~/dotfiles/install/$what.postlinker; then
       rm -f $what.postlinker
@@ -90,17 +92,16 @@ dotfiles_install()
   echo
 }
 
-dotfiles_install_all()
+dotfiles_install_common()
 {
-    if [ "$(uname)" = "Darwin" ]; then
-        dotfiles_install_osx
-    fi
-    dotfiles_install_linux
+    for what in base16 prezto term tmux fzf dvim; do
+        dotfiles_install $what || break 
+    done
 }
 
 dotfiles_install_linux()
 {
-    for what in base16 prezto term tmux fzf dvim; do
+    for what in xorg; do
         dotfiles_install $what || break 
     done
 }
@@ -110,6 +111,17 @@ dotfiles_install_osx()
     for what in brew osx; do
         dotfiles_install $what || break
     done
+}
+
+dotfiles_install_all()
+{
+    dotfiles_install_common
+    if [ "$(uname)" = "Darwin" ]; then
+        dotfiles_install_osx
+    fi
+    if [ "$(uname)" = "Linux" ]; then
+        dotfiles_install_linux
+    fi
 }
 
 # vim: set ft=zsh
