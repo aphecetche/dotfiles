@@ -45,7 +45,7 @@ dotfiles_link()
         # be sure the target parent directory exist
         dir=$(dirname $target)
         mkdir -p $dir
-        ln -s $file $target
+        ln -s "$file" "$target"
     done
 }
 
@@ -61,7 +61,7 @@ dotfiles_unlink()
     fi
     for pair in $(echo $list | tr '|' ' '); do
         target=$(echo $pair | cut -d ':' -f 2)
-        rm -f $target
+        rm -f "$target"
     done
 }
 
@@ -69,15 +69,15 @@ dotfiles_install()
 {
   local what=$1
   echo -n "installing $what..."
-  pushd
   . ~/dotfiles/install/$what.sh 2>&1 > /dev/null \
-      && { echo -n "$what installed..."; popd; } \
+      && { echo -n "$what installed..."; } \
       || { echo "failed to install $what"; popd; return 1; }
   if test -f ~/dotfiles/install/$what.linker; then
       dotfiles_link $(. ~/dotfiles/install/$what.linker) 2>&1 > /dev/null \
-          && { echo "$what links established."; } \
+          && { echo -n "$what links established."; } \
           || { echo "failed to link $what"; return 2; }
   fi
+  echo
 }
 
 dotfiles_install_all()
@@ -86,7 +86,6 @@ dotfiles_install_all()
         dotfiles_install_osx
     fi
     dotfiles_install_linux
-    dotfiles_link
 }
 
 dotfiles_install_linux()

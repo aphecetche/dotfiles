@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 typeset -A vimfiles
-vimfiles="$HOME/.vim!~/dotfiles/config/nvim $HOME/.vimrc!~/dotfiles/config/nvim/init.vim"
+vimfiles="$HOME/.vim!$HOME/dotfiles/config/nvim $HOME/.vimrc!$HOME/dotfiles/config/nvim/init.vim"
 
 for file in $(echo $vimfiles | tr " " "\n"); do
     dest=$(echo $file | cut -d '!' -f 1)
