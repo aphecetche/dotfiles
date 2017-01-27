@@ -2,5 +2,8 @@
 background = rgba(0,0,0,1)
 
 [options]
+#font = Overpass Mono Light 12
+#font = Overpass Mono Regular 12
+#font = SFNS Display 12
 font = Inconsolata 12
 scrollback_lines = 32000

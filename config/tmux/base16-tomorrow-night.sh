@@ -40,10 +40,13 @@ set-window-option -g window-status-bell-style fg=black,bg=red #base02, red
 
 # Status bar
 
+set -g @batt_charged_icon "i"
+set -g @batt_charging_icon ""
+
 set -g window-status-format "#I #W"
 set -g status-position bottom
 set -g status-left "#[fg=colour01][#S] "
-set -g status-right "#[fg=colour20]Battery:#{battery_percentage} | %a %d %b %Y #[fg=colour01][ %H:%M ]" 
+set -g status-right "#[fg=colour20]#{battery_icon}#{battery_percentage}  %a %d %b #[fg=colour01] %H:%M" 
 set -g status-right-length 100
 set -g status-justify left
 

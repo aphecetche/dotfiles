@@ -72,21 +72,21 @@ dotfiles_install()
   if test -f ~/dotfiles/install/$what.prelinker; then
       rm -f $what.prelinker.log
       dotfiles_link $(. ~/dotfiles/install/$what.prelinker) > $what.prelinker.log 2>&1 \
-          && { echo -n "$what links established."; } \
+          && { echo -n "$what (pre)links established..."; } \
           || { echo "failed to link $what"; return 1; }
   fi
   
   rm -f $what.log
-  if test -f ~/dotfiles/install/$what.log; then
+  if test -f ~/dotfiles/install/$what.sh; then
       ~/dotfiles/install/$what.sh > $what.log 2>&1 \
           && { echo -n "$what installed..."; } \
           || { echo "failed to install $what"; return 2; }
   fi
 
   if test -f ~/dotfiles/install/$what.postlinker; then
-      rm -f $what.postlinker
+      rm -f $what.postlinker.log
       dotfiles_link $(~/dotfiles/install/$what.postlinker) > $what.postlinker.log 2>&1 \
-          && { echo -n "$what links established."; } \
+          && { echo -n "$what (post)links established."; } \
           || { echo "failed to link $what"; return 3; }
   fi
   echo
