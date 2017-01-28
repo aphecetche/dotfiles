@@ -26,6 +26,11 @@ sudo userdel testuser && sudo rm -rf /home/testuser && sudo useradd -m testuser 
 
 and testing the installation from scratch under that user.
 
+# Fonts
+
+Currently using Inconsolata (arch package name ttf-inconsolata). Need powerline-fonts as well for some eye-candy on
+the status bar(s).
+
 ## Notes about special files for Linux 
  
 ### Keyboard (MacbookPro 15.4 Retina AZERTY - french)
