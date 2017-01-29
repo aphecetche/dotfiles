@@ -62,5 +62,5 @@ RUN ln -s .config/nvim .vim \
  && ln -s .config/nvim/init.vim .vimrc \
  && ln -s .config/ycm/ycm_extra_conf.py .ycm_extra_conf.py
 
-ENTRYPOINT ["/bin/sh","/usr/local/bin/vim.sh"]
+ENTRYPOINT ["/usr/local/bin/vim.sh"]
 
