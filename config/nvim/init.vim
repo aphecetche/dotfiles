@@ -181,6 +181,8 @@ set showbreak=… " show ellipsis at breaking
 set autoindent " automatically set indent of new line
 set smartindent
 
+set path+=$PWD/**
+
 " Section Mappings {{{1
 
 " habit breaking : make the arrow keys inoperative
