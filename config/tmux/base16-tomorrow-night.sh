@@ -2,25 +2,18 @@
 ## To find out the colour used by the current base16 theme
 # use the base16-shell/colortest utility
 
-# default statusbar colors
+# statusbar colours
 set-option -g status-bg colour18
 set-option -g status-fg colour07
 set-option -g status-attr default
 
-# default window title colors
-set-window-option -g window-status-fg colour20 
-set-window-option -g window-status-bg default
-set-window-option -g window-status-attr default
-
-# active window title colors
-set-window-option -g window-status-current-fg colour18
-set-window-option -g window-status-current-bg colour04
-# set-window-option -g window-status-current-attr bright
+# window colours
+set-window-option window-style 'bg=colour18'
+set-window-option window-active-style 'bg=colour00'
 
 # pane border
-set-option -g pane-border-fg colour02
-set-option -g pane-border-bg colour00
-set-option -g pane-active-border-fg colour00
+set-window-option pane-border-style 'bg=colour18,fg=colour20'
+set-window-option pane-active-border-style 'bg=colour00,fg=colour02'
 
 # message text
 set-option -g message-bg default
