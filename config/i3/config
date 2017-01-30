@@ -190,7 +190,7 @@ bindsym $mod+r mode "resize"
 # }
 
 
-new_window pixel
+new_window none
 
 exec_always "$HOME/dotfiles/config/xorg/dpi.sh"
 
