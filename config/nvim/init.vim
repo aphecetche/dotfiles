@@ -159,16 +159,15 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 syntax on
 
 " set encoding=utf8
-let base16colorspace=256  " Access colors present in 256 colorspace
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 
 " base16-shell colorscheme(s)
-if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
+if !empty($BASE16_THEME)
+	let base16colorspace=256
+    colorscheme base16-tomorrow-night 
 endif
 
-highlight Comment cterm=italic
+" highlight Comment cterm=italic
 
 set number " show line numbers
 "set relativenumber " show relative line numbers
