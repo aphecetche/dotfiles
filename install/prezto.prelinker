@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-echo -n "$HOME/github.com/aphecetche/prezto:$HOME/dotfiles/prezto|"
-echo -n "$HOME/dotfiles/prezto:$HOME/.zprezto|"
+printf "%s" "$HOME/github.com/aphecetche/prezto:$HOME/dotfiles/prezto|"
+printf "%s" "$HOME/dotfiles/prezto:$HOME/.zprezto|"

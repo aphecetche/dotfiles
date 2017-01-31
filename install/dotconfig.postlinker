@@ -2,5 +2,5 @@
 
 for config in $( find $HOME/dotfiles/config -maxdepth 1 -mindepth 1 ); do
     target=~/.config/$( basename $config )
-    echo -n "$config:$target|"
+    printf "%s" "$config:$target|"
 done

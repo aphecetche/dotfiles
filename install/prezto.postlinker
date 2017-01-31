@@ -2,6 +2,6 @@
 
 
 for rcfile in $(find "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/ -name z*); do
-    echo -n "$rcfile:${ZDOTDIR:-$HOME}/.$(basename $rcfile)|"
+    printf "%s" "$rcfile:${ZDOTDIR:-$HOME}/.$(basename $rcfile)|"
 done
 

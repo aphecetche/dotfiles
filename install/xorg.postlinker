@@ -7,6 +7,6 @@ if [ "$(uname)" != "Darwin" ]; then
 
     for file in $(find $HOME/dotfiles/config/xorg -type f -name '[Xx]*'); do
         target=~/.$(basename $file)
-        echo -n "$file:$target|"
+        printf "%s" "$file:$target|"
     done
 fi

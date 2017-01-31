@@ -1,2 +1,2 @@
 
-echo "$HOME/dotfiles/config/tmux/tmux.conf:$HOME/.tmux.conf|"
+printf "%s" "$HOME/dotfiles/config/tmux/tmux.conf:$HOME/.tmux.conf|"

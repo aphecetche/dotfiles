@@ -1,11 +1,10 @@
 #!/usr/bin/env sh
 
-typeset -A vimfiles
 vimfiles="$HOME/.vim!$HOME/dotfiles/config/nvim $HOME/.vimrc!$HOME/dotfiles/config/nvim/init.vim"
 
-for file in $(echo $vimfiles | tr " " "\n"); do
-    dest=$(echo $file | cut -d '!' -f 1)
-    src=$(echo $file | cut -d '!' -f 2)
-    echo -n "$src:$dest|"
+for file in $(printf "%s" $vimfiles | tr " " "\n"); do
+    dest=$(printf "%s" $file | cut -d '!' -f 1)
+    src=$(printf "%s" $file | cut -d '!' -f 2)
+    printf "%s" "$src:$dest|"
 done
 
