@@ -5,13 +5,10 @@ ARG userGroup=unknown
 ARG userId=1234
 ARG userGroupId=1234
 
-RUN (getent group $userGroupId) 2>&1 > /dev/null && delgroup $(getent group $userGroupId | cut -d ':' -f 1) || echo "no conflicting group id to delete"
-
-RUN delgroup $userGroup 2>&1 > /dev/null || echo "no conflicting group name to delete"
-
-RUN addgroup -S -g $userGroupId $userGroup && adduser -H -D -u $userId -G $userGroup $userName
-
-RUN chown -R $userName:$userGroup /usr/share/vim 
+RUN (getent group $userGroupId) 2>&1 > /dev/null && delgroup $(getent group $userGroupId | cut -d ':' -f 1) || echo "no conflicting group id to delete" \
+; delgroup $userGroup 2>&1 > /dev/null || echo "no conflicting group name to delete" \
+; addgroup -S -g $userGroupId $userGroup && adduser -H -D -u $userId -G $userGroup $userName \
+; chown -R $userName:$userGroup /usr/share/vim 
 
 USER $userName
 
