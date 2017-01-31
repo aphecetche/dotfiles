@@ -25,7 +25,6 @@ Plug 'majutsushi/tagbar' " class outliner viewer
 Plug 'chrisbra/vim-zsh'
 Plug 'tpope/vim-fugitive'
 Plug 'Raimondi/delimitMate'
-Plug 'neomake/neomake'
 Plug 'jlanzarotta/bufexplorer' " <leader>be,bs,bt,bv
 Plug 'Konfekt/FastFold'
 Plug 'Valloric/YouCompleteMe'
@@ -228,10 +227,15 @@ let g:ycm_autoclose_preview_window_after_insertion=1
 nmap <F8> :TagbarToggle<CR>
 
 " autoreload this very file upon write
-autocmd! BufWritePost $MYVIMRC source $MYVIMRC
-autocmd! BufWritePost ~/dotfiles/config/nvim/init.vim source $MYVIMRC
-
-" au CursorHold,CursorHoldI * :silent! source $MYVIMRC
+if !empty($MYVIMRC)
+    autocmd! BufWritePost $MYVIMRC source $MYVIMRC
+endif
+if filereadable(expand("~/dotfiles/config/nvim/init.vim"))
+    autocmd! BufWritePost ~/dotfiles/config/nvim/init.vim source ~/dotfiles/config/nvim/init.vim
+endif
+if filereadable(expand("/usr/share/vim/vimrc"))
+    autocmd! BufWritePost /usr/share/vim/vimrc source /usr/share/vim/vimrc
+endif
 
 " highlight! link Visual CursorLine
 set colorcolumn=80
