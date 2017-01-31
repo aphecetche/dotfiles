@@ -11,6 +11,8 @@ RUN delgroup $userGroup 2>&1 > /dev/null || echo "no conflicting group name to d
 
 RUN addgroup -S -g $userGroupId $userGroup && adduser -H -D -u $userId -G $userGroup $userName
 
+RUN chown -R $userName:$userGroup /usr/share/vim 
+
 USER $userName
 
 ENTRYPOINT ["/usr/local/bin/vim.sh"]
