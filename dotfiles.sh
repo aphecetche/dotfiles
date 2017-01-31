@@ -12,7 +12,7 @@ dotfiles_list()
     # of links to be done
     #
     for linker in $(ls ~/dotfiles/install/*.*linker) ; do
-        echo -n $($linker)
+        printf "%s" $($linker)
     done
 }
 
@@ -30,13 +30,13 @@ dotfiles_link()
     if [ $# -gt 1 ]; then
         override=$2
     fi
-    for pair in $(echo $list | tr '|' ' '); do
-        file=$(echo $pair | cut -d ':' -f 1)
-        target=$(echo $pair | cut -d ':' -f 2)
+    for pair in $(printf "%s\\n" $list | tr '|' ' '); do
+        file=$(printf "%s\\n" $pair | cut -d ':' -f 1)
+        target=$(printf "%s\\n" $pair | cut -d ':' -f 2)
         # test prior existence of target
         if [ -e $target ]; then
             if [ "$override" != "force" ]; then
-                echo "~${target#$HOME} already exists... Skipping."
+                printf "%s\\n" "~${target#$HOME} already exists... Skipping."
                 continue
             else
                 rm -f $target
@@ -59,8 +59,8 @@ dotfiles_unlink()
     else
         list=$(dotfiles_list)
     fi
-    for pair in $(echo $list | tr '|' ' '); do
-        target=$(echo $pair | cut -d ':' -f 2)
+    for pair in $(printf "%s\\n" $list | tr '|' ' '); do
+        target=$(printf "%s\\n" $pair | cut -d ':' -f 2)
         rm -f "$target"
     done
 }
@@ -68,28 +68,28 @@ dotfiles_unlink()
 dotfiles_install()
 {
   local what=$1
-  echo -n "installing $what..."
+  printf "%s" "installing $what..."
   if test -f ~/dotfiles/install/$what.prelinker; then
       rm -f $what.prelinker.log
       dotfiles_link $(. ~/dotfiles/install/$what.prelinker) > $what.prelinker.log 2>&1 \
-          && { echo -n "$what (pre)links established..."; } \
-          || { echo "failed to link $what"; return 1; }
+          && { printf "%s" "$what (pre)links established..."; } \
+          || { printf "%s\\n" "failed to (pre)link $what"; return 1; }
   fi
   
   rm -f $what.log
   if test -f ~/dotfiles/install/$what.sh; then
       ~/dotfiles/install/$what.sh > $what.log 2>&1 \
-          && { echo -n "$what installed..."; } \
-          || { echo "failed to install $what"; return 2; }
+          && { printf "%s" "$what installed..."; } \
+          || { printf "%s\\n" "failed to install $what"; return 2; }
   fi
 
   if test -f ~/dotfiles/install/$what.postlinker; then
       rm -f $what.postlinker.log
       dotfiles_link $(~/dotfiles/install/$what.postlinker) > $what.postlinker.log 2>&1 \
-          && { echo -n "$what (post)links established."; } \
-          || { echo "failed to link $what"; return 3; }
+          && { printf "%s" "$what (post)links established."; } \
+          || { printf "%s\\n" "failed to (post)link $what"; return 3; }
   fi
-  echo
+  printf "%s\\n"
 }
 
 dotfiles_install_common()
