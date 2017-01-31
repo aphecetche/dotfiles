@@ -3,7 +3,7 @@
 # use the base16-shell/colortest utility
 
 # statusbar colours
-set-option -g status-bg colour18
+set-option -g status-bg colour19
 set-option -g status-fg colour07
 set-option -g status-attr default
 
