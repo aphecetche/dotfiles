@@ -37,19 +37,12 @@ Plug 'groenewege/vim-less', { 'for': 'less' } " less support
 Plug 'ap/vim-css-color', { 'for': ['css','stylus','scss'] } " set the background of hex color values to the color
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' } " CSS3 syntax support
 Plug 'fatih/vim-go', { 'for': 'go' } " go support
-" Plug 'tmhedberg/SimpylFold' " python folding
-" Plug 'klen/python-mode'
 Plug 'nickhutchinson/vim-cmake-syntax'
-Plug 'shime/vim-livedown'
+Plug 'tmhedberg/SimpylFold' " python folding
 
 " Writing experience
-" Plug 'itspriddle/vim-marked', { 'for': 'markdown', 'on': 'MarkedOpen' } " Open markdown files in Marked.app - mapped to <leader>m
-
-" Plug 'tpope/vim-markdown', { 'for': 'markdown' } " markdown support
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } " markdown support
-" Plug 'vim-pandoc/vim-pandoc'
-" Plug 'vim-pandoc/vim-pandoc-syntax'
-" Plug 'nelstrom/vim-markdown-folding'
+Plug 'shime/vim-livedown'
 
 " tmux integration
 Plug 'benmills/vimux' " interact with tmux from vim
@@ -57,11 +50,6 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'tmux-plugins/vim-tmux' " syntax highlighting for .tmux.conf
 Plug 'christoomey/vim-tmux-navigator' " vim tmux seamless navigation between vim splits and tmux panes
 Plug 'tpope/vim-obsession' " continuously updated session files
-
-" Plug 'Rip-Rip/clang_complete'
-
-" fun
-" Plug 'mhinz/vim-startify'
 
 call plug#end()
 
@@ -192,6 +180,9 @@ noremap <Right> <NOP>
 " clear highlighted search
 noremap <leader><space> :set hlsearch! hlsearch?<cr>
 
+inoremap jk <Esc>
+nnoremap <space> zz<C-D><cr>
+
 " Section Plugins {{{1
 
 " map fuzzyfinder (CtrlP) plugin
@@ -212,15 +203,16 @@ let g:vim_markdown_frontmatter=1
 let g:vim_markdown_toml_frontmatter=1
 let g:vim_markdown_folding_level=6
 
+" youcompleteme
 let g:ycm_confirm_extra_conf = 0 
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_insertion=1
+
+" SimpylFold
+autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 
 nnoremap ,, :YcmCompleter GoTo<CR>
-inoremap jk <Esc>
-
-nnoremap <space> zz<C-D><cr>
-
-let g:ycm_autoclose_preview_window_after_insertion=1
 
 " majutsushi/tagbar
 
