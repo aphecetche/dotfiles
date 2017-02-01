@@ -5,12 +5,7 @@ if test ! $(which brew); then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-echo -e "\n\nInstalling homebrew packages..."
-echo "=============================="
-
 # cli tools
-brew install ack
-brew install tree
 brew install wget
 
 # development tools
@@ -18,10 +13,7 @@ brew install git
 brew install hub
 brew install reattach-to-user-namespace
 brew install tmux
-brew install zsh
-brew install highlight
 
-# brew install nvm
-# brew install z
-# brew install markdown
+# to build ALICE software 
+brew install cmake automake autoconf libtool
 

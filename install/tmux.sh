@@ -7,7 +7,9 @@ if ! test -d ~/.tmux/plugins/tpm; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     ~/.tmux/plugins/tpm/bin/install_plugins
 else
-    ~/.tmux/plugins/tpm/bin/update_plugins all
+    cd ~/.tmux/plugins/tpm
+    git pull
+    . ./bin/update_plugins all
 fi
 
 

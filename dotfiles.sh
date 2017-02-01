@@ -108,7 +108,7 @@ dotfiles_install_linux()
 
 dotfiles_install_osx()
 {
-    for what in brew osx; do
+    for what in brew osx-setup osx-apps; do
         dotfiles_install $what || break
     done
 }
