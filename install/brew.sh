@@ -5,15 +5,25 @@ if test ! $(which brew); then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-# cli tools
-brew install wget
-
-# development tools
-brew install git
-brew install hub
-brew install reattach-to-user-namespace
-brew install tmux
+for pkg in \
+	wget \
+	git \
+	hub \
+	reattach-to-user-namespace \
+	tmux \
+	; do
+  brew install "$pkg"
+done
 
 # to build ALICE software 
-brew install cmake automake autoconf libtool
+
+for pkg in \
+	cmake \
+	automake \
+	autoconf \
+	libtool \
+	python \
+	; do
+  brew install "$pkg"
+done
 
