@@ -36,10 +36,15 @@ set-window-option -g window-status-bell-style fg=black,bg=red #base02, red
 set -g @batt_charged_icon "i"
 set -g @batt_charging_icon ""
 
-set -g window-status-format "#I #W"
+set -g window-status-current-format "#I #W "
+set -g window-status-current-fg colour02
+set -g window-status-current-bg colour19
+set -g window-status-current-attr bold
+set -g window-status-format "#I #W  "
 set -g status-position bottom
 set -g status-left "#[fg=colour01][#S] "
-set -g status-right "#[fg=colour20]#{battery_icon}#{battery_percentage}  %a %d %b #[fg=colour01] %H:%M" 
+set -g status-right "#(whoami) #[fg=colour20]#{battery_icon}#{battery_percentage}  %a %d %b #[fg=colour01] %H:%M" 
 set -g status-right-length 100
+set -g status-left-length 100
 set -g status-justify left
 
