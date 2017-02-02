@@ -39,11 +39,13 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-set bg-color #2F433F
-set text-color #F3F4F5
+set $rofimenucommon -lines 3 -eh 2 -width 50 -padding 20 -opacity "85" -font "Hack 36"
 
 # start the program launcher (rofi)
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 50 -padding 20 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18" 
+bindsym $mod+d exec rofi -show run $rofimenucommon 
+
+# window switcher
+bindsym $mod+Tab exec rofi -modi "Workspaces:~/.config/i3/i3_switch_workspace.sh" -show Workspaces $rofimenucommon -lines 15 
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
