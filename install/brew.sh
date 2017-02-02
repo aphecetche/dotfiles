@@ -24,6 +24,7 @@ for pkg in \
 	autoconf \
 	libtool \
 	python \
+    modules \
 	; do
   brew install "$pkg"
 done
