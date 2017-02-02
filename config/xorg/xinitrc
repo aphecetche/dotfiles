@@ -45,4 +45,6 @@ else
     $HOME/dotfiles/config/xorg/dpi.sh cinema
 fi
 
+test -f $HOME/.Xresources.d/$BASE16_THEME && xrdb -merge "$HOME/.Xresources.d/$BASE16_THEME"
+
 exec i3
