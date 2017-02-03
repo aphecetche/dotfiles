@@ -12,6 +12,7 @@ for pkg in \
 	reattach-to-user-namespace \
 	tmux \
 	iproute2mac \
+    ag \
 	; do
   brew install "$pkg"
 done
