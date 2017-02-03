@@ -5,20 +5,13 @@ if test ! $(which brew); then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-for pkg in \
-	wget \
-	git \
-	hub \
-	reattach-to-user-namespace \
-	tmux \
-	iproute2mac \
-	; do
-  brew install "$pkg"
-done
-
 # to build ALICE software 
 
+# gcc is to get gfortran only (as we're using Mac OS X provided clang
+# as our main compiler for c,c++ ...)
+
 for pkg in \
+    gcc \
 	cmake \
 	automake \
 	autoconf \
