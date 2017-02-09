@@ -101,7 +101,7 @@ dotfiles_install_common()
 
 dotfiles_install_linux()
 {
-    for what in xorg; do
+    for what in xorg linux-fonts; do
         dotfiles_install $what || break 
     done
 }
