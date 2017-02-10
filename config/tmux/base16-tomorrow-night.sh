@@ -2,49 +2,19 @@
 ## To find out the colour used by the current base16 theme
 # use the base16-shell/colortest utility
 
-# statusbar colours
-set-option -g status-bg colour19
-set-option -g status-fg colour07
-set-option -g status-attr default
+TMUX_STATUS_BAR_FG_COLOR="colour07"
+TMUX_STATUS_BAR_BG_COLOR="colour19"
+TMUX_STATUS_BAR_LEFT_SESSION_COLOR="colour09"
 
-# window colours
-set-window-option window-style 'bg=colour18'
-set-window-option window-active-style 'bg=colour00'
+TMUX_WINDOW_INACTIVE_BG_COLOR="colour18"
+TMUX_WINDOW_ACTIVE_BG_COLOR="colour00"
 
-# pane border
-set-window-option pane-border-style 'bg=colour18,fg=colour20'
-set-window-option pane-active-border-style 'bg=colour00,fg=colour02'
+TMUX_WINDOW_STATUS_CURRENT_FG_COLOR="colour02"
+TMUX_WINDOW_STATUS_CURRENT_BG_COLOR="colour19"
 
-# message text
-set-option -g message-bg default
-set-option -g message-fg colour02
-set-option -g message-attr bright
+TMUX_MESSAGE_COLOR="colour12"
+TMUX_CLOCK_COLOR="colour12"
 
-# pane number display
-set-option -g display-panes-active-colour blue #blue
-set-option -g display-panes-colour brightred #orange
-
-# clock
-set-window-option -g clock-mode-colour green #green
-
-# bell
-set-window-option -g window-status-bell-style fg=black,bg=red #base02, red
-
-
-# Status bar
-
-set -g @batt_charged_icon "i"
-set -g @batt_charging_icon ""
-
-set -g window-status-current-format "#I #W "
-set -g window-status-current-fg colour02
-set -g window-status-current-bg colour19
-set -g window-status-current-attr bold
-set -g window-status-format "#I #W  "
-set -g status-position bottom
-set -g status-left "#[fg=colour01][#S] "
-set -g status-right "#(whoami) #[fg=colour20]#{battery_icon}#{battery_percentage}  %a %d %b #[fg=colour01] %H:%M" 
-set -g status-right-length 100
-set -g status-left-length 100
-set -g status-justify left
+TMUX_HOST_ICON=""
+if-shell "uname | grep -q Darwin" "tmux set-env -g TMUX_HOST_ICON=''"
 
