@@ -14,7 +14,5 @@ TMUX_WINDOW_STATUS_CURRENT_BG_COLOR="colour19"
 TMUX_MESSAGE_COLOR="colour12"
 TMUX_CLOCK_COLOR="colour12"
 
-TMUX_HOST_ICON=""
-if-shell "uname | grep -q Darwin" "tmux set-env -g TMUX_HOST_ICON=''"
 
 
