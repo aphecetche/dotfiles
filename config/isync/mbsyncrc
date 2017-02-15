@@ -1,0 +1,78 @@
+IMAPAccount icloud
+Host imap.mail.me.com
+User laurent.aphecetche@me.com
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+PassCmd "security find-generic-password -s mbsync-icloud-password -w"
+
+IMAPAccount gmail
+Host imap.gmail.com
+User laurent.aphecetche@gmail.com
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+PassCmd "security find-generic-password -s mbsync-gmail-password -w"
+
+IMAPStore gmail-remote
+Account gmail
+
+IMAPStore icloud-remote
+Account icloud
+
+MaildirStore gmail-local
+Path ~/Maildir/gmail/
+Inbox ~/Maildir/gmail/INBOX
+Trash trash
+
+MaildirStore icloud-local
+Path ~/Maildir/icloud/
+Inbox ~/Maildir/icloud/INBOX
+Trash trash
+
+Channel icloud-inbox
+Master :icloud-remote:
+Slave :icloud-local:
+Sync Pull New Flags 
+Create Both 
+
+Channel icloud-sent
+Master :icloud-remote:
+Slave :icloud-local:sent
+Pattern "*Sent*"
+Sync Pull New Flags 
+Create Both 
+
+Channel icloud-archive
+Master :icloud-remote:Archive
+Slave :icloud-local:archive
+Sync Pull New Flags 
+Create Both 
+
+Channel gmail-inbox
+Master :gmail-remote:
+Slave :gmail-local:
+Sync Pull New Flags
+Create Both 
+
+Channel gmail-free
+Master :gmail-remote:laurent.aphecetche@free.fr
+Slave :gmail-local:free
+Sync Pull New Flags
+Create Both 
+
+Channel gmail-laposte
+Master :gmail-remote:laurent.aphecetche@laposte.net
+Slave :gmail-local:laposte
+Sync Pull New Flags
+Create Both 
+
+Group icloud
+Channel icloud-inbox
+Channel icloud-sent
+Channel icloud-archive
+
+Group gmail
+Channel gmail-inbox
+Channel gmail-free
+Channel gmail-laposte

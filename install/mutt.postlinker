@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+mkdir -p $HOME/.mutt
+
+for file in $(find $HOME/dotfiles/config/mutt -mindepth 1 ! -name 'muttrc'); do
+    target=~/.mutt/$(basename $file)
+    printf "%s" "$file:$target|"
+done
+
+printf "%s" "$HOME/dotfiles/config/mutt/muttrc:$HOME/.muttrc|"
