@@ -1,3 +1,3 @@
 # "communication" stuff for mac
 
-brew install mutt isync w3m
+brew install mutt isync w3m msmtp

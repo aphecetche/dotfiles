@@ -5,12 +5,18 @@ set mbox_type=Maildir
 set folder=$HOME/Maildir/
 set spoolfile="+icloud/INBOX"
 
-mailboxes +icloud/INBOX \
+mailboxes "+--- icloud "\
+ +icloud/INBOX \
  +icloud/'Sent Messages' \
  +icloud/Drafts \
+ "+--- gmail " \
  +gmail/INBOX \
  +gmail/free.fr \
- +gmail/laposte.net
+ +gmail/laposte.net \
+ "+--- cern " \
+ +cern/INBOX \
+ "+--- subatech " \
+ +subatech/INBOX
 
  set sidebar_visible = yes
 
@@ -49,3 +55,8 @@ bind index <space>  collapse-thread
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html
+
+folder-hook gmail/* source ~/.mutt/accounts/gmail
+folder-hook icloud/* source ~/.mutt/accounts/icloud
+folder-hook cern/* source ~/.mutt/accounts/cern
+folder-hook subatech/* source ~/.mutt/accounts/subatech

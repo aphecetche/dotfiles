@@ -1,3 +1,19 @@
+IMAPAccount subatech
+Host imap-subatech.in2p3.fr
+User aphecete
+CertificateFile ~/.certificates/imap-subatech.cert
+SSLType IMAPS
+SSLVersions TLSv1
+PassCmd "security find-generic-password -s mbsync-subatech-password -w"
+
+IMAPAccount cern
+Host imap.cern.ch
+User laphecet
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+PassCmd "security find-generic-password -s mbsync-cern-password -w"
+
 IMAPAccount icloud
 Host imap.mail.me.com
 User laurent.aphecetche@me.com
@@ -14,11 +30,28 @@ SSLType IMAPS
 SSLVersions TLSv1
 PassCmd "security find-generic-password -s mbsync-gmail-password -w"
 
+IMAPStore subatech-remote
+Account subatech
+Path ~/IMAPMAILBOXES/
+
+IMAPStore cern-remote
+Account cern
+
 IMAPStore gmail-remote
 Account gmail
 
 IMAPStore icloud-remote
 Account icloud
+
+MaildirStore subatech-local
+Path ~/Maildir/subatech/
+Inbox ~/Maildir/subatech/INBOX
+Trash trash
+
+MaildirStore cern-local
+Path ~/Maildir/cern/
+Inbox ~/Maildir/cern/INBOX
+Trash trash
 
 MaildirStore gmail-local
 Path ~/Maildir/gmail/
@@ -29,6 +62,42 @@ MaildirStore icloud-local
 Path ~/Maildir/icloud/
 Inbox ~/Maildir/icloud/INBOX
 Trash trash
+
+Channel subatech-inbox
+Master :subatech-remote:
+Slave :subatech-local:
+Sync Pull New Flags
+Create Both
+
+Channel subatech-all
+Master :subatech-remote:
+Slave :subatech-local:
+#Pattern "Archive*"
+Pattern "*"
+Pattern "!INBOX"
+Pattern "!Delete*"
+Pattern "!Junk*"
+Sync Pull New Flags
+Create Both
+
+Channel cern-inbox
+Master :cern-remote:
+Slave :cern-local:
+Sync Pull New Flags
+Create Both
+
+Channel cern-all
+Master :cern-remote:
+Slave :cern-local:
+Pattern "*" 
+Pattern "!INBOX"
+Pattern "!Deleted%"
+Pattern "!Junk%"
+Pattern "!Notes"
+Pattern "!Outbox"
+Pattern "!Contacts*"
+Sync Pull New Flags
+Create Both
 
 Channel icloud-inbox
 Master :icloud-remote:
@@ -76,3 +145,18 @@ Group gmail
 Channel gmail-inbox
 Channel gmail-free
 Channel gmail-laposte
+
+Group cern
+Channel cern-inbox
+Channel cern-all
+
+Group subatech
+Channel subatech-inbox
+Channel subatech-all
+
+Group inbox
+Channel subatech-inbox
+Channel cern-inbox
+Channel gmail-inbox
+Channel icloud-inbox
+

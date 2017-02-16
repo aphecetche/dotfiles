@@ -1,0 +1,7 @@
+set from = "laurent.aphecetche@me.com"
+set sendmail = "/usr/local/bin/msmtp -a icloud"
+
+# default inbox
+set spoolfile="+icloud/INBOX"
+
+color status yellow default
