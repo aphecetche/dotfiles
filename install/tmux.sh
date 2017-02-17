@@ -5,6 +5,8 @@
 if ! test -d ~/.tmux/plugins/tpm; then
     mkdir -p ~/save
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    # I have some personal mods to this one...
+    git clone https://github.com/aphecetche/tmux-continuum ~/.tmux/plugins/tmux-continuum
     ~/.tmux/plugins/tpm/bin/install_plugins
 else
     cd ~/.tmux/plugins/tpm
