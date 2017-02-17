@@ -8,7 +8,8 @@
 	<string>fr.aphecetche.mbsync.inbox-work</string>
 	<key>ProgramArguments</key>
 	<array>
-        <string>mbsync inbox-work</string>
+        <string>/usr/local/bin/mbsync</string> 
+        <string>inbox-work</string>
 	</array>
 	<key>RunAtLoad</key>
 	<false/>

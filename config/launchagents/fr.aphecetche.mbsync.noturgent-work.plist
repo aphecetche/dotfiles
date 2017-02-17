@@ -8,7 +8,8 @@
 	<string>fr.aphecetche.mbsync.noturgent-work</string>
 	<key>ProgramArguments</key>
 	<array>
-        <string>mbsync noturgent-work</string>
+        <string>/usr/local/bin/mbsync</string>
+        <string>noturgent-work</string>
 	</array>
 	<key>RunAtLoad</key>
 	<false/>
