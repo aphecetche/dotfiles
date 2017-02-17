@@ -67,7 +67,7 @@ Channel subatech-inbox
 Master :subatech-remote:
 Slave :subatech-local:
 Sync Pull New Flags
-Create Both
+Create Slave
 
 Channel subatech-all
 Master :subatech-remote:
@@ -78,13 +78,13 @@ Pattern "!INBOX"
 Pattern "!Delete*"
 Pattern "!Junk*"
 Sync Pull New Flags
-Create Both
+Create Slave
 
 Channel cern-inbox
 Master :cern-remote:
 Slave :cern-local:
 Sync Pull New Flags
-Create Both
+Create Slave
 
 Channel cern-all
 Master :cern-remote:
@@ -97,44 +97,51 @@ Pattern "!Notes"
 Pattern "!Outbox"
 Pattern "!Contacts*"
 Sync Pull New Flags
-Create Both
+Create Slave
 
 Channel icloud-inbox
 Master :icloud-remote:
 Slave :icloud-local:
 Sync Pull New Flags 
-Create Both 
+Create Slave 
 
 Channel icloud-sent
 Master :icloud-remote:
 Slave :icloud-local:sent
 Pattern "*Sent*"
 Sync Pull New Flags 
-Create Both 
+Create Slave 
 
 Channel icloud-archive
 Master :icloud-remote:Archive
 Slave :icloud-local:archive
 Sync Pull New Flags 
-Create Both 
+Create Slave 
 
 Channel gmail-inbox
 Master :gmail-remote:
 Slave :gmail-local:
 Sync Pull New Flags
-Create Both 
+Create Slave 
+
+Channel gmail-processed
+Master :gmail-remote:
+Slave :gmail-local:
+Sync Pull New Flags
+Create Slave
+Pattern "Processed"
 
 Channel gmail-free
 Master :gmail-remote:laurent.aphecetche@free.fr
 Slave :gmail-local:free
 Sync Pull New Flags
-Create Both 
+Create Slave 
 
 Channel gmail-laposte
 Master :gmail-remote:laurent.aphecetche@laposte.net
 Slave :gmail-local:laposte
 Sync Pull New Flags
-Create Both 
+Create Slave 
 
 Group icloud
 Channel icloud-inbox
@@ -145,6 +152,7 @@ Group gmail
 Channel gmail-inbox
 Channel gmail-free
 Channel gmail-laposte
+Channel gmail-processed
 
 Group cern
 Channel cern-inbox
@@ -159,4 +167,23 @@ Channel subatech-inbox
 Channel cern-inbox
 Channel gmail-inbox
 Channel icloud-inbox
+
+Group inbox-work
+Channel subatech-inbox
+Channel cern-inbox
+
+Group inbox-perso
+Channel gmail-inbox
+Channel icloud-inbox
+
+Group noturgent-perso
+Channel icloud-sent
+Channel icloud-archive
+Channel gmail-free
+Channel gmail-laposte
+Channel gmail-processed
+
+Group noturgent-work
+Channel subatech-all
+Channel cern-all
 

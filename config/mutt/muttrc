@@ -3,22 +3,22 @@ set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
 # set sidebar_visible=yes
 set mbox_type=Maildir
 set folder=$HOME/Maildir/
-set spoolfile="+icloud/INBOX"
 
-mailboxes "+--- icloud "\
+mailboxes "+------- icloud "\
  +icloud/INBOX \
  +icloud/'Sent Messages' \
  +icloud/Drafts \
- "+--- gmail " \
+ "+------- gmail " \
  +gmail/INBOX \
  +gmail/free.fr \
  +gmail/laposte.net \
- "+--- cern " \
+ +gmail/Processed \
+ "+------- cern " \
  +cern/INBOX \
- "+--- subatech " \
+ "+------- subatech " \
  +subatech/INBOX
 
- set sidebar_visible = yes
+set sidebar_visible = yes
 
 # Sidebar Patch --------------------------------------
 #set sidebar_delim   = '  │'

@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+mkdir -p ~/Library/LaunchAgents
+
+for file in $(ls $HOME/dotfiles/config/launchagents/*.plist); do
+    target=~/Library/LaunchAgents/$(basename $file)
+    printf "%s" "$file:$target|"
+done
+
