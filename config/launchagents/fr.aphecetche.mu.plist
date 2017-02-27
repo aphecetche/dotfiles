@@ -5,15 +5,18 @@
 	<key>KeepAlive</key>
 	<false/>
 	<key>Label</key>
-	<string>fr.aphecetche.check-grid-jobs</string>
+	<string>fr.aphecetche.mu</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Users/laurent/Code.nogit/GridUtilities/runCheckGridJobs.sh</string>
-		<string>558219757</string>
+        <string>/Users/laurent/dotfiles/bin/musearches.sh</string>
 	</array>
 	<key>RunAtLoad</key>
 	<false/>
+    <key>StartInterval</key>
+    <integer>120</integer>
+	<key>StandardErrorPath</key>
+	<string>/tmp/fr.aphecetche.mu.stderr</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/fr.aphecetche.mu.stdout</string>
 </dict>
 </plist>
-
-<!-- @@@@LingonWhatStart:/Users/laurent/Code.nogit/GridUtilities/runCheckGridJobs.sh 558219757	@@@@LingonWhatEnd -->

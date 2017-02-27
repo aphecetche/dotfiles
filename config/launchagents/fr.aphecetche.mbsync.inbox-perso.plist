@@ -8,12 +8,17 @@
 	<string>fr.aphecetche.mbsync.inbox-perso</string>
 	<key>ProgramArguments</key>
 	<array>
-        <string>/usr/local/bin/mbsync</string>
+        <string>/Users/laurent/dotfiles/bin/mailsync.sh</string>
         <string>inbox-perso</string>
+        <string>gmail</string>
 	</array>
 	<key>RunAtLoad</key>
 	<false/>
     <key>StartInterval</key>
-    <integer>900</integer>
+    <integer>300</integer>
+	<key>StandardErrorPath</key>
+	<string>/tmp/fr.aphecetche.mbsync.inbox-perso.stderr</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/fr.aphecetche.mbsync.inbox-perso.stdout</string>
 </dict>
 </plist>

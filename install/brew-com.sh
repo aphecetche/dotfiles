@@ -1,3 +1,4 @@
 # "communication" stuff for mac
 
-brew install mutt isync w3m msmtp
+brew install neomutt/homebrew-neomutt/neomutt --with-sidebar-patch
+brew install mu isync w3m msmtp urlview imapfilter

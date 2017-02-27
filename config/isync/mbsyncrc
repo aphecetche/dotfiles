@@ -1,3 +1,11 @@
+#
+# For the definition of the accounts, please use the structure :
+# IMAPAccount account-name
+# Host account-host
+# User username
+# in that order, so the imapfilter config.lua file can decipher
+# those easily (as the "parsing" there is really simple...)
+
 IMAPAccount subatech
 Host imap-subatech.in2p3.fr
 User aphecete
@@ -46,27 +54,23 @@ Account icloud
 MaildirStore subatech-local
 Path ~/Maildir/subatech/
 Inbox ~/Maildir/subatech/INBOX
-Trash trash
 
 MaildirStore cern-local
 Path ~/Maildir/cern/
 Inbox ~/Maildir/cern/INBOX
-Trash trash
 
 MaildirStore gmail-local
 Path ~/Maildir/gmail/
 Inbox ~/Maildir/gmail/INBOX
-Trash trash
 
 MaildirStore icloud-local
 Path ~/Maildir/icloud/
 Inbox ~/Maildir/icloud/INBOX
-Trash trash
 
 Channel subatech-inbox
 Master :subatech-remote:
 Slave :subatech-local:
-Sync Pull New Flags
+Sync All
 Create Slave
 
 Channel subatech-all
@@ -76,14 +80,14 @@ Slave :subatech-local:
 Pattern "*"
 Pattern "!INBOX"
 Pattern "!Delete*"
-Pattern "!Junk*"
-Sync Pull New Flags
+# Pattern "!Junk*"
+Sync All
 Create Slave
 
 Channel cern-inbox
 Master :cern-remote:
 Slave :cern-local:
-Sync Pull New Flags
+Sync All
 Create Slave
 
 Channel cern-all
@@ -96,52 +100,81 @@ Pattern "!Junk%"
 Pattern "!Notes"
 Pattern "!Outbox"
 Pattern "!Contacts*"
-Sync Pull New Flags
+Sync All
 Create Slave
 
 Channel icloud-inbox
 Master :icloud-remote:
 Slave :icloud-local:
-Sync Pull New Flags 
+Sync All 
 Create Slave 
 
 Channel icloud-sent
 Master :icloud-remote:
-Slave :icloud-local:sent
+Slave :icloud-local:
 Pattern "*Sent*"
-Sync Pull New Flags 
+Sync All 
 Create Slave 
 
 Channel icloud-archive
 Master :icloud-remote:Archive
 Slave :icloud-local:archive
-Sync Pull New Flags 
+Sync All 
 Create Slave 
 
 Channel gmail-inbox
 Master :gmail-remote:
 Slave :gmail-local:
-Sync Pull New Flags
+Sync All
 Create Slave 
 
 Channel gmail-processed
 Master :gmail-remote:
 Slave :gmail-local:
-Sync Pull New Flags
+Sync All
 Create Slave
 Pattern "Processed"
 
 Channel gmail-free
 Master :gmail-remote:laurent.aphecetche@free.fr
 Slave :gmail-local:free
-Sync Pull New Flags
+Sync All
 Create Slave 
 
 Channel gmail-laposte
 Master :gmail-remote:laurent.aphecetche@laposte.net
 Slave :gmail-local:laposte
-Sync Pull New Flags
+Sync All
 Create Slave 
+
+Channel gmail-pub
+Master :gmail-remote:
+Slave :gmail-local:
+Sync All
+Create Slave
+Pattern "pub/*"
+
+Channel gmail-github
+Master :gmail-remote:
+Slave :gmail-local:
+Sync All
+Create Slave
+Pattern "github/*"
+
+Channel gmail-all
+Master :gmail-remote:
+Slave :gmail-local:
+Sync Pull New Flags
+Create Slave
+Pattern "*"
+Pattern "!INBOX"
+Pattern "!*laposte*"
+Pattern "!*free*"
+Pattern "!Processed"
+Pattern "!Notes"
+Pattern "![Gmail]*"
+Pattern "!laurent@aphecetche.fr"
+Pattern "!copains"
 
 Group icloud
 Channel icloud-inbox
@@ -153,6 +186,8 @@ Channel gmail-inbox
 Channel gmail-free
 Channel gmail-laposte
 Channel gmail-processed
+Channel gmail-github
+Channel gmail-pub
 
 Group cern
 Channel cern-inbox

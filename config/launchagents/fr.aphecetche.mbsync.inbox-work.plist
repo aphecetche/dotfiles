@@ -8,12 +8,18 @@
 	<string>fr.aphecetche.mbsync.inbox-work</string>
 	<key>ProgramArguments</key>
 	<array>
-        <string>/usr/local/bin/mbsync</string> 
-        <string>inbox-work</string>
+        <string>/Users/laurent/dotfiles/bin/mailsync.sh</string>
+		<string>inbox-work</string>
+        <string>cern</string>
+        <string>subatech</string>
 	</array>
 	<key>RunAtLoad</key>
 	<false/>
-    <key>StartInterval</key>
-    <integer>120</integer>
+	<key>StandardErrorPath</key>
+	<string>/tmp/fr.aphecetche.mbsync.inbox-work.stderr</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/fr.aphecetche.mbsync.inbox-work.stdout</string>
+	<key>StartInterval</key>
+	<integer>120</integer>
 </dict>
 </plist>

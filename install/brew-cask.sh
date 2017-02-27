@@ -5,7 +5,6 @@ for app in \
     iterm2 \
     docker \
     1password \
-    evernote \
     dropbox \
     nomachine \
     slack \
@@ -16,6 +15,7 @@ for app in \
     transmit \
     duet \
     kindle \
+    launchcontrol \
     ; do
     brew cask info $app
 done

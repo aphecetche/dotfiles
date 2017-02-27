@@ -8,12 +8,16 @@
 	<string>fr.aphecetche.mbsync.noturgent-work</string>
 	<key>ProgramArguments</key>
 	<array>
-        <string>/usr/local/bin/mbsync</string>
+        <string>/Users/laurent/dotfiles/bin/mailsync.sh</string>
         <string>noturgent-work</string>
 	</array>
 	<key>RunAtLoad</key>
 	<false/>
     <key>StartInterval</key>
     <integer>900</integer>
+	<key>StandardErrorPath</key>
+	<string>/tmp/fr.aphecetche.mbsync.noturgent-work.stderr</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/fr.aphecetche.mbsync.noturgent-work.stdout</string>
 </dict>
 </plist>

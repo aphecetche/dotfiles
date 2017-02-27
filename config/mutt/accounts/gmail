@@ -4,4 +4,7 @@ set sendmail = "/usr/local/bin/msmtp -a gmail"
 # default inbox
 set spoolfile="+gmail/INBOX"
 
+set record="+gmail/Sent Messages"
+
 color status yellow default
+macro index,pager a "<save-message>=gmail/Processed<enter>" "Archive"

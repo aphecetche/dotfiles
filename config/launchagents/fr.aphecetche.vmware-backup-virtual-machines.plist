@@ -19,6 +19,10 @@
 		<key>Weekday</key>
 		<integer>3</integer>
 	</dict>
+	<key>StandardErrorPath</key>
+	<string>/tmp/fr.aphecetche.vmware-backup-virtual-machines.stderr</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/fr.aphecetche.vmware-backup-virtual-machines.stdout</string>
 </dict>
 </plist>
 

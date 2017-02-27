@@ -1,0 +1,1 @@
+printf "%s" "$HOME/dotfiles/config/urlview/urlview:$HOME/.urlview|"
