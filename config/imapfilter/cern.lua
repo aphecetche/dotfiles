@@ -78,6 +78,18 @@ for _,cwg in pairs(cwgs) do
     messages:move_messages(cern["O2/CWG" .. cwg])
 end
 
+-- mbox=cern["INBOX"]
+-- messages = mbox:arrived_since("01-Jan-2012") * mbox:arrived_before("01-Jan-2013")
+-- messages:move_messages(cern["Archive-2012"])
+-- messages = mbox:arrived_since("01-Jan-2013") * mbox:arrived_before("01-Jan-2014")
+-- messages:move_messages(cern["Archive-2013"])
+-- messages = mbox:arrived_since("01-Jan-2014") * mbox:arrived_before("01-Jan-2015")
+-- messages:move_messages(cern["Archive-2014"])
+-- messages = mbox:arrived_since("01-Jan-2015") * mbox:arrived_before("01-Jan-2016")
+-- messages:move_messages(cern["Archive-2015"])
+-- messages = mbox:arrived_since("01-Jan-2016") * mbox:arrived_before("01-Jan-2017")
+-- messages:move_messages(cern["Archive-2016"])
+
 -- cern:rename_mailbox("JIRA/qa","JIRA/pwgpp")
 -- cern:rename_mailbox("JIRA/reco","JIRA/aliroot")
 -- cern:create_mailbox("O2/MRRTF")

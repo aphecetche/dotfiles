@@ -63,7 +63,8 @@ subatech["INBOX"]:contain_cc("SUBATECH-glpi-ticket")
 messages:move_messages(subatech[prefix .. "InfoSR"])
 
 messages = subatech["INBOX"]:contain_from("grambow") +
-subatech["INBOX"]:contain_from("huguet")
+subatech["INBOX"]:contain_from("huguet") +
+subatech["INBOX"]:contain_from("decatoire")
 messages:move_messages(subatech[prefix.."Admin"])
 
 -- messages = subatech[prefix.."MID"]:select_all()

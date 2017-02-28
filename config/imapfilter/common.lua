@@ -1,4 +1,4 @@
-options.timeout=30
+options.timeout=120
 options.subscribe=true
 
 function getpassword(key)
