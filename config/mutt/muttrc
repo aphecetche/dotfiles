@@ -44,7 +44,7 @@ mailboxes =cern/Papers =cern/Papers/.Jpsi-vs-multiplicity =cern/Papers/.Phi2mumu
 mailboxes =cern/Archive
 
 mailboxes =mu
-mailboxes =mu/git =mu/inbox-work =mu/sent
+mailboxes =mu/inbox-work =mu/sent
 
 mailboxes =gmail
 mailboxes =gmail/INBOX =gmail/Processed =gmail/free =gmail/laposte
@@ -74,7 +74,7 @@ set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)
 
 # Header Options -------------------------------------
 ignore *                                # ignore all headers
-unignore from: to: cc: date: subject:   # show only these
+unignore from: to: cc: date: subject: x-label:  # show only these
 unhdr_order *                           # some distros order things by default
 hdr_order to: cc: date: from: subject:  # and in this order
 
@@ -166,8 +166,9 @@ set query_command = "mu cfind --format=mutt-ab  '%s'"
 macro index Z "<shell-escape>mu find --clearlinks --format=links --linksdir=~/.mu/results " "mu find"
 macro index ,mu "<change-folder-readonly>~/.mu/results<enter>" "mu find results"
 
-macro pager,index ,tw "<pipe-message>~/dotfiles/bin/mutt2taskwarrior.sh<enter> <save-message>=TODO<enter>" "convert mail to taskwarrior task"
+macro pager,index ,tw "<pipe-message>~/dotfiles/bin/mutt2taskwarrior.sh<enter> <save-message>=TODO<enter><edit-label>taskwarrior<enter>" "convert mail to taskwarrior task"
 
+# labels (aka keywords)
 bind index,pager y edit-label
 
-
+source ~/.mutt/smime.rc

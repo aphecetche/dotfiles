@@ -1,0 +1,38 @@
+Procedure to get the signing with GRIDFR certificate working
+(not sure that's the simplest way, but it worked...)
+
+Get the 3 CA certificates (from https://igc.services.cnrs.fr/search_CA_certificate/?CA=GRID2-FR&lang=fr&body=view_ca.html)
+
+CNRS2-Projects.crt
+CNRS2.crt
+GRID2-FR.crt
+
+convert them to pem :
+
+openssl x509 -in CNRS2.crt -out CNRS2.pem
+openssl x509 -in CNRS2-Projets.crt -out CNRS2-Projets.pem
+openssl x509 -in GRID2-FR.crt -out GRID2-FR.pem
+
+and merge them into a single "chain" file :
+
+cat *.pem > cachain.pem
+
+convert the personal certificate (cert+key in fact) .p12 into a pem as well :
+
+openssl pkcs12 -in certificate-grid2-fr.p12 -out mycert.pem
+
+and finally append the full certification chain to the personal certificate into another p12 file (mycert.p12)
+
+openssl pkcs12 -in mycert.pem -out mycert-complete.p12 -export -certfile cachain.pem
+
+That's the final .p12 we import to mutt :
+
+smime_keys add_p12 mycert-complete.p12 
+
+(see e.g. https://github.com/ThomasAdam/mutt/blob/master/doc/smime-notes.txt or
+https://pthree.org/2011/09/15/setting-up-mutt-with-smime-and-pgpmime/ or
+https://kb.wisc.edu/middleware/page.php?id=4091)
+
+in particular, must have the ca-bundle.crt installed in $HOME/.smime first and . then use smime_keys add_root for the 3
+cnrs ca : the add_root command adds to the ca-bundle.crt file...
+
