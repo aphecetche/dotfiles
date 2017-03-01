@@ -101,12 +101,23 @@ messages:move_messages(subatech[prefix.."Admin"])
 --
 -- subatech:delete_mailbox(prefix .. "CERN")
 
--- mbox=subatech[prefix .. "A trier"]
+-- mbox=subatech[prefix .. "Archive"]
+-- messages = mbox:arrived_before("01-Jan-2012")
+-- messages:move_messages(subatech[prefix .. "Archive-pre2012"])
+-- messages = subatech[prefix .. "Archive-2017"]:select_all()
+-- messages:move_messages(subatech[prefix .. "Archive"])
+-- messages:move_messages(subatech[prefix .. "Archive-2012"])
 -- messages = mbox:arrived_since("01-Jan-2012") * mbox:arrived_before("01-Jan-2013")
 -- messages:move_messages(subatech[prefix .. "Archive-2012"])
 -- messages = mbox:arrived_since("01-Jan-2013") * mbox:arrived_before("01-Jan-2014")
 -- messages:move_messages(subatech[prefix .. "Archive-2013"])
-
+-- messages = mbox:arrived_since("01-Jan-2014") * mbox:arrived_before("01-Jan-2015")
+-- messages:move_messages(subatech[prefix .. "Archive-2014"])
+-- messages = mbox:arrived_since("01-Jan-2015") * mbox:arrived_before("01-Jan-2016")
+-- messages:move_messages(subatech[prefix .. "Archive-2015"])
+-- messages = mbox:arrived_since("01-Jan-2016") * mbox:arrived_before("01-Jan-2017")
+-- messages:move_messages(subatech[prefix .. "Archive-2016"])
+--
 -- subatech:delete_mailbox(prefix.."A trier")
 -- subatech:delete_mailbox(prefix.."apple")
 -- subatech:delete_mailbox(prefix.."MCH-Run3")
