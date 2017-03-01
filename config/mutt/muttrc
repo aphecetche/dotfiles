@@ -29,7 +29,9 @@ mailboxes =subatech/InfoSR
 mailboxes =subatech/Junk
 mailboxes =subatech/Missions
 mailboxes =subatech/Univ
+mailboxes =subatech/Archive 
 
+# mailboxes =subatech/Archive-2017 =subatech/Archive-2016 =subatech/Archive-2015 =subatech/Archive-2014 =subatech/Archive-2013 =subatech/Archive-2012
 
 mailboxes =cern
 mailboxes =cern/INBOX
@@ -41,7 +43,9 @@ mailboxes =cern/JIRA =cern/JIRA/.pwgpp =cern/JIRA/.aliroot
 mailboxes =cern/OPS =cern/OPS/.build =cern/OPS/.dpg =cern/OPS/.lcg
 mailboxes =cern/PWG =cern/PWG/.DQ =cern/PWG/.HF
 mailboxes =cern/Papers =cern/Papers/.Jpsi-vs-multiplicity =cern/Papers/.Phi2mumu-PbPb =cern/Papers/.Phi2mumu-pA =cern/Papers/.Jpsi2mumu-pA-2013
-mailboxes =cern/Archive
+mailboxes =cern/Archive 
+
+mailboxes =cern/Archive-2016 =cern/Archive-2015 =cern/Archive-2014 =cern/Archive-2013 =cern/Archive-2012
 
 mailboxes =mu
 mailboxes =mu/inbox-work =mu/sent
@@ -52,6 +56,7 @@ mailboxes =gmail/pub =gmail/pub/.amazon =gmail/pub/.beauxarts
 
 mailboxes =icloud
 mailboxes =icloud/INBOX 
+mailboxes =icloud/Archive
 
 # Sidebar Patch 
 set sidebar_visible = yes
