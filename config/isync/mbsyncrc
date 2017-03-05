@@ -71,7 +71,8 @@ Channel subatech-inbox
 Master :subatech-remote:
 Slave :subatech-local:
 Sync All
-Create Slave
+Create Both
+Expunge Both
 
 Channel subatech-all
 Master :subatech-remote:
@@ -82,13 +83,15 @@ Pattern "!INBOX"
 Pattern "!Delete*"
 # Pattern "!Junk*"
 Sync All
-Create Slave
+Create Both
+Expunge Both
 
 Channel cern-inbox
 Master :cern-remote:
 Slave :cern-local:
 Sync All
-Create Slave
+Create Both
+Expunge Both
 
 Channel cern-all
 Master :cern-remote:
@@ -101,71 +104,81 @@ Pattern "!Notes"
 Pattern "!Outbox"
 Pattern "!Contacts*"
 Sync All
-Create Slave
+Create Both
+Expunge Both
 
 Channel icloud-inbox
 Master :icloud-remote:
 Slave :icloud-local:
 Sync All 
-Create Slave 
+Create Both 
+Expunge Both
 
 Channel icloud-sent
 Master :icloud-remote:
 Slave :icloud-local:
 Pattern "*Sent*"
 Sync All 
-Create Slave 
+Create Both 
+Expunge Both
 
 Channel icloud-archive
 Master :icloud-remote:Archive
 Slave :icloud-local:archive
 Sync All 
-Create Slave 
+Create Both 
+Expunge Both
 
 Channel gmail-inbox
 Master :gmail-remote:
 Slave :gmail-local:
 Sync All
-Create Slave 
+Create Both 
+Expunge Both
 
 Channel gmail-processed
 Master :gmail-remote:
 Slave :gmail-local:
 Sync All
-Create Slave
+Create Both
 Pattern "Processed"
+Expunge Both
 
 Channel gmail-free
 Master :gmail-remote:laurent.aphecetche@free.fr
 Slave :gmail-local:free
 Sync All
-Create Slave 
+Create Both 
+Expunge Both
 
 Channel gmail-laposte
 Master :gmail-remote:laurent.aphecetche@laposte.net
 Slave :gmail-local:laposte
 Sync All
-Create Slave 
+Create Both 
+Expunge Both
 
 Channel gmail-pub
 Master :gmail-remote:
 Slave :gmail-local:
 Sync All
-Create Slave
+Create Both
 Pattern "pub/*"
+Expunge Both
 
 Channel gmail-github
 Master :gmail-remote:
 Slave :gmail-local:
 Sync All
-Create Slave
+Create Both
 Pattern "github/*"
+Expunge Both
 
 Channel gmail-all
 Master :gmail-remote:
 Slave :gmail-local:
-Sync Pull New Flags
-Create Slave
+Sync All
+Create Both
 Pattern "*"
 Pattern "!INBOX"
 Pattern "!*laposte*"
@@ -175,6 +188,7 @@ Pattern "!Notes"
 Pattern "![Gmail]*"
 Pattern "!laurent@aphecetche.fr"
 Pattern "!copains"
+Expunge Both
 
 Group icloud
 Channel icloud-inbox

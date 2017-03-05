@@ -10,3 +10,6 @@ cp $HOME/dotfiles/config/msmtp/msmtprc $HOME/.msmtprc
 
 chmod 600 $HOME/.msmtprc
 
+mkdir -p ~/.msmtp.queue
+chmod 700 ~/.msmtp.queue
+chmod 600 .msmtp.queue.log

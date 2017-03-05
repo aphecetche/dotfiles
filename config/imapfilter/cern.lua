@@ -48,7 +48,7 @@ pwgs={ ["pwg-HF"] = "HF",
        ["pag-hf"] = "HF"
    }
 
-       
+
 for i,p in pairs(pwgs) do
     messages = cern["INBOX"]:contain_to("alice-" .. i) + 
     cern["INBOX"]:contain_cc("alice-" .. i)
@@ -89,8 +89,10 @@ end
 -- messages:move_messages(cern["Archive-2015"])
 -- messages = mbox:arrived_since("01-Jan-2016") * mbox:arrived_before("01-Jan-2017")
 -- messages:move_messages(cern["Archive-2016"])
+--
+cern:rename_mailbox("JIRA/qa","JIRA/pwgpp")
+cern:rename_mailbox("JIRA/reco","JIRA/aliroot")
+cern:create_mailbox("O2/MRRTF")
 
--- cern:rename_mailbox("JIRA/qa","JIRA/pwgpp")
--- cern:rename_mailbox("JIRA/reco","JIRA/aliroot")
--- cern:create_mailbox("O2/MRRTF")
+
 

@@ -1,5 +1,5 @@
 set from = "laurent.aphecetche@subatech.in2p3.fr"
-set sendmail = "/usr/local/bin/msmtp -a subatech"
+#set sendmail = "/usr/local/bin/msmtp -a subatech"
 
 # default inbox
 set spoolfile="+subatech/INBOX"

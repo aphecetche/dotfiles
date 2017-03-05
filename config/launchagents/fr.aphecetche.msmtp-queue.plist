@@ -5,18 +5,18 @@
 	<key>KeepAlive</key>
 	<false/>
 	<key>Label</key>
-	<string>fr.aphecetche.mu</string>
+	<string>fr.aphecetche.msmtp-queue</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Users/laurent/dotfiles/bin/musearches.sh</string>
+		<string>/Users/laurent/dotfiles/bin/mailsend.sh</string>
 	</array>
 	<key>RunAtLoad</key>
 	<false/>
 	<key>StandardErrorPath</key>
-	<string>/tmp/fr.aphecetche.mu.stderr</string>
+	<string>/tmp/fr.aphecetche.msmtp-queue.stderr</string>
 	<key>StandardOutPath</key>
-	<string>/tmp/fr.aphecetche.mu.stdout</string>
+	<string>/tmp/fr.aphecetche.msmtp-queue.stdout</string>
 	<key>StartInterval</key>
-	<integer>120</integer>
+	<integer>60</integer>
 </dict>
 </plist>

@@ -45,10 +45,12 @@ mailboxes =cern/PWG =cern/PWG/.DQ =cern/PWG/.HF
 mailboxes =cern/Papers =cern/Papers/.Jpsi-vs-multiplicity =cern/Papers/.Phi2mumu-PbPb =cern/Papers/.Phi2mumu-pA =cern/Papers/.Jpsi2mumu-pA-2013
 mailboxes =cern/Archive 
 
-mailboxes =cern/Archive-2016 =cern/Archive-2015 =cern/Archive-2014 =cern/Archive-2013 =cern/Archive-2012
+mailboxes =cern/Archive-2015
+
+#mailboxes =cern/Archive-2016 =cern/Archive-2015 =cern/Archive-2014 =cern/Archive-2013 =cern/Archive-2012
 
 mailboxes =mu
-mailboxes =mu/inbox-work =mu/sent
+mailboxes =mu/inbox-work =mu/sent =mu/today =mu/thisweek =mu/thismonth =mu/results
 
 mailboxes =gmail
 mailboxes =gmail/INBOX =gmail/Processed =gmail/free =gmail/laposte
@@ -157,6 +159,9 @@ macro index \Ca "<limit>all\n" "show all messages (undo limit)"
 auto_view text/html
 alternative_order text/plain text/enriched text/html
 
+set sendmail_wait = -1
+set sendmail="~/dotfiles/bin/msmtpq"
+
 folder-hook gmail/* source ~/.mutt/accounts/gmail
 folder-hook icloud/* source ~/.mutt/accounts/icloud
 folder-hook cern/* source ~/.mutt/accounts/cern
@@ -168,8 +173,8 @@ source ~/.mutt/colors
 #
 bind editor <Tab> complete-query
 set query_command = "mu cfind --format=mutt-ab  '%s'"
-macro index Z "<shell-escape>mu find --clearlinks --format=links --linksdir=~/.mu/results " "mu find"
-macro index ,mu "<change-folder-readonly>~/.mu/results<enter>" "mu find results"
+macro pager,index Z "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Maildir/mu/results " "mu find"
+macro pager,index ,mu "<change-folder-readonly>~/Maildir/mu/results<enter>" "mu find results"
 
 macro pager,index ,tw "<pipe-message>~/dotfiles/bin/mutt2taskwarrior.sh<enter> <save-message>=TODO<enter><edit-label>taskwarrior<enter>" "convert mail to taskwarrior task"
 
@@ -177,3 +182,4 @@ macro pager,index ,tw "<pipe-message>~/dotfiles/bin/mutt2taskwarrior.sh<enter> <
 bind index,pager y edit-label
 
 source ~/.mutt/smime.rc
+source ~/.mutt/aliases

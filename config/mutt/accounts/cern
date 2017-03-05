@@ -1,5 +1,5 @@
 set from = "laurent.aphecetche@cern.ch"
-set sendmail = "/usr/local/bin/msmtp -a cern"
+#set sendmail = "/usr/local/bin/msmtp -a cern"
 
 # default inbox
 set spoolfile="+cern/INBOX"

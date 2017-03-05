@@ -1,5 +1,5 @@
 set from = "laurent.aphecetche@gmail.com"
-set sendmail = "/usr/local/bin/msmtp -a gmail"
+#set sendmail = "/usr/local/bin/msmtp -a gmail"
 
 # default inbox
 set spoolfile="+gmail/INBOX"
