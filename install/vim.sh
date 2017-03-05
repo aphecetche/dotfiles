@@ -1,8 +1,15 @@
 #!/usr/bin/env sh
 
-# temp directory for vim
-mkdir -p ~/.vim-tmp 2>&1 > /dev/null
+if [ "$(uname)" = "Darwin"]; then
+    brew install vim --with-override-system-vi
+fi
+
+rm -rf ~/.vimrc ~/.vim
+
+ln -s ~/dotfiles/config/nvim/init.vim ~/.vimrc
+ln -s ~/dotfiles/config/nvim/ ~/.vim
 
 # insure the plugin system is initialized
-vim -E -c 'PlugInstall!' -c 'qall!' 2>&1 > /dev/null
+
+vim --not-a-term -c "PlugInstall! | qall!" 2>&1 > /dev/null
 

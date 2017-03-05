@@ -10,6 +10,10 @@ RUN (getent group $userGroupId) 2>&1 > /dev/null && delgroup $(getent group $use
 ; addgroup -S -g $userGroupId $userGroup && adduser -H -D -u $userId -G $userGroup $userName \
 ; chown -R $userName:$userGroup /usr/share/vim 
 
+COPY vim.sh /usr/local/bin/vim.sh
+
+RUN apk add gcc
+
 USER $userName
 
 ENTRYPOINT ["/usr/local/bin/vim.sh"]
