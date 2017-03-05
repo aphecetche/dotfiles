@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+# # check if the docker image is available, build it in case it is not
+# if [[ $(docker images | grep jojomi/latex | wc -l) = 0 ]] ; then
+#   docker build -t jojomi/latex .
+# fi
+
+docker run --rm -v `pwd`:/src aphecetche/latex pdflatex "$@"
