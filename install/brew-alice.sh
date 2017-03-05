@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 if test ! $(which brew); then
     echo "Installing homebrew"
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -21,4 +22,7 @@ for pkg in \
 	; do
   brew install "$pkg"
 done
+
+pip install --upgrade pip setuptools
+
 
