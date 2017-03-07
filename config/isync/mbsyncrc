@@ -144,34 +144,12 @@ Create Both
 Pattern "Processed"
 Expunge Both
 
-Channel gmail-free
-Master :gmail-remote:laurent.aphecetche@free.fr
-Slave :gmail-local:free
-Sync All
-Create Both 
-Expunge Both
-
-Channel gmail-laposte
-Master :gmail-remote:laurent.aphecetche@laposte.net
-Slave :gmail-local:laposte
-Sync All
-Create Both 
-Expunge Both
-
 Channel gmail-pub
 Master :gmail-remote:
 Slave :gmail-local:
 Sync All
 Create Both
 Pattern "pub/*"
-Expunge Both
-
-Channel gmail-github
-Master :gmail-remote:
-Slave :gmail-local:
-Sync All
-Create Both
-Pattern "github/*"
 Expunge Both
 
 Channel gmail-all

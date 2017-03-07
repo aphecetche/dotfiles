@@ -49,16 +49,16 @@ mailboxes =cern/Archive-2015
 
 #mailboxes =cern/Archive-2016 =cern/Archive-2015 =cern/Archive-2014 =cern/Archive-2013 =cern/Archive-2012
 
-mailboxes =mu
-mailboxes =mu/inbox-work =mu/sent =mu/today =mu/thisweek =mu/thismonth =mu/results
-
 mailboxes =gmail
-mailboxes =gmail/INBOX =gmail/Processed =gmail/free =gmail/laposte
+mailboxes =gmail/INBOX =gmail/Processed
 mailboxes =gmail/pub =gmail/pub/.amazon =gmail/pub/.beauxarts
 
 mailboxes =icloud
 mailboxes =icloud/INBOX 
 mailboxes =icloud/Archive
+
+mailboxes =mu
+mailboxes =mu/inbox-work =mu/sent =mu/today =mu/thisweek =mu/thismonth =mu/results
 
 # Sidebar Patch 
 set sidebar_visible = yes
@@ -175,6 +175,8 @@ bind editor <Tab> complete-query
 set query_command = "mu cfind --format=mutt-ab  '%s'"
 macro pager,index Z "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Maildir/mu/results " "mu find"
 macro pager,index ,mu "<change-folder-readonly>~/Maildir/mu/results<enter>" "mu find results"
+
+macro pager,index <F1> "<change-folder> =subatech/INBOX<enter>" "jump to subatech inbox"
 
 macro pager,index ,tw "<pipe-message>~/dotfiles/bin/mutt2taskwarrior.sh<enter> <save-message>=TODO<enter><edit-label>taskwarrior<enter>" "convert mail to taskwarrior task"
 
