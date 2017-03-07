@@ -206,8 +206,6 @@ Channel icloud-inbox
 Group noturgent-perso
 Channel icloud-sent
 Channel icloud-archive
-Channel gmail-free
-Channel gmail-laposte
 Channel gmail-processed
 
 Group noturgent-work
