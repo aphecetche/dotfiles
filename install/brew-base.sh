@@ -17,7 +17,8 @@ for pkg in \
 	iproute2mac \
     ag \
     go \
-    pyenv
+    pyenv \
+    ctags
 	; do
   brew install "$pkg"
 done
