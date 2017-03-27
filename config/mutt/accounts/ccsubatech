@@ -1,0 +1,10 @@
+set from = "laurent.aphecetche@subatech.in2p3.fr"
+#set sendmail = "/usr/local/bin/msmtp -a subatech"
+
+# default inbox
+set spoolfile="+ccsubatech/INBOX"
+set record="+ccsubatech/Sent Messages"
+
+color status blue default
+macro index,pager a "<save-message>=ccsubatech/Archive<enter>" "Archive"
+macro index,pager S "<save-message>=ccsubatech/Junk<enter>" "Junk"

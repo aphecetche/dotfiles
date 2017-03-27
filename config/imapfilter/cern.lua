@@ -90,9 +90,9 @@ end
 -- messages = mbox:arrived_since("01-Jan-2016") * mbox:arrived_before("01-Jan-2017")
 -- messages:move_messages(cern["Archive-2016"])
 --
-cern:rename_mailbox("JIRA/qa","JIRA/pwgpp")
-cern:rename_mailbox("JIRA/reco","JIRA/aliroot")
-cern:create_mailbox("O2/MRRTF")
+-- cern:rename_mailbox("JIRA/qa","JIRA/pwgpp")
+-- cern:rename_mailbox("JIRA/reco","JIRA/aliroot")
+-- cern:create_mailbox("O2/MRRTF")
 
 
 

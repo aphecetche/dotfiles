@@ -19,19 +19,19 @@ unset mark_old           # read/new is good enough for me
 set pipe_decode          # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
 
-mailboxes =TODO
-mailboxes =subatech
-mailboxes =subatech/INBOX
-mailboxes =subatech/Admin
-mailboxes =subatech/CCIPL
-mailboxes =subatech/IMT
-mailboxes =subatech/InfoSR
-mailboxes =subatech/Junk
-mailboxes =subatech/Missions
-mailboxes =subatech/Univ
-mailboxes =subatech/Archive 
 
-# mailboxes =subatech/Archive-2017 =subatech/Archive-2016 =subatech/Archive-2015 =subatech/Archive-2014 =subatech/Archive-2013 =subatech/Archive-2012
+mailboxes =TODO
+
+mailboxes =ccsubatech
+mailboxes =ccsubatech/INBOX
+mailboxes =ccsubatech/Admin
+mailboxes =ccsubatech/InfoSR
+mailboxes =ccsubatech/Univ
+mailboxes =ccsubatech/Missions
+mailboxes =ccsubatech/CCIPL
+mailboxes =ccsubatech/IMT
+mailboxes =ccsubatech/Archive 
+mailboxes =ccsubatech/Archive-2016 =ccsubatech/Archive-2015 =ccsubatech/Archive-2014 =ccsubatech/Archive-2013 =ccsubatech/Archive-2012 =ccsubatech/Archive-pre2012
 
 mailboxes =cern
 mailboxes =cern/INBOX
@@ -44,10 +44,6 @@ mailboxes =cern/OPS =cern/OPS/.build =cern/OPS/.dpg =cern/OPS/.lcg
 mailboxes =cern/PWG =cern/PWG/.DQ =cern/PWG/.HF
 mailboxes =cern/Papers =cern/Papers/.Jpsi-vs-multiplicity =cern/Papers/.Phi2mumu-PbPb =cern/Papers/.Phi2mumu-pA =cern/Papers/.Jpsi2mumu-pA-2013
 mailboxes =cern/Archive 
-
-mailboxes =cern/Archive-2015
-
-#mailboxes =cern/Archive-2016 =cern/Archive-2015 =cern/Archive-2014 =cern/Archive-2013 =cern/Archive-2012
 
 mailboxes =gmail
 mailboxes =gmail/INBOX =gmail/Processed
@@ -87,7 +83,7 @@ hdr_order to: cc: date: from: subject:  # and in this order
 
 # Index View Options ---------------------------------
 set date_format = "%d/%m/%y %H:%M"
-set index_format = "[%Z] %?M?(%3M)&     ? %D  %-20.20F  %s"
+set index_format = "%4C [%Z] %?M?(%3M)&     ? %D  %-20.20F  %s"
 set sort = threads                         # like gmail
 set sort_aux = reverse-last-date-received  # like gmail
 set uncollapse_jump                        # don't collapse on an unread message
@@ -165,7 +161,7 @@ set sendmail="~/dotfiles/bin/msmtpq"
 folder-hook gmail/* source ~/.mutt/accounts/gmail
 folder-hook icloud/* source ~/.mutt/accounts/icloud
 folder-hook cern/* source ~/.mutt/accounts/cern
-folder-hook subatech/* source ~/.mutt/accounts/subatech
+folder-hook ccsubatech/* source ~/.mutt/accounts/ccsubatech
 
 source ~/.mutt/colors
 
@@ -176,7 +172,10 @@ set query_command = "mu cfind --format=mutt-ab  '%s'"
 macro pager,index Z "<shell-escape>mu find --clearlinks --format=links --linksdir=~/Maildir/mu/results " "mu find"
 macro pager,index ,mu "<change-folder-readonly>~/Maildir/mu/results<enter>" "mu find results"
 
-macro pager,index <F1> "<change-folder> =subatech/INBOX<enter>" "jump to subatech inbox"
+macro pager,index ,1 "<change-folder> =ccsubatech/INBOX<enter>" "jump to subatech inbox"
+macro pager,index ,2 "<change-folder> =cern/INBOX<enter>" "jump to cern inbox"
+macro pager,index ,3 "<change-folder> =gmail/INBOX<enter>" "jump to gmail inbox"
+macro pager,index ,4 "<change-folder> =icloud/INBOX<enter>" "jump to icloud inbox"
 
 macro pager,index ,tw "<pipe-message>~/dotfiles/bin/mutt2taskwarrior.sh<enter> <save-message>=TODO<enter><edit-label>taskwarrior<enter>" "convert mail to taskwarrior task"
 

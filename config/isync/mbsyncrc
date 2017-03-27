@@ -6,13 +6,13 @@
 # in that order, so the imapfilter config.lua file can decipher
 # those easily (as the "parsing" there is really simple...)
 
-IMAPAccount subatech
-Host imap-subatech.in2p3.fr
-User aphecete
+IMAPAccount ccsubatech
+Host subatechmail.in2p3.fr
+User aphecete@subatech.in2p3.fr
 CertificateFile ~/.certificates/imap-subatech.cert
 SSLType IMAPS
 SSLVersions TLSv1
-PassCmd "security find-generic-password -s mbsync-subatech-password -w"
+PassCmd "security find-generic-password -s mbsync-ccsubatech-password -w"
 
 IMAPAccount cern
 Host imap.cern.ch
@@ -38,9 +38,8 @@ SSLType IMAPS
 SSLVersions TLSv1
 PassCmd "security find-generic-password -s mbsync-gmail-password -w"
 
-IMAPStore subatech-remote
-Account subatech
-Path ~/IMAPMAILBOXES/
+IMAPStore ccsubatech-remote
+Account ccsubatech
 
 IMAPStore cern-remote
 Account cern
@@ -51,9 +50,9 @@ Account gmail
 IMAPStore icloud-remote
 Account icloud
 
-MaildirStore subatech-local
-Path ~/Maildir/subatech/
-Inbox ~/Maildir/subatech/INBOX
+MaildirStore ccsubatech-local
+Path ~/Maildir/ccsubatech/
+Inbox ~/Maildir/ccsubatech/INBOX
 
 MaildirStore cern-local
 Path ~/Maildir/cern/
@@ -67,21 +66,18 @@ MaildirStore icloud-local
 Path ~/Maildir/icloud/
 Inbox ~/Maildir/icloud/INBOX
 
-Channel subatech-inbox
-Master :subatech-remote:
-Slave :subatech-local:
+Channel ccsubatech-inbox
+Master :ccsubatech-remote:
+Slave :ccsubatech-local:
 Sync All
 Create Both
 Expunge Both
 
-Channel subatech-all
-Master :subatech-remote:
-Slave :subatech-local:
-#Pattern "Archive*"
+Channel ccsubatech-all
+Master :ccsubatech-remote:
+Slave :ccsubatech-local:
 Pattern "*"
 Pattern "!INBOX"
-Pattern "!Delete*"
-# Pattern "!Junk*"
 Sync All
 Create Both
 Expunge Both
@@ -185,18 +181,18 @@ Group cern
 Channel cern-inbox
 Channel cern-all
 
-Group subatech
-Channel subatech-inbox
-Channel subatech-all
+Group ccsubatech
+Channel ccsubatech-inbox
+Channel ccsubatech-all
 
 Group inbox
-Channel subatech-inbox
+Channel ccsubatech-inbox
 Channel cern-inbox
 Channel gmail-inbox
 Channel icloud-inbox
 
 Group inbox-work
-Channel subatech-inbox
+Channel ccsubatech-inbox
 Channel cern-inbox
 
 Group inbox-perso
@@ -209,6 +205,7 @@ Channel icloud-archive
 Channel gmail-processed
 
 Group noturgent-work
-Channel subatech-all
 Channel cern-all
+Channel ccsubatech-all
+
 

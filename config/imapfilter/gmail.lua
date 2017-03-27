@@ -30,3 +30,5 @@ messages:move_messages(cern["GIT/aliceo2"])
 messages = gmail["INBOX"]:contain_to("alibuild")
 messages:move_messages(gmail["GIT/alibuild"])
 
+messages = gmail["INBOX"]:contain_to("alisw/AliRoot")
+messages:move_messages(gmail["GIT/aliroot"])

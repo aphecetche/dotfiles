@@ -11,7 +11,7 @@
 		<string>/Users/laurent/dotfiles/bin/mailsend.sh</string>
 	</array>
 	<key>RunAtLoad</key>
-	<false/>
+	<true/>
 	<key>StandardErrorPath</key>
 	<string>/tmp/fr.aphecetche.msmtp-queue.stderr</string>
 	<key>StandardOutPath</key>
