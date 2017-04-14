@@ -1,0 +1,15 @@
+#%Modules1.0
+proc ModulesHelp { } {
+    puts stderr "Setup environment to develop Go code"
+}
+
+module-whatis "dev. env for Go code"
+
+setenv GOPATH $::env(HOME)/go
+
+append-path PATH $::env(GOPATH)/bin
+
+append-path CDPATH .
+append-path CDPATH $::env(GOPATH)/src/github.com
+append-path CDPATH $::env(GOPATH)/src/github.com/aphecetche
+

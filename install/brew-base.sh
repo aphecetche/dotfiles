@@ -9,17 +9,18 @@ fi
 # there from the very beginning to be able to checkout this very repository ;-)
 
 for pkg in \
-	wget \
-	git \ 
-	hub \
-	reattach-to-user-namespace \
-	tmux \
-	iproute2mac \
+    wget \
+    git \ 
+    git-lfs	\
+    hub \
+    reattach-to-user-namespace \
+    tmux \
+    iproute2mac \
     ag \
     go \
     pyenv \
     ctags
-	; do
-  brew install "$pkg"
+; do
+brew install "$pkg"
 done
 

@@ -148,6 +148,14 @@ Create Both
 Pattern "pub/*"
 Expunge Both
 
+Channel gmail-github
+Master :gmail-remote:
+Slave :gmail-local:
+Sync All
+Create Both
+Pattern "github"
+Expunge Both
+
 Channel gmail-all
 Master :gmail-remote:
 Slave :gmail-local:
@@ -203,6 +211,7 @@ Group noturgent-perso
 Channel icloud-sent
 Channel icloud-archive
 Channel gmail-processed
+Channel gmail-github
 
 Group noturgent-work
 Channel cern-all

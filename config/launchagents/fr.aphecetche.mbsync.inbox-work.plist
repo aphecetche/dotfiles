@@ -12,7 +12,6 @@
 	<array>
 		<string>/Users/laurent/dotfiles/bin/mailsync.sh</string>
 		<string>inbox-work</string>
-		<string>cern</string>
 		<string>ccsubatech</string>
 	</array>
 	<key>RunAtLoad</key>

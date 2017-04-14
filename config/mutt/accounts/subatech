@@ -5,6 +5,8 @@ set from = "laurent.aphecetche@subatech.in2p3.fr"
 set spoolfile="+subatech/INBOX"
 set record="+subatech/Sent Messages"
 
+set signature="signature.subatech"
+
 color status blue default
 macro index,pager a "<save-message>=subatech/Archive<enter>" "Archive"
 macro index,pager S "<save-message>=subatech/Junk<enter>" "Junk"

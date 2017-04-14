@@ -1,0 +1,19 @@
+#%Module
+proc ModulesHelp { } {
+
+    puts stderr "Adds ~/alice/sw/MODULES to MODULEPATH so that"
+    puts stderr "all Alice modules are visible to 'module avail'"
+}
+
+module-whatis	"adds ~/alice/sw/MODULES to MODULEPATH"
+
+set osname [uname sysname]
+set osarchitecture [uname machine]
+
+if {$osname=="Darwin"} {
+    set osname "osx"
+    set osarchitecture "x86-64"
+    }
+module use -a $env(HOME)/alice/sw/MODULES/${osname}_$osarchitecture   
+
+

@@ -30,6 +30,8 @@ Plug 'Konfekt/FastFold'
 Plug 'Valloric/YouCompleteMe'
 ", { 'do': './install.py --clang-completer' , 'for': ['c','cpp'] }
 
+Plug 'SirVer/ultisnips'
+
 " language-specific plugins
 
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' } " sass scss syntax support

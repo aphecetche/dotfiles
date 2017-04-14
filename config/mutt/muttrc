@@ -31,22 +31,23 @@ mailboxes =ccsubatech/Missions
 mailboxes =ccsubatech/CCIPL
 mailboxes =ccsubatech/IMT
 mailboxes =ccsubatech/Archive 
-mailboxes =ccsubatech/Archive-2016 =ccsubatech/Archive-2015 =ccsubatech/Archive-2014 =ccsubatech/Archive-2013 =ccsubatech/Archive-2012 =ccsubatech/Archive-pre2012
+#mailboxes =ccsubatech/Archive-2016 =ccsubatech/Archive-2015 =ccsubatech/Archive-2014 =ccsubatech/Archive-2013 =ccsubatech/Archive-2012 =ccsubatech/Archive-pre2012
 
 mailboxes =cern
 mailboxes =cern/INBOX
-mailboxes =cern/O2 =cern/O2/.CWG4 =cern/O2/.CWG13 =cern/O2/.CWG6 =cern/O2/.MRRTF
+mailboxes =cern/O2 =cern/O2/.WPs =cern/O2/.CWG4 =cern/O2/.CWG13 =cern/O2/.CWG6 =cern/O2/.MRRTF
 mailboxes =cern/MUON =cern/MUON/.MID =cern/MUON/.MTR =cern/MUON/.MCH
 mailboxes =cern/GIT 
 mailboxes =cern/GIT/.aliceo2 =cern/GIT/.aliphysics =cern/GIT/.aliroot =cern/GIT/.alibuild
-mailboxes =cern/JIRA =cern/JIRA/.pwgpp =cern/JIRA/.aliroot
-mailboxes =cern/OPS =cern/OPS/.build =cern/OPS/.dpg =cern/OPS/.lcg
+mailboxes =cern/JIRA =cern/JIRA/.pwgpp =cern/JIRA/.aliroot =cern/JIRA/.cern
+mailboxes =cern/OPS =cern/OPS/.lcg =cern/OPS/.alice
 mailboxes =cern/PWG =cern/PWG/.DQ =cern/PWG/.HF
 mailboxes =cern/Papers =cern/Papers/.Jpsi-vs-multiplicity =cern/Papers/.Phi2mumu-PbPb =cern/Papers/.Phi2mumu-pA =cern/Papers/.Jpsi2mumu-pA-2013
 mailboxes =cern/Archive 
 
 mailboxes =gmail
 mailboxes =gmail/INBOX =gmail/Processed
+mailboxes =gmail/github
 mailboxes =gmail/pub =gmail/pub/.amazon =gmail/pub/.beauxarts
 
 mailboxes =icloud
