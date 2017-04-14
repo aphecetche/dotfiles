@@ -37,9 +37,9 @@ mailboxes =cern
 mailboxes =cern/INBOX
 mailboxes =cern/O2 =cern/O2/.WPs =cern/O2/.CWG4 =cern/O2/.CWG13 =cern/O2/.CWG6 =cern/O2/.MRRTF
 mailboxes =cern/MUON =cern/MUON/.MID =cern/MUON/.MTR =cern/MUON/.MCH
-mailboxes =cern/GIT 
-mailboxes =cern/GIT/.aliceo2 =cern/GIT/.aliphysics =cern/GIT/.aliroot =cern/GIT/.alibuild
-mailboxes =cern/JIRA =cern/JIRA/.pwgpp =cern/JIRA/.aliroot =cern/JIRA/.cern
+# mailboxes =cern/GIT 
+# mailboxes =cern/GIT/.aliceo2 =cern/GIT/.aliphysics =cern/GIT/.aliroot =cern/GIT/.alibuild
+mailboxes =cern/JIRA =cern/JIRA/.pwgpp =cern/JIRA/.aliroot
 mailboxes =cern/OPS =cern/OPS/.lcg =cern/OPS/.alice
 mailboxes =cern/PWG =cern/PWG/.DQ =cern/PWG/.HF
 mailboxes =cern/Papers =cern/Papers/.Jpsi-vs-multiplicity =cern/Papers/.Phi2mumu-PbPb =cern/Papers/.Phi2mumu-pA =cern/Papers/.Jpsi2mumu-pA-2013

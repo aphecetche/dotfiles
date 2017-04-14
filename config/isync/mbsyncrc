@@ -212,6 +212,9 @@ Channel icloud-sent
 Channel icloud-archive
 Channel gmail-processed
 Channel gmail-github
+Channel gmail-laposte
+Channel gmail-free
+Channel gmail-pub
 
 Group noturgent-work
 Channel cern-all
