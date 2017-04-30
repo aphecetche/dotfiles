@@ -1,0 +1,45 @@
+CopyArrivalDate Yes
+Expunge Both
+Create Both
+
+IMAPAccount dovecot-icloud
+Host 127.0.0.1
+User icloud
+PassCmd "security find-generic-password -s dovecot-icloud-password -w"
+CertificateFile /usr/local/etc/ssl/certs/dovecot.pem
+AuthMechs *
+
+IMAPStore dovecot-icloud
+Account dovecot-icloud
+
+IMAPAccount icloud
+Host imap.mail.me.com
+User laurent.aphecetche@me.com
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+PassCmd "security find-generic-password -s mbsync-icloud-password -w"
+
+IMAPStore icloud-remote
+Account icloud
+
+Channel icloud-all
+Master :icloud-remote:
+Slave :dovecot-icloud:
+Patterns *
+SyncState ~/.mbsync/icloud/
+
+Channel icloud-inbox
+Master :icloud-remote:
+Slave :dovecot-icloud:
+SyncState ~/.mbsync/icloud/
+
+Channel icloud-internals
+Master :icloud-remote:
+Slave :dovecot-icloud:
+Pattern "Archive" "Drafts" "Junk" "Sent Messages" "trashFolder:Delete Messages"
+SyncState ~/.mbsync/icloud/
+
+Group icloud
+Channel icloud-inbox
+Channel icloud-internals

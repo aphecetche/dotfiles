@@ -1,3 +1,0 @@
-# link the mbsyncrc to $HOME
-
-printf "%s" "$HOME/dotfiles/config/isync/mbsyncrc:$HOME/.mbsyncrc|"

@@ -1,0 +1,115 @@
+CopyArrivalDate Yes
+Expunge Both
+Create Both
+
+IMAPAccount dovecot-cern
+Host 127.0.0.1
+User cern
+PassCmd "security find-generic-password -s dovecot-cern-password -w"
+AuthMechs *
+CertificateFile /usr/local/etc/ssl/certs/dovecot.pem
+#CertificateFile ~/dotfiles/config/isync/dovecot.crt 
+
+IMAPStore dovecot-cern
+Account dovecot-cern
+
+IMAPAccount cern
+Host imap.cern.ch
+User laphecet
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+PassCmd "security find-generic-password -s mbsync-cern-password -w"
+
+IMAPStore cern-remote
+Account cern
+
+##############
+# CERN
+##############
+
+Channel cern-inbox
+Master :cern-remote:
+Slave :dovecot-cern:
+SyncState ~/.mbsync/cern/
+
+Channel cern-o2
+Master :cern-remote:
+Slave :dovecot-cern:
+Pattern "O2*"
+SyncState ~/.mbsync/cern/
+
+Channel cern-jira
+Master :cern-remote:
+Slave :dovecot-cern:
+Pattern "JIRA*"
+SyncState ~/.mbsync/cern/
+
+Channel cern-pwg
+Master :cern-remote:
+Slave :dovecot-cern:
+Pattern "PWG*"
+SyncState ~/.mbsync/cern/
+
+Channel cern-papers
+Master :cern-remote:
+Slave :dovecot-cern:
+Pattern "Papers*"
+SyncState ~/.mbsync/cern/
+
+Channel cern-ops
+Master :cern-remote:
+Slave :dovecot-cern:
+Pattern "OPS*"
+SyncState ~/.mbsync/cern/
+
+Channel cern-muon
+Master :cern-remote:
+Slave :dovecot-cern:
+Pattern "MUON*"
+SyncState ~/.mbsync/cern/
+
+# the archives channel is not supposed
+# to be in the general ccsubatech group for 
+# regular sync, but is there so it can be used
+# manually, e.g. once a year...
+Channel cern-archives
+Master :cern-remote:
+Slave :dovecot-cern:
+Pattern "Archive-*"
+SyncState ~/.mbsync/cern/
+
+Channel cern-airmail
+Master :cern-remote:
+Slave :dovecot-cern:
+Pattern "[Airmail]*"
+SyncState ~/.mbsync/cern/
+
+Channel cern-internals
+Master :cern-remote:
+Slave :dovecot-cern:
+# Pattern * !"MUON*" !"O2*" !"JIRA*" !"Archive-*" !"OPS*" !"PWG*" !"Papers*"
+# Pattern !"[Airmail]*" !INBOX
+# Pattern !Notes !Tasks !Journal !Outbox !Calendar !Contacts
+# Pattern !"Sent"
+# Pattern !"Junk"
+# Pattern !"Contact*" !"Conversation*"
+# Pattern !"Attic*"
+# Pattern !Trash
+Pattern "Archive"
+Pattern "Deleted Items"
+Pattern "Drafts"
+Pattern "Junk E-Mail"
+Pattern "Sent Items"
+SyncState ~/.mbsync/cern/
+
+Group cern
+Channel cern-inbox
+Channel cern-o2
+Channel cern-jira
+Channel cern-ops
+Channel cern-pwg
+Channel cern-papers
+Channel cern-muon
+Channel cern-airmail
+Channel cern-internals

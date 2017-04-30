@@ -3,18 +3,18 @@
 # mu searches to fake virtual mailboxes in mutt
 #
 
-/usr/local/bin/mu index
+MD=~/Maildir.mutt
 
-# /usr/local/bin/mu find subject:"[GIT*" --format=links --linksdir=~/Maildir/mu/git --clearlinks
+/usr/local/bin/mu index -m $MD
 
 # all sent messages
-/usr/local/bin/mu find m:"/cern/Sent Messages" or m:"/ccsubatech/Sent Messages" or m:"/gmail/Sent Messages" or m:"/icloud/Sent Messages" --format=links --linksdir=~/Maildir/mu/sent --clearlinks
+/usr/local/bin/mu find m:"/cern/Sent Messages" or m:"/ccsubatech/Sent Messages" or m:"/gmail/Sent Messages" or m:"/icloud/Sent Messages" --format=links --linksdir=$MD/mu/sent --clearlinks
 
 # combined subatech+cern inbox
-/usr/local/bin/mu find m:/cern/INBOX or m:/ccsubatech/INBOX --format=links --linksdir=~/Maildir/mu/inbox-work --clearlinks
+/usr/local/bin/mu find m:/cern/INBOX or m:/ccsubatech/INBOX --format=links --linksdir=$MD/mu/inbox-work --clearlinks
 
 # today, this week, this month
-/usr/local/bin/mu find date:today..now --format=links --linksdir=~/Maildir/mu/today --clearlinks
-/usr/local/bin/mu find date:1w..now --format=links --linksdir=~/Maildir/mu/thisweek --clearlinks
-/usr/local/bin/mu find date:4w..now --format=links --linksdir=~/Maildir/mu/thismonth --clearlinks
+/usr/local/bin/mu find date:today..now --format=links --linksdir=$MD/mu/today --clearlinks
+/usr/local/bin/mu find date:1w..now --format=links --linksdir=$MD/mu/thisweek --clearlinks
+/usr/local/bin/mu find date:4w..now --format=links --linksdir=$MD/mu/thismonth --clearlinks
 

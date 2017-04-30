@@ -1,0 +1,108 @@
+CopyArrivalDate Yes
+Expunge Both
+
+IMAPAccount dovecot-gmail
+Host 127.0.0.1
+User gmail
+PassCmd "security find-generic-password -s dovecot-gmail-password -w"
+CertificateFile /usr/local/etc/ssl/certs/dovecot.pem
+AuthMechs *
+
+IMAPAccount gmail
+Host imap.gmail.com
+User laurent.aphecetche@gmail.com
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions TLSv1
+PassCmd "security find-generic-password -s mbsync-gmail-password -w"
+
+IMAPStore gmail-remote
+Account gmail
+
+IMAPStore dovecot-gmail
+Account dovecot-gmail
+
+Channel gmail-inbox
+Master :gmail-remote:
+Slave :dovecot-gmail:
+SyncState ~/.mbsync/gmail/
+Create Both
+
+Channel gmail-laposte
+Master :gmail-remote:
+Slave :dovecot-gmail:
+Pattern "*laposte*"
+SyncState ~/.mbsync/gmail/
+Create Both
+
+Channel gmail-free
+Master :gmail-remote:
+Slave :dovecot-gmail:
+Pattern "*free*"
+SyncState ~/.mbsync/gmail/
+Create Both
+
+Channel gmail-internals
+Master :gmail-remote:
+Slave :dovecot-gmail:
+Pattern "[Gmail]/Corbeille" "[Gmail]/Messages envoy&AOk-s" "[Gmail]/Brouillons" "[Gmail]/Spam"
+SyncState ~/.mbsync/gmail/
+Create Both
+
+Channel gmail-private
+Master :gmail-remote:
+Slave :dovecot-gmail:
+Pattern "copains" "famille" "achats"
+SyncState ~/.mbsync/gmail/
+Create Both
+
+Channel gmail-git
+Master :gmail-remote:
+Slave :dovecot-gmail:
+Pattern "git"
+SyncState ~/.mbsync/gmail/
+Create Both
+
+Channel gmail-misplaced
+Master :gmail-remote:
+Slave :dovecot-gmail:
+Pattern "Misplaced/cern" "Misplaced/subatech"
+SyncState ~/.mbsync/gmail/
+Create Both
+
+# remember that gmail really has no folders whatsoever
+# but only labels. The label->folder conversion is 
+# an IMAP thing. 
+# So by requesting all mails here, we are downloading
+# each mail at least twice (one under the "all mail" folder and
+# one in each of the folder/label the mail appears).
+# That's not a bug but a feature of how gmail is working.
+# Using more local disk space but at least that way
+# we are sure of getting all mails backed-up
+# (and there's usually no need to look at the all mail mailbox
+# from the email client, unless to find out a somehow misplaced
+# email...)
+Channel gmail-all
+Master :gmail-remote:
+Slave :dovecot-gmail:
+Pattern "[Gmail]/Tous les messages"
+SyncState ~/.mbsync/gmail/
+Create Both
+
+Channel gmail-archives
+Master :gmail-remote:
+Slave :dovecot-gmail:
+Pattern "Archives/*"
+SyncState ~/.mbsync/gmail/
+Create Slave 
+
+Group gmail
+Channel gmail-inbox
+Channel gmail-laposte
+Channel gmail-free
+Channel gmail-internals
+Channel gmail-misplaced
+Channel gmail-private
+Channel gmail-archives
+Channel gmail-git
+

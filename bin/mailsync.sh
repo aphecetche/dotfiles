@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 #
 # script to sync imap stuff
-# = imapfilter + mbsync + mu index
 
 EMAIL_CONN_TEST=n
 
@@ -15,9 +14,9 @@ EMAIL_CONN_TEST=n
 #
 
 sync=$1
-shift
-filters=$@
+conf=~/dotfiles/config/mail/$sync.mbsyncrc
 
+date && echo "STARTING sync=$sync conf=$conf"
 connect_test() {
   if [ -z "$EMAIL_CONN_TEST" ] || \
      [ "$EMAIL_CONN_TEST" = 'p' ] ; then                       # use ping test (default)
@@ -44,16 +43,5 @@ connect_test() {
 
 connect_test || { printf "no connection. doing nothing\n" ; exit 1 ; }
 
-dir="$HOME/dotfiles/config/imapfilter"
-
-for filter in $(printf "$filters"); do
-    filterscript="$dir/$filter.lua" 
-    if test -f "$filterscript"; then
-        pushd $dir > /dev/null
-        date && echo "Starting filtering for $filter" && /usr/local/bin/imapfilter -c "$filterscript" && echo "done"
-        popd > /dev/null 
-    fi
-done
-
-date && echo "Starting mbsync for $sync" && /usr/local/bin/mbsync $sync && echo "mbsync done" && date
+date && echo "Starting mbsync for $sync" && /usr/local/bin/mbsync -c $conf $sync && echo "mbsync done" && date
 

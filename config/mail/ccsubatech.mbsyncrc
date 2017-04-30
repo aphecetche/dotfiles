@@ -1,0 +1,65 @@
+CopyArrivalDate Yes
+Expunge Both
+Create Both
+
+IMAPAccount dovecot-ccsubatech
+Host 127.0.0.1
+User ccsubatech
+PassCmd "security find-generic-password -s dovecot-ccsubatech-password -w"
+CertificateFile /usr/local/etc/ssl/certs/dovecot.pem
+AuthMechs *
+
+IMAPStore dovecot-ccsubatech
+Account dovecot-ccsubatech
+
+IMAPAccount ccsubatech
+Host subatechmail.in2p3.fr
+User aphecete@subatech.in2p3.fr
+PassCmd "security find-generic-password -s mbsync-ccsubatech-password -w"
+Port 993
+SSLType IMAPS
+SSLVersions TLSv1
+
+IMAPStore ccsubatech-remote
+Account ccsubatech
+
+Channel ccsubatech-inbox
+Master :ccsubatech-remote:
+Slave :dovecot-ccsubatech:
+SyncState ~/.mbsync/ccsubatech/
+
+# the archives channel is not supposed
+# to be in the general ccsubatech group for 
+# regular sync, but is there so it can be used
+# manually, e.g. once a year...
+Channel ccsubatech-archives
+Master :ccsubatech-remote:
+Slave :dovecot-ccsubatech:
+Pattern "Archive-*"
+SyncState ~/.mbsync/ccsubatech/
+
+Channel ccsubatech-internals
+Master :ccsubatech-remote:
+Slave :dovecot-ccsubatech:
+Pattern "Archive" "Drafts" "Junk" "Sent" "Pourriel" "Trash" "Brouillons"
+SyncState ~/.mbsync/ccsubatech/
+
+Channel ccsubatech-lists
+Master :ccsubatech-remote:
+Slave :dovecot-ccsubatech:
+Pattern "IMT" "Univ"
+SyncState ~/.mbsync/ccsubatech/
+
+Channel ccsubatech-main
+Master :ccsubatech-remote:
+Slave :dovecot-ccsubatech:
+Pattern "Admin" "CCIPL" "InfoSR" "Missions"
+SyncState ~/.mbsync/ccsubatech/
+
+Group ccsubatech
+Channel ccsubatech-inbox
+Channel ccsubatech-internals
+Channel ccsubatech-lists
+Channel ccsubatech-main
+
+

@@ -12,10 +12,10 @@ gmail = IMAP {
 
 -- move label:cern messages to relevant cern mailboxes
 
-messages = gmail["cern"]:select_all()
+messages = gmail["Misplaced/cern"]:select_all()
 messages:move_messages(cern["INBOX"])
 
 -- move label:subatech messages to ccsubatech
-messages = gmail["subatech"]:select_all()
+messages = gmail["Misplaced/subatech"]:select_all()
 messages:move_messages(ccsubatech["INBOX"])
 
