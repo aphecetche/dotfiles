@@ -2,7 +2,7 @@
 #
 # script to sync imap stuff
 
-EMAIL_CONN_TEST=n
+EMAIL_CONN_TEST=P
 
 # connection test (inspired) from the mstmpq script
 #   EMAIL_CONN_TEST 
@@ -24,13 +24,13 @@ connect_test() {
     # would ping -qnc2 -w4 be better ?
     # would ping -qnc1 -w10 or -w20 be better ?
     #ping -qnc1 -w4 debian.org >/dev/null 2>&1 || return 1
-    ping -qnc2 -w10 debian.org >/dev/null 2>&1 || return 1
+    ping -qnc2 -t10 debian.org >/dev/null 2>&1 || return 1
 
   elif [ "$EMAIL_CONN_TEST" = 'P' ] ; then                     # use quicker ping test
     # I personally think that including a DNS lookup
     # is a better connection test but some
     # have found the above test too slow
-    ping -qnc1 -w4 8.8.8.8 >/dev/null 2>&1 || return 1
+    ping -qnc1 -t10 8.8.8.8 >/dev/null 2>&1 || return 1
 
   elif [ "$EMAIL_CONN_TEST" = 'n' ] ; then                     # use netcat (nc) test
     # must, of course, have netcat (nc) installed

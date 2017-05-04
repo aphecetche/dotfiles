@@ -15,8 +15,8 @@ echo "# destination   credentials" | sudo tee -a $pdb > /dev/null
 
 echo "[smtp.gmail.com]:587 laurent.aphecetche@gmail.com:$(security find-generic-password -s mbsync-gmail-password -w)" | sudo tee -a $pdb > /dev/null
 echo "[smtp.cern.ch]:587 laphecet:$(security find-generic-password -s mbsync-cern-password -w)" | sudo tee -a $pdb > /dev/null
-echo "[subatechrelay.in2p3.fr]:465 aphecete@subatech.in2p3.fr:$(security find-generic-password -s mbsync-ccsubatech-password -w)" | sudo tee -a $pdb > /dev/null
-echo "[smtp.mail.me.com]:587 laurent.aphecetche@me.com:$(security find-generic-password -s mbsync-icloud-password -w)" | sudo tee -a $pdb > /dev/null
+echo "[127.0.0.1]:11125 aphecete@subatech.in2p3.fr:$(security find-generic-password -s mbsync-ccsubatech-password -w)" | sudo tee -a $pdb > /dev/null
+echo "[smtp.mail.me.com]:587 laurent.aphecetche@icloud.com:$(security find-generic-password -s mbsync-icloud-password -w)" | sudo tee -a $pdb > /dev/null
 
 sudo postmap /etc/postfix/sender_relay
 sudo postmap /etc/postfix/sasl_passwd

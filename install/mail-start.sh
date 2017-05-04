@@ -10,3 +10,6 @@ echo "Starting postfix (needs sudo)"
 sudo postfix start 
 sudo postfix check
 
+echo "starting stunnel"
+stunnel
+

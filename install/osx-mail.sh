@@ -29,5 +29,8 @@ ln -si ~/dotfiles/config/mail/dovecot.conf /usr/local/etc/dovecot/dovecot.conf
 # postfix configuration
 ~/dotfiles/install/mail-postfix.sh || return 5
 
+# stunnel conf
+cp ~/dotfiles/config/mail/stunnel.conf /usr/local/etc/stunnel/
+
 # restart everything
 ~/dotfiles/install/mail-start.sh || return 6
