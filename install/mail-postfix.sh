@@ -1,6 +1,7 @@
 #!/bin/sh
 
 sudo cp ~/dotfiles/config/mail/postfix-main.cf /etc/postfix/main.cf
+sudo chown root:wheel /etc/postfix/main.cf
 sudo cp ~/dotfiles/config/mail/postfix-sender_relay /etc/postfix/sender_relay
 
 pdb=/etc/postfix/sasl_passwd
