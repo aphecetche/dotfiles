@@ -1,3 +1,4 @@
+#!/bin/sh
 # 
 ## To find out the colour used by the current base16 theme
 # use the base16-shell/colortest utility
@@ -16,3 +17,4 @@ export TMUX_MESSAGE_COLOR="colour12"
 export TMUX_CLOCK_COLOR="colour12"
 
 
+. ./theme.sh

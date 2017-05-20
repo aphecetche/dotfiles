@@ -1,4 +1,3 @@
-# 
 ## To find out the colour used by the current base16 theme
 # use the base16-shell/colortest utility
 export TMUX_STATUS_BAR_FG_COLOR="colour07"
@@ -14,5 +13,5 @@ export TMUX_WINDOW_STATUS_CURRENT_BG_COLOR="colour19"
 export TMUX_MESSAGE_COLOR="colour12"
 export TMUX_CLOCK_COLOR="colour12"
 
-
+. ./theme.sh
 
