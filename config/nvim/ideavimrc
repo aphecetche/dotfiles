@@ -14,3 +14,9 @@ map <C-J> <C-W>j
 " make it go to file in CLion
 
 map <C-P> :action GotoFile<CR>
+
+#map gc :action CommentByLineComment<CR>
+
+nmap <leader>b :action Build<CR>
+nmap <leader>r :action Run<CR>
+

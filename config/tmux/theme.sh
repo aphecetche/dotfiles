@@ -43,7 +43,7 @@ tmux set -g window-status-current-attr bold
 tmux set -g window-status-format "#I #W  "
 tmux set -g status-position bottom
 
- tmux set -g status-left "#[fg=$TMUX_STATUS_BAR_LEFT_SESSION_COLOR][#S] "
+tmux set -g status-left "#[fg=$TMUX_STATUS_BAR_LEFT_SESSION_COLOR][#S] "
 
 tmux set -g status-right "#(whoami) #[fg=$TMUX_STATUS_BAR_FG_COLOR]#{battery_icon}  #{battery_percentage}  %a %d %b #[fg=$TMUX_CLOCK_COLOR] %H:%M#[fg=$TMUX_WINDOW_STATUS_CURRENT_FG_COLOR]$TMUX_HOST_ICON "
 tmux set -g status-right-length 110

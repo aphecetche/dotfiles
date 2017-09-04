@@ -1,6 +1,7 @@
 #!/bin/sh
 
-. ~/dotfiles/config/mail/mail-mbsync-stop.sh
+. ~/dotfiles/install/mail-mbsync-stop.sh
+
 echo "Stopping dovecot brew service (needs sudo)"
 sudo brew services stop dovecot > /dev/null 2>&1
 

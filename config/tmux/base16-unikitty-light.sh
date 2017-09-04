@@ -13,5 +13,5 @@ export TMUX_WINDOW_STATUS_CURRENT_BG_COLOR="colour19"
 export TMUX_MESSAGE_COLOR="colour12"
 export TMUX_CLOCK_COLOR="colour12"
 
-. ./theme.sh
+. ~/dotfiles/config/tmux/theme.sh
 

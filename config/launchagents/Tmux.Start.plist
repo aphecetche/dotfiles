@@ -2,14 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Label</key>
-	<string>fr.aphecetche.iterm-start-tmux</string>
-	<key>ProgramArguments</key>
-	<array>
-		<string>/Users/laurent/.tmux/plugins/tmux-continuum/scripts/handle_tmux_automatic_start/osx_iterm_start_tmux.sh</string>
-		<string>fullscreen</string>
-	</array>
-	<key>RunAtLoad</key>
-	<false/>
+    <key>Label</key>
+    <string>Tmux.Start.plist</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/laurent/.tmux/plugins/tmux-continuum/scripts/handle_tmux_automatic_start/osx_iterm_start_tmux.sh</string>
+        <string>fullscreen</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
 </dict>
 </plist>
