@@ -17,12 +17,9 @@ for pkg in \
 	automake \
 	autoconf \
 	libtool \
-	python \
     modules \
 	; do
   brew install "$pkg"
 done
-
-pip install --upgrade pip setuptools
 
 
