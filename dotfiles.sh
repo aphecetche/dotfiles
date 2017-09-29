@@ -117,13 +117,13 @@ dotfiles_install_osx()
 
 dotfiles_install_all()
 {
-    dotfiles_install_common
     if [ "$(uname)" = "Darwin" ]; then
         dotfiles_install_osx
     fi
     if [ "$(uname)" = "Linux" ]; then
         dotfiles_install_linux
     fi
+    dotfiles_install_common
 }
 
 # vim: set ft=zsh
