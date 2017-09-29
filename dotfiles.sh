@@ -110,7 +110,7 @@ dotfiles_install_osx()
 {
     # we loop on all brew-*.sh and osx-*.sh files
 
-    for what in $(ls -1 ~/dotfiles/install/(osx|brew)* | cut -d '.' -f 1 | tr "\n" " "); do
+    for what in $(ls -1 ~/dotfiles/install/(osx|brew)* | cut -d '.' -f 1 | tr '\n' ' '); do
         dotfiles_install $(basename $what) || break
     done
 }
