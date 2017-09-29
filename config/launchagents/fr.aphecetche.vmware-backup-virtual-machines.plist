@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Disabled</key>
+	<true/>
 	<key>Label</key>
 	<string>fr.aphecetche.vmware-backup-virtual-machines</string>
 	<key>ProgramArguments</key>
@@ -10,6 +12,10 @@
 	</array>
 	<key>RunAtLoad</key>
 	<false/>
+	<key>StandardErrorPath</key>
+	<string>/tmp/fr.aphecetche.vmware-backup-virtual-machines.stderr</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/fr.aphecetche.vmware-backup-virtual-machines.stdout</string>
 	<key>StartCalendarInterval</key>
 	<dict>
 		<key>Hour</key>
@@ -19,11 +25,5 @@
 		<key>Weekday</key>
 		<integer>3</integer>
 	</dict>
-	<key>StandardErrorPath</key>
-	<string>/tmp/fr.aphecetche.vmware-backup-virtual-machines.stderr</string>
-	<key>StandardOutPath</key>
-	<string>/tmp/fr.aphecetche.vmware-backup-virtual-machines.stdout</string>
 </dict>
 </plist>
-
-<!-- @@@@LingonWhatStart:/Users/laurent/Scripts/vmware-backup-vms.sh@@@@LingonWhatEnd -->
