@@ -2,15 +2,11 @@
 
 if test ! $(which brew); then
     echo "Installing homebrew"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    TRAVIS=1 && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
-
-# note that we specify git (below) for the record, but actually it should be 
-# there from the very beginning to be able to checkout this very repository ;-)
 
 for pkg in \
     wget \
-    git \ 
     git-lfs	\
     hub \
     reattach-to-user-namespace \
@@ -18,8 +14,7 @@ for pkg in \
     iproute2mac \
     ag \
     go \
-    pyenv \
-    ctags
+    ctags \
 ; do
 brew install "$pkg"
 done
