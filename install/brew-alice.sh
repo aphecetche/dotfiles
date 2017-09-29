@@ -1,9 +1,11 @@
 #!/bin/sh
 
+echo "Will require sudo"
+sudo echo 
 
 if test ! $(which brew); then
     echo "Installing homebrew"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    TRAVIS=1 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # to build ALICE software 
