@@ -1,0 +1,53 @@
+[credential]
+	helper = osxkeychain
+[user]
+	name = laphecet
+	email = laurent.aphecetche@cern.ch
+[color]
+	ui = true
+	status = auto
+	branch = auto
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	oneline = log --pretty=oneline --abbrev-commit --graph --decorate
+	undo = reset --soft HEAD^
+	amend = commit --amend
+	changes = diff --name-status
+    dic = diff --cached
+    diffstat = diff --stat
+    lc = !git oneline ORIG_HEAD.. --stat --no-merges
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    la = "!git config -l | grep alias | cut -c 7-"
+    dr  = "!f() { git diff "$1"^.."$1"; }; f"
+	ldc  = "!f() { git ld --numstat "$1"^.."$1"; }; f"
+	diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+    oldest-ancestor = !zsh -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
+
+[push]
+	default = simple
+[branch]
+	autosetuprebase = always
+	rebase = preserve
+[branch "master"]
+	rebase = preserve
+[core]
+	excludesfile = /Users/laurent/.gitignore_global
+	autocrlf = input
+	editor = vim
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[diff]
+	tool = opendiff
+[hub]
+	protocol = https
+[merge]
+	tool = opendiff

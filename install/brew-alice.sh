@@ -16,9 +16,12 @@ fi
 for pkg in \
     gcc \
 	cmake \
-	automake \
-	autoconf \
 	libtool \
+    libpng \
+    nanomsg \
+    zeromq \
+    protobuf \
+    gettext \
     modules \
 	; do
   brew install "$pkg"
