@@ -1,0 +1,1 @@
+printf "%s" "$HOME/dotfiles/config/todo/todo.cfg:$HOME/.todo/config|$HOME/dotfiles/config/todo.actions.d|$HOME/.todo.actions.d"
