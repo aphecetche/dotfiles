@@ -208,4 +208,5 @@ for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 
 mkdir -p ~/Screenshots
 echo "Disable shadow in screenshots"
 defaults write com.apple.screencapture disable-shadow -bool true
-defaults write com.apple.screencapture location ~/Screenshots
+defaults write com.apple.screencapture location "~/Screen captures"
+
