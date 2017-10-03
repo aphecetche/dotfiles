@@ -74,9 +74,6 @@ defaults write com.apple.finder ShowStatusBar -bool true
 #echo "Disable the “Are you sure you want to open this application?” dialog"
 #defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-echo "Disable shadow in screenshots"
-defaults write com.apple.screencapture disable-shadow -bool true
-
 # echo "Enable highlight hover effect for the grid view of a stack (Dock)"
 # defaults write com.apple.dock mouse-over-hilte-stack -bool true
 
@@ -206,3 +203,9 @@ defaults write com.apple.loginwindow LoginwindowLaunchesRelaunchApps -bool false
 
 echo "Kill affected applications"
 for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
+
+# Screen capture
+mkdir -p ~/Screenshots
+echo "Disable shadow in screenshots"
+defaults write com.apple.screencapture disable-shadow -bool true
+defaults write com.apple.screencapture location ~/Screenshots
