@@ -7,15 +7,18 @@ fi
 
 for pkg in \
     wget \
-    git-lfs	\
     hub \
     reattach-to-user-namespace \
     tmux \
     iproute2mac \
     ag \
-    go \
-    ctags \
-; do
+    ; do
 brew install "$pkg"
 done
+
+# to be considered at some point : 
+#    ag \
+#    go \
+#    ctags \
+#    git-lfs	\
 

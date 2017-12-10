@@ -15,16 +15,11 @@ fi
 
 for pkg in \
     gcc \
-	cmake \
 	libtool \
     libpng \
-    nanomsg \
-    zeromq \
-    protobuf \
     gettext \
     modules \
 	; do
   brew install "$pkg"
 done
-
 

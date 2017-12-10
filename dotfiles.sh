@@ -19,7 +19,14 @@ dotfiles_list()
 dotfiles_link()
 {
     # establishes some links in the $HOME directory
-    # list of links is obtained with dotfiles_list function above
+    # list of links is obtained in function parameter $1
+    # or with dotfiles_list function above if no argument is given
+    # if destination of link file already exist, the behavior
+    # depends on the presence and value of $2
+    # if $2 not there, do nothing (i.e. do not override the link)
+    # if $2 is there *and* is equal to force, 
+    #  then override the link (i.e. erase the target and do the link)
+    #
     local list
     if [ $# -gt 0 ]; then
         list=$1
@@ -53,6 +60,8 @@ dotfiles_unlink()
 {
     # delete some links in the $HOME directory
     # list of links is obtained with dotfiles_list function above
+    # or in $1 parameter if it is given
+    #
     local list
     if [ $# -gt 0 ]; then
         list=$1
@@ -65,31 +74,69 @@ dotfiles_unlink()
     done
 }
 
+dotfiles_linker() {
+    local phase=$1 || exit
+    local what=$2 || exit
+    local script=$what.${phase}linker
+    if test -f ~/dotfiles/install/$script; then
+        rm -f $script.log
+        dotfiles_link $(. ~/dotfiles/install/$script) > $script.log 2>&1
+        if [ $? ]; then 
+            printf "%s" "$what $phase linker done"
+        else
+            printf "%s\\n" "failed $phase linker for $what"
+            return 1
+        fi
+    else
+        echo "nothing to $phase link for $what (missing ~/dotfiles/install/$script file)"
+        return 2
+    fi
+    return 0
+}
+
+dotfiles_exec() {
+
+    local task=$1 || exit
+    local what=$2 || exit
+    if test -f ~/dotfiles/install/$what.$task.sh; then
+        rm -f $what.$task.sh.log
+        ~/dotfiles/install/$what.$task.sh > $what.$task.sh.log 2>&1
+        if [ $? ]; then 
+            printf "%s" "$what $task done"
+        else
+            printf "%s\\n" "failed $task for $what"
+            return 1
+        fi
+    else
+        echo "nothing to exec for $what (missing ~/dotfiles/install/$what.$task.sh file)"
+        return 2
+    fi
+    return 0
+}
+
+dotfiles_dryrun() {
+    if [ -n "${DOTFILES_DRYRUN+1}" ]; then
+        echo "DRY RUN MODE - would exec:" $@
+    else
+        $@
+    fi
+}
+
 dotfiles_install()
 {
-  local what=$1
-  printf "%s" "installing $what..."
-  if test -f ~/dotfiles/install/$what.prelinker; then
-      rm -f $what.prelinker.log
-      dotfiles_link $(. ~/dotfiles/install/$what.prelinker) > $what.prelinker.log 2>&1 \
-          && { printf "%s" "$what (pre)links established..."; } \
-          || { printf "%s\\n" "failed to (pre)link $what"; return 1; }
-  fi
-  
-  rm -f $what.log
-  if test -f ~/dotfiles/install/$what.sh; then
-      ~/dotfiles/install/$what.sh > $what.log 2>&1 \
-          && { printf "%s" "$what installed..."; } \
-          || { printf "%s\\n" "failed to install $what"; return 2; }
-  fi
+    # performs the install of what=$1
+    # installation steps are :
+    # 1 - perform prelinks if $what.prelinker exists
+    # 2 - execute $what.sh
+    # 3 - perform postlinks if $what.postlinker exists
+    #
+    local what=$1
+    printf "%s\n" "--- Installing $what..."
 
-  if test -f ~/dotfiles/install/$what.postlinker; then
-      rm -f $what.postlinker.log
-      dotfiles_link $(~/dotfiles/install/$what.postlinker) > $what.postlinker.log 2>&1 \
-          && { printf "%s" "$what (post)links established."; } \
-          || { printf "%s\\n" "failed to (post)link $what"; return 3; }
-  fi
-  printf "%s\\n"
+    dotfiles_dryrun dotfiles_linker "pre" $what
+    dotfiles_dryrun dotfiles_exec "install" $what
+    dotfiles_dryrun dotfiles_linker "post" $what
+    return 0
 }
 
 dotfiles_install_common()
