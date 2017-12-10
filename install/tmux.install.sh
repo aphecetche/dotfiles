@@ -14,4 +14,7 @@ else
     . ./bin/update_plugins all
 fi
 
+# install term infos
+tic ~/dotfiles/install/tmux-256color-italic.terminfo
+tic ~/dotfiles/install/xterm-256color-italic.terminfo
 
