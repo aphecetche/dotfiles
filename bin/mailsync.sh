@@ -2,7 +2,7 @@
 #
 # script to sync imap stuff
 
-EMAIL_CONN_TEST=P
+EMAIL_CONN_TEST=p
 
 # connection test (inspired) from the mstmpq script
 #   EMAIL_CONN_TEST 

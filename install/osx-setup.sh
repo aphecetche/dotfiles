@@ -44,7 +44,7 @@ defaults write com.apple.dock autohide -bool true
 #defaults write com.apple.dock itunes-notifications -bool true
 
 # Disable menu bar transparency
-#defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
 echo "Show remaining battery time; hide percentage"
 defaults write com.apple.menuextra.battery ShowPercent -string "NO"
@@ -205,7 +205,7 @@ echo "Kill affected applications"
 for app in Safari Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
 
 # Screen capture
-mkdir -p ~/Screenshots
+mkdir -p "~/Screen captures"
 echo "Disable shadow in screenshots"
 defaults write com.apple.screencapture disable-shadow -bool true
 defaults write com.apple.screencapture location "~/Screen captures"

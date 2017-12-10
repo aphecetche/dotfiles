@@ -14,7 +14,7 @@
 		<string>cern</string>
 	</array>
 	<key>RunAtLoad</key>
-	<false/>
+	<true/>
 	<key>StandardErrorPath</key>
 	<string>/tmp/fr.aphecetche.mbsync.cern.stderr</string>
 	<key>StandardOutPath</key>

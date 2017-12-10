@@ -14,7 +14,7 @@
 		<string>icloud</string>
 	</array>
 	<key>RunAtLoad</key>
-	<false/>
+	<true/>
 	<key>StandardErrorPath</key>
 	<string>/tmp/fr.aphecetche.mbsync.icloud.stderr</string>
 	<key>StandardOutPath</key>

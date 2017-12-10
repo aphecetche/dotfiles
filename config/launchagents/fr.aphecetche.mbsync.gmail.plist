@@ -14,7 +14,7 @@
 		<string>gmail</string>
 	</array>
 	<key>RunAtLoad</key>
-	<false/>
+	<true/>
 	<key>StandardErrorPath</key>
 	<string>/tmp/fr.aphecetche.mbsync.gmail.stderr</string>
 	<key>StandardOutPath</key>
