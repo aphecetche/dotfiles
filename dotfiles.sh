@@ -141,7 +141,7 @@ dotfiles_install()
 
 dotfiles_install_common()
 {
-    for what in base16 prezto term tmux fzf dotconfig dvim; do
+    for what in base16 prezto tmux fzf dotconfig dvim; do
         dotfiles_install $what || break 
     done
 }
