@@ -39837,21 +39837,21 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>1831 188 580 441 0 0 2560 1440 </string>
+	<string>860 37 580 307 0 0 1440 900 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>278 442 606 456 0 0 1440 900 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
-	<string>460 5 735 895 0 0 1440 900 </string>
+	<string>705 5 735 895 0 0 1440 900 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>1080 984 400 129 0 0 2560 1440 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>970 614 620 622 0 0 2560 1440 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>89 340 796 473 0 0 1440 900 </string>
+	<string>89 451 918 394 0 0 1440 900 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>443 856 592 584 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 4 1279 896 0 0 2560 1440 </string>
+	<string>0 384 730 502 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>367 202 1098 825 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -41681,7 +41681,7 @@
 			<key>Hide After Opening</key>
 			<false/>
 			<key>Horizontal Spacing</key>
-			<real>1.0072948042168675</real>
+			<real>1.014442535768072</real>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Initial Text</key>
@@ -42174,7 +42174,7 @@
 			<key>Use Tab Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1.113410673945783</real>
+			<real>1.0131541792168677</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -45480,7 +45480,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-09-30T23:43:53Z</date>
+	<date>2017-10-20T15:48:32Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -49435,10 +49435,12 @@
 	<string>/-+\~_.</string>
 	<key>findIgnoreCase_iTerm</key>
 	<true/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.2</string>
+	<string>3.1.3</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
