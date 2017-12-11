@@ -102,7 +102,7 @@ dotfiles_exec() {
         rm -f $what.$task.sh.log
         ~/dotfiles/install/$what.$task.sh > $what.$task.sh.log 2>&1
         if [ $? ]; then 
-            printf "%s" "$what $task done"
+            printf "%s\\n" "$what $task done"
         else
             printf "%s\\n" "failed $task for $what"
             return 1

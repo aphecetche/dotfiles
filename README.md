@@ -5,13 +5,14 @@ This is largely inspired by https://github.com/nicknisi/dotfiles but _trying_ to
 Assuming I get a new machine / new user, the initial setup should be :
 
 - have git installed
-- insure the user's shell is set to zsh (e.g. using chsh on Linux)
+- insure the user's shell is set to zsh (e.g. using chsh on Linux) and the user can do sudo
 - git clone https://github.com/aphecetche/dotfiles.git ~/dotfiles
 - cd dotfiles #so you get the log files contained
 - . ./install.sh
 
-Note that at some point the 1Password setup requires Dropbox to be itself setup, so at this point a password is
-needed (the dropbox one).
+Note that you may be asked your (sudo) password a few times.
+
+Note also that at some point the 1Password setup requires Dropbox to be itself setup, so at this point the Dropbox password is needed.
 
 Then log off, log in and select a base16 theme to work with by using : `base16_` tab completion (need to do this only
 once, information is kept in ~/.base16_theme link), if the default one that is installed by default no longer suits your
