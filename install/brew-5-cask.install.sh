@@ -5,7 +5,6 @@ for app in \
     docker \
     1password \
     dropbox \
-    nomachine \
     slack \
     xlite \
     transmit \

@@ -10,4 +10,5 @@ for app in \
     brew cask install $app
 done
 
+# brew cask install nomachine 
 # brew cask install vmware-fusion
