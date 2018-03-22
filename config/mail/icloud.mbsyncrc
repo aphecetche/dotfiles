@@ -1,16 +1,10 @@
 CopyArrivalDate Yes
-Expunge Both
-Create Both
+Sync pull
 
-IMAPAccount dovecot-icloud
-Host 127.0.0.1
-User icloud
-PassCmd "security find-generic-password -s dovecot-icloud-password -w"
-CertificateFile /usr/local/etc/ssl/certs/dovecot.pem
-AuthMechs *
-
-IMAPStore dovecot-icloud
-Account dovecot-icloud
+MaildirStore local-icloud
+Path ~/maildir/icloud/
+Inbox ~/maildir/icloud/INBOX
+SubFolders verbatim
 
 IMAPAccount icloud
 Host imap.mail.me.com
@@ -25,18 +19,18 @@ Account icloud
 
 Channel icloud-all
 Master :icloud-remote:
-Slave :dovecot-icloud:
+Slave :local-icloud:
 Patterns *
 SyncState ~/.mbsync/icloud/
 
 Channel icloud-inbox
 Master :icloud-remote:
-Slave :dovecot-icloud:
+Slave :local-icloud:
 SyncState ~/.mbsync/icloud/
 
 Channel icloud-internals
 Master :icloud-remote:
-Slave :dovecot-icloud:
+Slave :local-icloud:
 Pattern "Archive" "Drafts" "Junk" "Sent Messages" "trashFolder:Delete Messages"
 SyncState ~/.mbsync/icloud/
 

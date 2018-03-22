@@ -1,17 +1,10 @@
 CopyArrivalDate Yes
-Expunge Both
-Create Both
+Sync Pull
 
-IMAPAccount dovecot-cern
-Host 127.0.0.1
-User cern
-PassCmd "security find-generic-password -s dovecot-cern-password -w"
-AuthMechs *
-CertificateFile /usr/local/etc/ssl/certs/dovecot.pem
-#CertificateFile ~/dotfiles/config/isync/dovecot.crt 
-
-IMAPStore dovecot-cern
-Account dovecot-cern
+MaildirStore cern-local
+Path ~/maildir/cern/
+Inbox ~/maildir/cern/INBOX
+SubFolders verbatim
 
 IMAPAccount cern
 Host imap.cern.ch
@@ -30,42 +23,43 @@ Account cern
 
 Channel cern-inbox
 Master :cern-remote:
-Slave :dovecot-cern:
+Slave :cern-local:
 SyncState ~/.mbsync/cern/
+Pattern "INBOX"
 
 Channel cern-o2
 Master :cern-remote:
-Slave :dovecot-cern:
+Slave :cern-local:
 Pattern "O2*"
 SyncState ~/.mbsync/cern/
 
 Channel cern-jira
 Master :cern-remote:
-Slave :dovecot-cern:
+Slave :cern-local:
 Pattern "JIRA*"
 SyncState ~/.mbsync/cern/
 
 Channel cern-pwg
 Master :cern-remote:
-Slave :dovecot-cern:
+Slave :cern-local:
 Pattern "PWG*"
 SyncState ~/.mbsync/cern/
 
 Channel cern-papers
 Master :cern-remote:
-Slave :dovecot-cern:
+Slave :cern-local:
 Pattern "Papers*"
 SyncState ~/.mbsync/cern/
 
 Channel cern-ops
 Master :cern-remote:
-Slave :dovecot-cern:
+Slave :cern-local:
 Pattern "OPS*"
 SyncState ~/.mbsync/cern/
 
 Channel cern-muon
 Master :cern-remote:
-Slave :dovecot-cern:
+Slave :cern-local:
 Pattern "MUON*"
 SyncState ~/.mbsync/cern/
 
@@ -75,19 +69,19 @@ SyncState ~/.mbsync/cern/
 # manually, e.g. once a year...
 Channel cern-archives
 Master :cern-remote:
-Slave :dovecot-cern:
-Pattern "Archive-*"
+Slave :cern-local:
+Pattern "Archive/*"
 SyncState ~/.mbsync/cern/
 
 Channel cern-airmail
 Master :cern-remote:
-Slave :dovecot-cern:
+Slave :cern-local:
 Pattern "[Airmail]*"
 SyncState ~/.mbsync/cern/
 
 Channel cern-internals
 Master :cern-remote:
-Slave :dovecot-cern:
+Slave :cern-local:
 # Pattern * !"MUON*" !"O2*" !"JIRA*" !"Archive-*" !"OPS*" !"PWG*" !"Papers*"
 # Pattern !"[Airmail]*" !INBOX
 # Pattern !Notes !Tasks !Journal !Outbox !Calendar !Contacts

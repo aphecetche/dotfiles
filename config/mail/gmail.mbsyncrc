@@ -1,12 +1,5 @@
 CopyArrivalDate Yes
-Expunge Both
-
-IMAPAccount dovecot-gmail
-Host 127.0.0.1
-User gmail
-PassCmd "security find-generic-password -s dovecot-gmail-password -w"
-CertificateFile /usr/local/etc/ssl/certs/dovecot.pem
-AuthMechs *
+Sync pull
 
 IMAPAccount gmail
 Host imap.gmail.com
@@ -19,56 +12,51 @@ PassCmd "security find-generic-password -s mbsync-gmail-password -w"
 IMAPStore gmail-remote
 Account gmail
 
-IMAPStore dovecot-gmail
-Account dovecot-gmail
+MaildirStore local-gmail
+Path ~/maildir/gmail/
+Inbox ~/maildir/gmail/INBOX
+SubFolders verbatim
 
 Channel gmail-inbox
 Master :gmail-remote:
-Slave :dovecot-gmail:
+Slave :local-gmail:
 SyncState ~/.mbsync/gmail/
-Create Both
 
 Channel gmail-laposte
 Master :gmail-remote:
-Slave :dovecot-gmail:
+Slave :local-gmail:
 Pattern "*laposte*"
 SyncState ~/.mbsync/gmail/
-Create Both
 
 Channel gmail-free
 Master :gmail-remote:
-Slave :dovecot-gmail:
+Slave :local-gmail:
 Pattern "*free*"
 SyncState ~/.mbsync/gmail/
-Create Both
 
 Channel gmail-internals
 Master :gmail-remote:
-Slave :dovecot-gmail:
+Slave :local-gmail:
 Pattern "[Gmail]/Corbeille" "[Gmail]/Messages envoy&AOk-s" "[Gmail]/Brouillons" "[Gmail]/Spam"
 SyncState ~/.mbsync/gmail/
-Create Both
 
 Channel gmail-private
 Master :gmail-remote:
-Slave :dovecot-gmail:
+Slave :local-gmail:
 Pattern "copains" "famille" "achats"
 SyncState ~/.mbsync/gmail/
-Create Both
 
 Channel gmail-git
 Master :gmail-remote:
-Slave :dovecot-gmail:
+Slave :local-gmail:
 Pattern "git"
 SyncState ~/.mbsync/gmail/
-Create Both
 
 Channel gmail-misplaced
 Master :gmail-remote:
-Slave :dovecot-gmail:
+Slave :local-gmail:
 Pattern "Misplaced/cern" "Misplaced/subatech"
 SyncState ~/.mbsync/gmail/
-Create Both
 
 # remember that gmail really has no folders whatsoever
 # but only labels. The label->folder conversion is 
@@ -84,14 +72,13 @@ Create Both
 # email...)
 Channel gmail-all
 Master :gmail-remote:
-Slave :dovecot-gmail:
+Slave :local-gmail:
 Pattern "[Gmail]/Tous les messages"
 SyncState ~/.mbsync/gmail/
-Create Both
 
 Channel gmail-archives
 Master :gmail-remote:
-Slave :dovecot-gmail:
+Slave :local-gmail:
 Pattern "Archives/*"
 SyncState ~/.mbsync/gmail/
 Create Slave 

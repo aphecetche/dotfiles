@@ -1,16 +1,10 @@
 CopyArrivalDate Yes
-Expunge Both
-Create Both
+Sync pull
 
-IMAPAccount dovecot-ccsubatech
-Host 127.0.0.1
-User ccsubatech
-PassCmd "security find-generic-password -s dovecot-ccsubatech-password -w"
-CertificateFile /usr/local/etc/ssl/certs/dovecot.pem
-AuthMechs *
-
-IMAPStore dovecot-ccsubatech
-Account dovecot-ccsubatech
+MaildirStore local-ccsubatech
+Path ~/maildir/ccsubatech/
+Inbox ~/maildir/ccsubatech/INBOX
+SubFolders verbatim
 
 IMAPAccount ccsubatech
 Host subatechmail.in2p3.fr
@@ -25,7 +19,7 @@ Account ccsubatech
 
 Channel ccsubatech-inbox
 Master :ccsubatech-remote:
-Slave :dovecot-ccsubatech:
+Slave :local-ccsubatech:
 SyncState ~/.mbsync/ccsubatech/
 
 # the archives channel is not supposed
@@ -34,25 +28,25 @@ SyncState ~/.mbsync/ccsubatech/
 # manually, e.g. once a year...
 Channel ccsubatech-archives
 Master :ccsubatech-remote:
-Slave :dovecot-ccsubatech:
+Slave :local-ccsubatech:
 Pattern "Archive-*"
 SyncState ~/.mbsync/ccsubatech/
 
 Channel ccsubatech-internals
 Master :ccsubatech-remote:
-Slave :dovecot-ccsubatech:
+Slave :local-ccsubatech:
 Pattern "Archive" "Drafts" "Junk" "Sent" "Pourriel" "Trash" "Brouillons"
 SyncState ~/.mbsync/ccsubatech/
 
 Channel ccsubatech-lists
 Master :ccsubatech-remote:
-Slave :dovecot-ccsubatech:
+Slave :local-ccsubatech:
 Pattern "IMT" "Univ"
 SyncState ~/.mbsync/ccsubatech/
 
 Channel ccsubatech-main
 Master :ccsubatech-remote:
-Slave :dovecot-ccsubatech:
+Slave :local-ccsubatech:
 Pattern "Admin" "CCIPL" "InfoSR" "Missions"
 SyncState ~/.mbsync/ccsubatech/
 
