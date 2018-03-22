@@ -1,0 +1,10 @@
+#%Modules1.0
+proc ModulesHelp { } {
+    puts stderr "Setup environment for ZeroMQ"
+}
+
+module-whatis "environnement for ZeroMQ libs"
+
+append-path LD_LIBRARY_PATH $::env(LD_LIBRARY_PATH)/lib
+
+
