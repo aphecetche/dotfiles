@@ -5,6 +5,7 @@ ccsubatech = IMAP {
   server = "subatechmail.in2p3.fr",
     username = "aphecete@subatech.in2p3.fr",
   password = getpassword("ccsubatech"),
+  port=993,
     ssl ='auto'
 }
 

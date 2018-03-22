@@ -1,6 +1,6 @@
 -- load the definition of the Subatech account (CC version)
-c = loadfile("ccsubatech-account.lua")
-c()
+cc = loadfile("ccsubatech-account.lua")
+cc()
 
 -- load the definition of the CERN account
 ce = loadfile("cern-account.lua")
@@ -28,3 +28,4 @@ subatechInbox:contain_to("vernet") +
 subatechInbox:contain_cc("vernet")
 messages:move_messages(cern["OPS/lcg"])
 
+ccsubatech["Attic/Archive-2012"]:select_all():move_messages(ccsubatech["Archive/Archive-2012"])
