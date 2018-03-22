@@ -154,7 +154,7 @@ set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 
 " base16-shell colorscheme(s)
 if !empty($BASE16_THEME)
-	let base16colorspace=256
+    let base16colorspace=256
     colorscheme base16-tomorrow-night 
 endif
 
@@ -268,6 +268,12 @@ let g:go_highlight_generate_tags = 1
 " Open :GoDeclsDir with ctrl-g
 nmap <C-g> :GoDeclsDir<cr>
 imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
+
+augroup css
+  " Show by default 2 spaces for a tab
+  autocmd BufNewFile,BufRead *.css setlocal expandtab tabstop=2 shiftwidth=2
+
+augroup END
 
 augroup go
   autocmd!
