@@ -19,4 +19,5 @@ map <C-P> :action GotoFile<CR>
 
 nmap <leader>b :action Build<CR>
 nmap <leader>r :action Run<CR>
+nmap <leader>f :action Tool_External Tools_clang-format<CR>
 
