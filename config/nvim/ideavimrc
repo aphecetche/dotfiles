@@ -15,9 +15,9 @@ map <C-J> <C-W>j
 
 map <C-P> :action GotoFile<CR>
 
-#map gc :action CommentByLineComment<CR>
+nnoremap <leader>c :action CommentByLineComment<CR>
 
-nmap <leader>b :action Build<CR>
-nmap <leader>r :action Run<CR>
-nmap <leader>f :action Tool_External Tools_clang-format<CR>
+nnoremap <leader>b :action Build<CR>
+nnoremap <leader>r :action Run<CR>
 
+nnoremap <leader>f :action ClangFormat.ClangFormat<CR>

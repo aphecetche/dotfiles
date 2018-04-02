@@ -1,8 +1,8 @@
 [credential]
 	helper = osxkeychain
 [user]
-	name = laphecet
-	email = laurent.aphecetche@cern.ch
+	name = Laurent Aphecetche
+	email = laurent.aphecetche@gmail.com
 [color]
 	ui = true
 	status = auto
@@ -51,3 +51,8 @@
 	protocol = https
 [merge]
 	tool = opendiff
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
