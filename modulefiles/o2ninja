@@ -1,0 +1,11 @@
+#%Modules1.0
+proc ModulesHelp { } {
+    puts stderr "Setup environment for local O2 dev"
+}
+
+module-whatis "environnement for local ($env(HOME)/install) O2 libs"
+
+append-path LD_LIBRARY_PATH $env(HOME)/install/lib
+append-path PATH $env(HOME)/install/bin
+
+
