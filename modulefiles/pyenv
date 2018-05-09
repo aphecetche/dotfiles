@@ -1,0 +1,12 @@
+#%Modules1.0
+proc ModulesHelp { } {
+    puts stderr "Setup environment for python with pyenv"
+}
+
+module-whatis "environnement for python with pyenv"
+
+#append-path PATH $env(HOME)/bin
+#system eval "$(pyenv init -)"
+system alias toto="ls -alrt"
+
+

@@ -1,0 +1,10 @@
+#%Modules1.0
+proc ModulesHelp { } {
+    puts stderr "Setup environment for bazel"
+}
+
+module-whatis "environnement for using bazel build system"
+
+append-path PATH $env(HOME)/bin
+
+

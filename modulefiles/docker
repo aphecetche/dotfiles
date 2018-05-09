@@ -1,0 +1,81 @@
+#%Modules1.0
+proc ModulesHelp { } {
+    puts stderr "Setup environment for docker"
+}
+
+module-whatis "environment for using docker"
+
+# shortcut to docker-compose
+set-alias dc "docker-compose"
+
+# Get latest container ID
+set-alias dl { docker ps -l -q }
+
+# Get container process
+set-alias dps { docker ps }
+
+# Get process included stop container
+set-alias dpa { docker ps -a }
+
+# Get images
+set-alias di { docker images }
+
+# Show volumes
+set-alias dv { docker volume ls }
+
+# Get latest container ID
+set-alias dl { docker ps -l -q }
+
+# Show volumes
+set-alias dv { docker volume ls }
+
+# Stop all containers
+set-alias dstop {docker stop $(docker ps -a -q)}
+
+# Remove all containers
+set-alias drma {docker rm $(docker ps -a -q)}
+
+# Stop and Remove all containers
+set-alias drmf {docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)}
+
+# Remove all images
+set-alias drmia  {docker rmi $(docker images -q)}
+
+# Remove untagged images
+set-alias drmi {docker rmi $(docker images | grep "<none>" | awk '"'"'{print $3}'"'"' ) }
+
+# Dockerfile build, e.g., $dbu tcnksm/test 
+#dbu() { docker build -t=$1 .; 
+
+# Show all alias related docker
+#set-alias dalias {alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort}
+
+# remove stopped containers
+set-alias drm {docker rm $(docker ps -q -f status=exited)}
+
+set-alias dgetmyip {ip route get 8.8.8.8 | head -1 | cut -d '"'"' '"'"' -f8}
+
+if { [ uname sysname ] == "Darwin" } {
+    
+    set-alias dxquartz_if_not_running { (defaults write org.macosforge.xquartz.X11 nolisten_tcp 0; \
+            defaults write org.macosforge.xquartz.X11 app_to_run /usr/bin/true; \
+        [[ "$(launchctl list | grep startx | cut -c 1)" == "-" ]] && (open -a XQuartz)) }
+        
+    set-alias docker_run_withX11 {\
+      dxquartz_if_not_running; xhost +$(dgetmyip) > /dev/null ; docker run -e DISPLAY=$(dgetmyip):0 -v /tmp/.X11-unix:/tmp/.X11-unix -e TZ="Europe/Paris" $@ }
+      
+    # get access to underlying virtual machine
+    set-alias dvm { screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty }
+    
+} else {
+    
+    set-alias docker_run_withX11 {\
+      xhost +  > /dev/null ; docker run -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /etc/localtime:/etc/localtime -e TZ="Europe/Paris" $@} 
+
+}
+
+# Remove dangling volumes
+# but exclude from the purge everything starting with vc_ 
+# i.e. the ones created explicitly
+set-alias drmv { docker volume rm $(docker volume ls -qf dangling=true | grep -v "^vc_") }
+
