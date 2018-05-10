@@ -1,0 +1,16 @@
+#%Modules1.0
+proc ModulesHelp { } {
+    puts stderr "Setup environment for alice dev in docker"
+}
+
+module-whatis "environment for using alice dev in docker"
+
+module load docker
+
+append-path PATH $::env(HOME)/github.com/aphecetche/docker-alice-dev
+
+set-alias ali_o2 { ali_docker o2-dev O2 -v$(pwd):/data }
+
+set-alias ali_o2_ref { ali_docker o2-ref O2 }
+
+set-alias ali_physics { ali_docker aliphysics-master AliPhysics }

@@ -1,0 +1,8 @@
+#%Modules1.0
+proc ModulesHelp { } {
+    puts stderr "Setup environment to use ccache"
+}
+
+module-whatis "env for ccache"
+
+prepend-path PATH /usr/local/opt/ccache/libexec
