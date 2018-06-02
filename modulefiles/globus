@@ -1,0 +1,10 @@
+#%Modules1.0
+proc ModulesHelp { } {
+    puts stderr "Setup environment for Globus"
+}
+
+module-whatis "env for Globus"
+
+append-path PATH /Library/Globus/bin
+
+

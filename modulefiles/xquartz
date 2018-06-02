@@ -1,0 +1,10 @@
+#%Modules1.0
+proc ModulesHelp { } {
+    puts stderr "Setup environment for XQuartz usage"
+}
+
+module-whatis "env for XQuartz"
+
+append-path PATH /opt/X11/bin
+
+
