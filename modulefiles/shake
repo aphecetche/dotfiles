@@ -1,0 +1,9 @@
+#%Modules1.0
+proc ModulesHelp { } {
+    puts stderr "Setup environment for Shake build system"
+}
+
+module-whatis "env for shake build system"
+
+append-path PATH $::env(HOME)/Library/Haskell/bin
+
