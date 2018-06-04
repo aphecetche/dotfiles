@@ -27,8 +27,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'Raimondi/delimitMate'
 Plug 'jlanzarotta/bufexplorer' " <leader>be,bs,bt,bv
 Plug 'Konfekt/FastFold'
-Plug 'Valloric/YouCompleteMe'
-", { 'do': './install.py --clang-completer' , 'for': ['c','cpp'] }
 
 Plug 'SirVer/ultisnips'
 
