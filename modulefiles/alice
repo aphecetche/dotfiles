@@ -17,3 +17,6 @@ if {$osname=="Darwin"} {
 module use -a $env(HOME)/alice/sw/MODULES/${osname}_$osarchitecture   
 
 setenv ALIBUILD_WORK_DIR $::env(HOME)/alice/sw
+set pybase $::env(HOME)/alice/userpython
+setenv PYTHONUSERBASE $pybase
+append-path PATH $pybase/bin

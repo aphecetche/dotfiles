@@ -5,8 +5,7 @@ proc ModulesHelp { } {
 
 module-whatis "environnement for python with pyenv"
 
-#append-path PATH $env(HOME)/bin
+append-path PATH $env(HOME)/bin
 #system eval "$(pyenv init -)"
-system alias toto="ls -alrt"
 
 

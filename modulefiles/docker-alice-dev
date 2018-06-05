@@ -9,8 +9,8 @@ module load docker
 
 append-path PATH $::env(HOME)/github.com/aphecetche/docker-alice-dev
 
-set-alias ali_o2 { ali_docker o2-dev O2 -v$(pwd):/data }
+set-alias ali_o2 { ali_start_container --name o2-dev --volume-o2 $HOME/alice/o2-dev/O2 --volume-sw vc_alice_sw --volume-alidist $HOME/alice/o2-dev/alidist -v$(pwd):/data }
 
-set-alias ali_o2_ref { ali_docker o2-ref O2 }
+set-alias ali_run2 { ali_start_container --name ali-run2 --volume-aliroot $HOME/alice/ali-master/AliRoot --volume-sw vc_alice_sw --volume-alidist $HOME/alice/ali-master/alidist --globus -v$(pwd):/data }
 
-set-alias ali_physics { ali_docker aliphysics-master AliPhysics }
+set-alias ali_o2_ref { ali_start_container --name o2-ref --volume-o2 $HOME/alice/o2-ref/O2 --volume-sw vc_alice_sw --volume-alidist $HOME/alice/o2-ref/alidist -v$(pwd):/data }
