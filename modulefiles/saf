@@ -1,0 +1,15 @@
+#%Modules1.0
+proc ModulesHelp { } {
+    puts stderr "Setup environment for SAF"
+}
+
+module-whatis "env for SAF"
+
+module load alice AliEn-Runtime
+module load globus
+module load alice 
+
+append-path PATH $::env(HOME)/scripts/alice/run2/saf
+
+set-alias saf3 ". $::env(HOME)/scripts/alice/run2/saf/saf3.sh"
+set-alias saf3-enter "saf3.sh enter"
