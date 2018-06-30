@@ -1,0 +1,47 @@
+{
+    "cmake.configureSettings": {
+        "CMAKE_INSTALL_PREFIX": "/Users/laurent/alice/sw/osx_x86-64/O2/latest-dpl-mch-test-o2-ninja",
+        "ALICEO2_MODULAR_BUILD": "ON",
+        "FairRoot_DIR": "/Users/laurent/alice/sw/osx_x86-64/FairRoot/latest-dpl-mch-test-o2-ninja/",
+        "FairMQ_DIR": "/Users/laurent/alice/sw/osx_x86-64/FairMQ/latest-dpl-mch-test-o2-ninja/lib/cmake/FairMQ-1.2.6",
+        "FairLogger_DIR": "/Users/laurent/alice/sw/osx_x86-64/FairLogger/latest-dpl-mch-test-o2-ninja/lib/cmake/FairLogger-1.2.0",
+        "BOOST_ROOT": "/Users/laurent/alice/sw/osx_x86-64/boost/latest-dpl-mch-test-o2-ninja/",
+        "ROOTSYS": "/Users/laurent/alice/sw/osx_x86-64/ROOT/latest-dpl-mch-test-o2-ninja/",
+        "Geant3_DIR": "/Users/laurent/alice/sw/osx_x86-64/GEANT3/latest-dpl-mch-test-o2-ninja/lib/Geant3-2.5.0",
+        "Geant4_DIR": "/Users/laurent/alice/sw/osx_x86-64/GEANT4/latest-dpl-mch-test-o2-ninja/lib/Geant4-10.3.3",
+        "Geant4VMC_DIR": "/Users/laurent/alice/sw/osx_x86-64/GEANT4_VMC/latest-dpl-mch-test-o2-ninja/lib/Geant4VMC-3.5.0",
+        "VGM_DIR": "/Users/laurent/alice/sw/osx_x86-64/vgm/latest-dpl-mch-test-o2-ninja/lib/VGM-4.4.0",
+        "Vc_DIR": "/Users/laurent/alice/sw/osx_x86-64/Vc/latest-dpl-mch-test-o2-ninja/lib/cmake/Vc",
+        "CMAKE_LIBRARY_PATH": "/Users/laurent/alice/sw/osx_x86-64/vgm/latest-dpl-mch-test-o2-ninja/lib;/Users/laurent/alice/sw/osx_x86-64/GEANT4_VMC/latest-dpl-mch-test-o2-ninja/lib;/Users/laurent/alice/sw/osx_x86-64/GEANT4/latest-dpl-mch-test-o2-ninja/lib;/Users/laurent/alice/sw/osx_x86-64/GEANT3/latest-dpl-mch-test-o2-ninja/lib;/Users/laurent/alice/sw/osx_x86-64/ROOT/latest-dpl-mch-test-o2-ninja",
+        "CMAKE_MODULE_PATH": "/Users/laurent/alice/o2-dev/O2/cmake/modules;/Users/laurent/alice/sw/osx_x86-64/FairRoot/latest-dpl-mch-test-o2-ninja/share/fairbase/cmake/modules",
+        "Pythia6_LIBRARY_DIR": "/Users/laurent/alice/sw/osx_x86-64/pythia6/latest-dpl-mch-test-o2-ninja/lib",
+        "PYTHIA8_DIR": "/Users/laurent/alice/sw/osx_x86-64/pythia/latest-dpl-mch-test-o2-ninja/",
+        "PYTHIA8_INCLUDE_DIR": "/Users/laurent/alice/sw/osx_x86-64/pythia/latest-dpl-mch-test-o2-ninja/include",
+        "Protobuf_LIBRARY": "/Users/laurent/alice/sw/osx_x86-64/protobuf/latest-dpl-mch-test-o2-ninja/lib/libprotobuf.dylib",
+        "Protobuf_LITE_LIBRARY": "/Users/laurent/alice/sw/osx_x86-64/protobuf/latest-dpl-mch-test-o2-ninja/lib/libprotobuf-lite.dylib",
+        "Protobuf_PROTOC_LIBRARY": "/Users/laurent/alice/sw/osx_x86-64/protobuf/latest-dpl-mch-test-o2-ninja/lib/libprotoc.dylib",
+        "Protobuf_INCLUDE_DIR": "/Users/laurent/alice/sw/osx_x86-64/protobuf/latest-dpl-mch-test-o2-ninja/include",
+        "Protobuf_PROTOC_EXECUTABLE": "/Users/laurent/alice/sw/osx_x86-64/protobuf/latest-dpl-mch-test-o2-ninja/bin/protoc",
+        "Monitoring_ROOT": "/Users/laurent/alice/sw/osx_x86-64/Monitoring/latest-dpl-mch-test-o2-ninja",
+        "Configuration_ROOT": "/Users/laurent/alice/sw/osx_x86-64/Configuration/latest-dpl-mch-test-o2-ninja",
+        "DDS_ROOT": "/Users/laurent/alice/sw/osx_x86-64/DDS/latest-dpl-mch-test-o2-ninja/",
+        "RAPIDJSON_INCLUDEDIR": "/Users/laurent/alice/sw/osx_x86-64/RapidJSON/latest-dpl-mch-test-o2-ninja/include",
+        "benchmark_DIR": "/Users/laurent/alice/sw/osx_x86-64/googlebenchmark/latest-dpl-mch-test-o2-ninja/lib/cmake/benchmark",
+        "MS_GSL_INCLUDE_DIR": "/Users/laurent/alice/sw/osx_x86-64/ms_gsl/latest-dpl-mch-test-o2-ninja/include",
+        "ALITPCCOMMON_DIR": "/Users/laurent/alice/sw/osx_x86-64/AliTPCCommon/latest-dpl-mch-test-o2-ninja",
+        "BUILD_TESTING": "ON",
+        "CMAKE_CXX_STANDARD": "14",
+    },
+    "cmake.configureEnvironment": {
+        "ALIBUILD_O2_TESTS":"ON"
+    },
+    "cmake.buildDirectory": "/Users/laurent/alice/sw/BUILD/O2-latest-dpl-mch-test/O2",
+    "files.associations": {
+        "queue": "cpp",
+        "stack": "cpp"
+    },
+    "cmake.ctestArgs": [
+        "-E",
+        "test_Framework"
+    ]
+}

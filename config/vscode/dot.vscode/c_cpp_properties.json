@@ -1,0 +1,30 @@
+{
+    "configurations": [{
+        "name": "Mac",
+        "browse": {
+            "path": [
+                "${workspaceFolder}",
+                "/Users/laurent/alice/sw/osx_x86-64"
+            ],
+            "limitSymbolsToIncludedHeaders": true
+        },
+        "includePath": [
+            "${workspaceFolder}",
+            "/Users/laurent/alice/sw/osx_x86-64/O2/latest-dpl-mch-test-o2-ninja/include",
+            "/Users/laurent/alice/sw/osx_x86-64/ROOT/latest-dpl-mch-test-o2-ninja/include",
+            "/Users/laurent/alice/sw/osx_x86-64/FairRoot/latest-dpl-mch-test-o2-ninja/include",
+            "/Users/laurent/alice/sw/osx_x86-64/FairRoot/latest-dpl-mch-test-o2-ninja/include/fairmq",
+            "/Users/laurent/alice/sw/osx_x86-64/boost/latest-dpl-mch-test-o2-ninja/include"
+        ],
+        "defines": [],
+        "macFrameworkPath": [
+            "/System/Library/Frameworks",
+            "/Library/Frameworks"
+        ],
+        "compilerPath": "/usr/bin/clang",
+        "cStandard": "c11",
+        "cppStandard": "c++17",
+        "intelliSenseMode": "clang-x64"
+    }],
+    "version": 4
+}
