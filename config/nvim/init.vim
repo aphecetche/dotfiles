@@ -150,12 +150,6 @@ syntax on
 " set encoding=utf8
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
 
-" base16-shell colorscheme(s)
-if !empty($BASE16_THEME)
-    let base16colorspace=256
-    colorscheme base16-tomorrow-night 
-endif
-
 " highlight Comment cterm=italic
 
 set number " show line numbers
