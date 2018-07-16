@@ -13,3 +13,7 @@ append-path PATH $::env(HOME)/scripts/alice/run2/saf
 
 set-alias saf3 ". $::env(HOME)/scripts/alice/run2/saf/saf3.sh"
 set-alias saf3-enter "saf3.sh enter"
+
+set-alias gssh "gsissh -p 1975"
+
+set-alias gscp "gsiscp -S `which gsissh` -P 1975"
