@@ -39847,11 +39847,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 208 620 622 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>7 499 918 401 0 0 1440 900 </string>
+	<string>7 506 928 394 0 0 1440 900 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>443 856 592 584 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>720 0 712 900 0 0 1440 900 </string>
+	<string>720 117 649 783 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>367 202 1098 825 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -41373,7 +41373,7 @@
 			<key>Silence Bell</key>
 			<false/>
 			<key>Smart Cursor Color</key>
-			<true/>
+			<false/>
 			<key>Smart Selection Rules</key>
 			<array>
 				<dict>
@@ -41490,6 +41490,8 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Use Tab Color</key>
+			<false/>
+			<key>Use Underline Color</key>
 			<false/>
 			<key>Vertical Spacing</key>
 			<real>1.1321889118975901</real>
