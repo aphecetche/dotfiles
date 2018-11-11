@@ -28,7 +28,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'jlanzarotta/bufexplorer' " <leader>be,bs,bt,bv
 Plug 'Konfekt/FastFold'
 
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 
 " language-specific plugins
 
